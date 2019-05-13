@@ -1,7 +1,8 @@
-[![circleci status][circleci-badge]][circleci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-release-link] [![tested with jest][jest-badge]][jest-link]
-
 # jest-package-audit
+
 > Filter and retry yarn/npm audit command with Jest.
+
+[![circleci status][circleci-badge]][circleci-link] [![npm package][npm-badge]][npm-link] [![license MIT][license-badge]][license] [![commit style angular][commit-style-badge]][commit-style-link] [![semantic-release][semantic-release-badge]][semantic-release-link] [![tested with jest][jest-badge]][jest-link]
 
 The `yarn audit`, and `npm audit` commands are useful for detecting packages in use that have vulnerabilites. But they don't allow filtering. For example you may have a vulnerability in a package you are only using in development, and the nature of that vulnerability is more often than not only unsafe when used in production. Updating the dependency to fix the vulnerability may break things. That is where `jest-package-audit` comes in, it wraps the `yarn audit` and `npm audit` commands and checks each vulnerabilty they flag against an array of allowed vulnerability names e.g. `['puppeteer']`.
 
