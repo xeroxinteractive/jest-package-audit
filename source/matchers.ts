@@ -108,19 +108,6 @@ export async function toPassPackageAudit(
         }
       )
     ]);
-    // console.log(output.toString());
-    // await new Promise(
-    //   (resolve, reject): void => {
-    //     child.on(
-    //       'exit',
-    //       (code: number): void => {
-    //         console.log(code);
-    //         if (code === 0) resolve();
-    //         else reject(`Exit code ${code}`);
-    //       }
-    //     );
-    //   }
-    // );
     child.kill();
     const outputString = output.toString().replace(/\u001b\[.*?m/g, '');
     let match;
