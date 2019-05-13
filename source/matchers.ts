@@ -65,7 +65,7 @@ export async function toPassPackageAudit(
           child.on(
             'close',
             (code): void => {
-              if (code !== 0) {
+              if (code !== 0 && code !== 8) {
                 reject(new Error(`Command failed with exit code ${code}.`));
               } else {
                 resolve();
@@ -79,7 +79,7 @@ export async function toPassPackageAudit(
           child.on(
             'exit',
             (code): void => {
-              if (code !== 0) {
+              if (code !== 0 && code !== 8) {
                 reject(new Error(`Command failed with exit code ${code}.`));
               } else {
                 resolve();
