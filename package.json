@@ -93,8 +93,7 @@
     "semantic-release": "^15.13.3",
     "typescript": "^3.3.3333"
   },
-  "dependencies": {},
-  "resolutions": {
-    "js-yaml": ">=3.13.0"
+  "dependencies": {
+    "pkg-dir": "^4.1.0"
   }
 }
