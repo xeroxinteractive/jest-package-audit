@@ -43,6 +43,7 @@ test('packages do not have vunerabilities', async () => {
 ## Options
 ### Input Options
 Input options should be passed to the `expect` function when using `toPassPackageAudit`, they define how the actual `yarn audit` or `npm audit` command is run.
+
 Name | Description | Default
 --- | --- | ---
 `cwd: (String)` | Current working directory to run the audit command in. | The closest folder with a `package.json` above `jest-package-audit`.
@@ -50,6 +51,7 @@ Name | Description | Default
 
 ### Output Options
 Output options should be passed to the `toPassPackageAudit` function, they define how the output of `yarn audit` or `npm audit` is processed.
+
 Name | Description | Default
 --- | --- | ---
 `accept: (String[])` | An array of package names to allow if they have vulnerabilities. | `[]`
