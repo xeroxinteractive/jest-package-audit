@@ -68,7 +68,7 @@ Please be aware that we provide no liability for any security issues, or any oth
 [changelog]: ./CHANGELOG.md
 [issues]: https://github.com/xeroxinteractive/jest-package-audit/issues
 
-[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/jest-package-audit
+[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/jest-package-audit/master
 [circleci-link]: https://circleci.com/gh/xeroxinteractive/jest-package-audit/tree/master
 
 [npm-badge]: https://flat.badgen.net/npm/v/jest-package-audit?color=cyan
