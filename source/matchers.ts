@@ -8,7 +8,7 @@ declare global {
 }
 
 jest.setTimeout(15000);
-import { spawn } from 'child_process';
+import spawn from 'cross-spawn';
 import pkgDir from 'pkg-dir';
 
 export interface InputOptions {
