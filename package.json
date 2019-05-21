@@ -100,5 +100,9 @@
   },
   "dependencies": {
     "pkg-dir": "^4.1.0"
+  },
+  "resolutions": {
+    "tar": ">=4.4.2",
+    "fstream": ">=1.0.12"
   }
 }
