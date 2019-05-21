@@ -15,7 +15,6 @@ jobs:
           keys:
             - node-10-cache-{{ checksum "./yarn.lock" }}
       - run: yarn install
-      - run: yarn audit
       - run: yarn lint
       - run: yarn type-check
       - run: yarn test
@@ -35,7 +34,7 @@ jobs:
           at: ~/repo
       - add_ssh_keys:
           fingerprints:
-            - ''
+            - '0f:89:7e:e2:6c:3e:f1:db:ce:f4:55:c0:0f:08:da:b4'
       - run:
           name: Configure git
           command: |

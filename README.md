@@ -6,7 +6,7 @@
 
 The `yarn audit`, and `npm audit` commands are useful for detecting packages in use that have vulnerabilites. But they don't allow filtering. For example you may have a vulnerability in a package you are only using in development, and the nature of that vulnerability is more often than not only unsafe when used in production. Updating the dependency to fix the vulnerability may break things. That is where `jest-package-audit` comes in, it wraps the `yarn audit` and `npm audit` commands and checks each vulnerabilty they flag against an array of allowed vulnerability names e.g. `['puppeteer']`.
 
-Another added benefit of `jest-package-audit` is the ability to retry tests if they fail. This is useful as the audit endpoints can sometimes timeout out or randomly give 503 HTTP Status codes back. Using [jest.retryTimes][jest-retry-times] you can overcome this by retrying say 3 times.
+Another added benefit of `jest-package-audit` is the ability to retry tests if they fail. This is useful as the audit endpoints can sometimes timeout out or randomly give 503 HTTP Status codes back. Using [jest.retryTimes][jest-retry-times] you can overcome this by retrying say 5 times.
 
 ## Usage
 __Important: `jest-package-audit` only works with Jest >= 23 as it depends on [async matchers][async-matchers].__
@@ -36,6 +36,8 @@ npm install jest-package-audit --save-dev
 3. Create a new test file for package auditing:
 ```javascript
 // audit.test.js
+jest.retryTimes(5); // Optional
+
 test('packages do not have vunerabilities', async () => {
   await expect({/* Input options */}).toPassPackageAudit({ allow: ['puppeteer'] /* Output options */ });
 });

@@ -5,7 +5,6 @@ import { MockPkgDir } from '../__mocks__/pkg-dir';
 
 const { mockSpawn } = jest.requireMock('child_process') as MockChildProcess;
 const { mockSync } = jest.requireMock('pkg-dir') as MockPkgDir;
-const errorSpy = jest.spyOn(console, 'error');
 
 import { toPassPackageAudit } from '../matchers';
 expect.extend({ toPassPackageAudit });
@@ -43,23 +42,15 @@ beforeEach(() => {
 
 describe('fail states', () => {
   test('no output exit code 1', async () => {
-    errorSpy.mockImplementationOnce(() => {});
     mockSpawn.sequence.add(mockSpawn.simple(1));
     await expect({}).not.toPassPackageAudit();
     callCount++;
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Failed to run yarn audit. Error: Command failed with exit code 1.'
-    );
   });
 
   test('error thrown', async () => {
-    errorSpy.mockImplementationOnce(() => {});
     mockSpawn.sequence.add({ throws: new Error('test error.') });
     await expect({}).not.toPassPackageAudit();
     callCount++;
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Failed to run yarn audit. Error: test error.'
-    );
   });
 
   test('vulnerability output', async () => {
