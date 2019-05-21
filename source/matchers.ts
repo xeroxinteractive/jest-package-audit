@@ -130,7 +130,10 @@ export async function toPassPackageAudit(
     }
   } catch (e) {
     pass = false;
-    console.error(`Failed to run ${inputOptions.command}. ${e}`);
+    output = Buffer.concat([
+      Buffer.from(`Failed to run ${inputOptions.command}. ${e}. Console: `),
+      output
+    ]);
   }
   if (!vulnerabilities.length) {
     if (pass) {
