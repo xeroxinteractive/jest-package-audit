@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-jest.setTimeout(10000);
+jest.setTimeout(15000);
 import { spawn } from 'child_process';
 import pkgDir from 'pkg-dir';
 
