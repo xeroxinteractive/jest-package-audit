@@ -27,13 +27,6 @@ function createTable(pkg: string): string {
   `;
 }
 
-// async function matcher(
-//   inputOptions: InputOptions = {},
-//   outputOptions?: OutputOptions
-// ): Promise<void> {
-//   await expect(inputOptions).toPassPackageAudit(outputOptions);
-// }
-
 let callCount = 0;
 
 beforeEach(() => {
@@ -121,8 +114,13 @@ describe('options', () => {
     mockSpawn.sequence.add(mockSpawn.simple(0));
     await expect({ command: 'npm audit' }).toPassPackageAudit();
     expect(mockSpawn.calls.length).toBe(++callCount);
-    expect(mockSpawn.calls[callCount - 1].command).toBe('npm');
-    expect(mockSpawn.calls[callCount - 1].args).toEqual(['audit']);
+    const call = mockSpawn.calls[callCount - 1];
+    if (call.command.endsWith('.exe')) {
+      expect(call.args.slice(-1)[0]).toMatch(/[^\w]*npm[^\w]+audit[^\w]*/);
+    } else {
+      expect(call.command).toBe('npm');
+      expect(call.args).toEqual(['audit']);
+    }
   });
 
   test('cwd resolved', async () => {
