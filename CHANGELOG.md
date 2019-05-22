@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.0...v1.0.1) (2019-05-22)
+
+
+### Bug Fixes
+
+* use cross-spawn for windows compat ([0cf82c3](https://github.com/xeroxinteractive/jest-package-audit/commit/0cf82c3))
+* windows cross-spawn mocking ([219c576](https://github.com/xeroxinteractive/jest-package-audit/commit/219c576))
+
 # 1.0.0 (2019-05-21)
 
 
