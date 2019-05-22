@@ -7,7 +7,6 @@ declare global {
   }
 }
 
-jest.setTimeout(15000);
 import spawn from 'cross-spawn';
 import pkgDir from 'pkg-dir';
 
