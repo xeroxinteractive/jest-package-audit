@@ -7,8 +7,7 @@ declare global {
   }
 }
 
-jest.setTimeout(15000);
-import { spawn } from 'child_process';
+import spawn from 'cross-spawn';
 import pkgDir from 'pkg-dir';
 
 export interface InputOptions {
@@ -130,8 +129,11 @@ export async function toPassPackageAudit(
     }
   } catch (e) {
     pass = false;
+    output = /^\W*$/.test(output.toString())
+      ? Buffer.concat([Buffer.from(' Console: '), output])
+      : output;
     output = Buffer.concat([
-      Buffer.from(`Failed to run ${inputOptions.command}. ${e}. Console: `),
+      Buffer.from(`Failed to run ${inputOptions.command}. ${e}`),
       output
     ]);
   }

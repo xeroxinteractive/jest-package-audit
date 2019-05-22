@@ -37,6 +37,7 @@ npm install jest-package-audit --save-dev
 ```javascript
 // audit.test.js
 jest.retryTimes(5); // Optional
+jest.setTimeout(15000); // The audit command can take a while...
 
 test('packages do not have vunerabilities', async () => {
   await expect({/* Input options */}).toPassPackageAudit({ allow: ['puppeteer'] /* Output options */ });
