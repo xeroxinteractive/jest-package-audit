@@ -1,4 +1,6 @@
-import '../source/index';
+import { toPassPackageAudit } from '../source/index';
+
+expect.extend({ toPassPackageAudit });
 
 jest.retryTimes(5);
 jest.setTimeout(15000);
