@@ -1,3 +1,15 @@
+## [1.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.1...v1.0.2) (2019-05-23)
+
+
+### Code Refactoring
+
+* single file exports matcher ([5ac17da](https://github.com/xeroxinteractive/jest-package-audit/commit/5ac17da))
+
+
+### BREAKING CHANGES
+
+* toPassPackageAudit is no longer automatically extended onto jest, using setupFilesAfterEnv will no longer work.
+
 ## [1.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.0...v1.0.1) (2019-05-22)
 
 
