@@ -16,26 +16,12 @@ yarn add jest-package-audit --dev
 # or
 npm install jest-package-audit --save-dev
 ```
-2. Add `jest-package-audit` to your Jest config file:
-### Jest >= v24
-```jsonc
-{
-  // ...
-  "setupFilesAfterEnv": ["jest-package-audit"]
-  // ...
-}
-```
-### Jest == v23
-```jsonc
-{
-  // ...
-  "setupTestFrameworkScriptFile": "jest-package-audit"
-  // ...
-}
-```
-3. Create a new test file for package auditing:
+2. Create a new test file for package auditing:
 ```javascript
 // audit.test.js
+import { toPassPackageAudit } from 'jest-package-audit';
+expect.extend({ toPassPackageAudit });
+
 jest.retryTimes(5); // Optional
 jest.setTimeout(15000); // The audit command can take a while...
 

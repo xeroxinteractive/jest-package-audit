@@ -6,7 +6,7 @@ import { MockPkgDir } from '../__mocks__/pkg-dir';
 const { mockSpawn } = jest.requireMock('child_process') as MockChildProcess;
 const { mockSync } = jest.requireMock('pkg-dir') as MockPkgDir;
 
-import { toPassPackageAudit } from '../matchers';
+import { toPassPackageAudit } from '..';
 expect.extend({ toPassPackageAudit });
 
 function createTable(pkg: string): string {
