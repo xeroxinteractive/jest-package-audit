@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.2...v1.0.3) (2019-05-24)
+
+
+### Bug Fixes
+
+* allow filtering + better exit code handling ([85406d7](https://github.com/xeroxinteractive/jest-package-audit/commit/85406d7))
+
 ## [1.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.1...v1.0.2) (2019-05-23)
 
 
