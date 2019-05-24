@@ -45,12 +45,15 @@ export async function toPassPackageAudit(
     ...inputOptions
   };
   const parts = inputOptions.command.split(' ');
-  const vulnerabilities: string[] = [];
-  let output = Buffer.from('');
+  const vulnerabilities: string[] = [],
+    allowed: string[] = [];
+  let output = Buffer.from(''),
+    exitCode;
   try {
     const child = spawn(parts[0], parts.slice(1), {
       cwd: pkgDir.sync(inputOptions.cwd)
     });
+    // Concatenate all the console output.
     child.stdout.on(
       'data',
       (chunk: Buffer | string): void => {
@@ -58,59 +61,23 @@ export async function toPassPackageAudit(
         output = output ? Buffer.concat([output, buf]) : buf;
       }
     );
-    const events = [
-      new Promise(
-        (resolve, reject): void => {
-          child.on(
-            'close',
-            (code): void => {
-              if (code !== 0 && code !== 8) {
-                reject(new Error(`Command failed with exit code ${code}.`));
-              } else {
-                resolve();
-              }
-            }
-          );
-        }
-      ),
-      new Promise(
-        (resolve, reject): void => {
-          child.on(
-            'exit',
-            (code): void => {
-              if (code !== 0 && code !== 8) {
-                reject(new Error(`Command failed with exit code ${code}.`));
-              } else {
-                resolve();
-              }
-            }
-          );
-        }
-      ),
-      new Promise(
-        (resolve, reject): void => {
-          child.on(
-            'error',
-            (error): void => {
-              reject(error);
-            }
-          );
-        }
-      )
-    ];
 
-    await Promise.all([
-      Promise.race(events),
-      new Promise(
-        (resolve): void => {
-          child.stdout.on('end', resolve);
-        }
-      )
-    ]);
-    child.kill();
+    // Wait for the command to exit, and store the exit code.
+    exitCode = await new Promise(
+      (resolve): void => {
+        child.on(
+          'close',
+          (code): void => {
+            resolve(code);
+          }
+        );
+      }
+    );
+    // Strip ANSI colour encoding.
     const outputString = output.toString().replace(/\u001b\[.*?m/g, '');
     let match;
 
+    // Loop over all the table package matches, adding vulnerabilities where appropriate.
     while ((match = packageRegex.exec(outputString)) !== null) {
       const pkg = match[1];
       if (outputOptions && outputOptions.allow) {
@@ -119,6 +86,10 @@ export async function toPassPackageAudit(
             vulnerabilities.push(pkg);
           }
           pass = false;
+        } else {
+          if (!allowed.includes(pkg)) {
+            allowed.push(pkg);
+          }
         }
       } else {
         if (!vulnerabilities.includes(pkg)) {
@@ -127,17 +98,31 @@ export async function toPassPackageAudit(
         pass = false;
       }
     }
+    // exit code 0 and 8 indicates not a failure,
+    // exit code 1 is a failure but if there are no vulnerabilities
+    // and at least 1 allowed package then it should pass.
+    if (
+      !(
+        exitCode === 0 ||
+        exitCode === 8 ||
+        (exitCode === 1 && allowed.length > 0 && vulnerabilities.length === 0)
+      )
+    ) {
+      pass = false;
+    }
   } catch (e) {
     pass = false;
+    // Add the console output to the output message if it exists.
     output = /^\W*$/.test(output.toString())
       ? Buffer.concat([Buffer.from(' Console: '), output])
       : output;
+    // Add a failure message to the output message.
     output = Buffer.concat([
       Buffer.from(`Failed to run ${inputOptions.command}. ${e}`),
       output
     ]);
   }
-  if (!vulnerabilities.length) {
+  if (!vulnerabilities.length && !allowed.length) {
     if (pass) {
       return {
         message: (): string =>

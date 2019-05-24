@@ -36,20 +36,26 @@ beforeEach(() => {
 describe('fail states', () => {
   test('no output exit code 1', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(1));
-    await expect({}).not.toPassPackageAudit();
     callCount++;
+    await expect({}).not.toPassPackageAudit();
   });
 
   test('error thrown', async () => {
     mockSpawn.sequence.add({ throws: new Error('test error.') });
-    await expect({}).not.toPassPackageAudit();
     callCount++;
+    await expect({}).not.toPassPackageAudit();
   });
 
   test('vulnerability output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(8, createTable('module')));
-    await expect({}).not.toPassPackageAudit();
     callCount++;
+    await expect({}).not.toPassPackageAudit();
+  });
+
+  test('vulnerability output 1 allowed', async () => {
+    mockSpawn.sequence.add(mockSpawn.simple(1, createTable('module')));
+    callCount++;
+    await expect({}).toPassPackageAudit({ allow: ['module'] });
   });
 
   test('multiple vulnerability output', async () => {
@@ -59,8 +65,8 @@ describe('fail states', () => {
         createTable('module') + createTable('package') + createTable('example')
       )
     );
-    await expect({}).not.toPassPackageAudit();
     callCount++;
+    await expect({}).not.toPassPackageAudit();
   });
 
   test('multiple vulnerability output 1 allowed', async () => {
@@ -70,29 +76,29 @@ describe('fail states', () => {
         createTable('module') + createTable('package') + createTable('example')
       )
     );
+    callCount++;
     await expect({}).not.toPassPackageAudit({
       allow: ['package']
     });
-    callCount++;
   });
 });
 describe('pass states', () => {
   test('no output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(0));
-    await expect({}).toPassPackageAudit();
     callCount++;
+    await expect({}).toPassPackageAudit();
   });
 
   test('random output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
-    await expect({}).toPassPackageAudit();
     callCount++;
+    await expect({}).toPassPackageAudit();
   });
 
   test('vulnerability output allowed', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(8, createTable('module')));
-    await expect({}).toPassPackageAudit({ allow: ['module'] });
     callCount++;
+    await expect({}).toPassPackageAudit({ allow: ['module'] });
   });
 
   test('multiple vulnerability output allowed', async () => {
@@ -102,10 +108,10 @@ describe('pass states', () => {
         createTable('module') + createTable('package') + createTable('example')
       )
     );
+    callCount++;
     await expect({}).toPassPackageAudit({
       allow: ['module', 'package', 'example']
     });
-    callCount++;
   });
 });
 
