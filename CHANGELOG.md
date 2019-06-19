@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.3...v1.0.4) (2019-06-19)
+
+
+### Bug Fixes
+
+* remove circleci-bin due to windows compat ([7160cbc](https://github.com/xeroxinteractive/jest-package-audit/commit/7160cbc))
+
 ## [1.0.3](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.2...v1.0.3) (2019-05-24)
 
 
