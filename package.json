@@ -1,6 +1,6 @@
 {
   "name": "jest-package-audit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "main": "build/index.js",
   "repository": "git@github.com:xeroxinteractive/jest-package-audit.git",
@@ -60,7 +60,7 @@
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-typescript": "^7.3.3",
-    "@commitlint/cli": "^7.5.2",
+    "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
     "@types/cross-spawn": "^6.0.0",
     "@types/jest": "^24.0.9",
