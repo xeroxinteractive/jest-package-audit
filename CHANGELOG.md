@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.4...v2.0.0) (2019-07-11)
+
+
+### Features
+
+* move to xerox org ([a32e34e](https://github.com/xeroxinteractive/jest-package-audit/commit/a32e34e))
+
+
+### BREAKING CHANGES
+
+* npm module name changed from browserslist-browserstack to @xerox/browserslist-browserstack
+
 ## [1.0.4](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.3...v1.0.4) (2019-06-19)
 
 
