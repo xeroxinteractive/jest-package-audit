@@ -1,5 +1,5 @@
 {
-  "name": "jest-package-audit",
+  "name": "@xerox/jest-package-audit",
   "version": "1.0.4",
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "main": "build/index.js",
@@ -51,6 +51,9 @@
   },
   "release": {
     "extends": "semantic-release-config-xerox/npm"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "jest": {
     "testRunner": "jest-circus/runner"
