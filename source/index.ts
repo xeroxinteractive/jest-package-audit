@@ -54,25 +54,17 @@ export async function toPassPackageAudit(
       cwd: pkgDir.sync(inputOptions.cwd)
     });
     // Concatenate all the console output.
-    child.stdout.on(
-      'data',
-      (chunk: Buffer | string): void => {
-        const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
-        output = output ? Buffer.concat([output, buf]) : buf;
-      }
-    );
+    child.stdout.on('data', (chunk: Buffer | string): void => {
+      const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      output = output ? Buffer.concat([output, buf]) : buf;
+    });
 
     // Wait for the command to exit, and store the exit code.
-    exitCode = await new Promise(
-      (resolve): void => {
-        child.on(
-          'close',
-          (code): void => {
-            resolve(code);
-          }
-        );
-      }
-    );
+    exitCode = await new Promise((resolve): void => {
+      child.on('close', (code): void => {
+        resolve(code);
+      });
+    });
     // Strip ANSI colour encoding.
     const outputString = output.toString().replace(/\u001b\[.*?m/g, '');
     let match;
@@ -126,17 +118,13 @@ export async function toPassPackageAudit(
     if (pass) {
       return {
         message: (): string =>
-          `expected ${
-            inputOptions.command
-          } to fail but it passed with output:\n\n${output}`,
+          `expected ${inputOptions.command} to fail but it passed with output:\n\n${output}`,
         pass: true
       };
     } else {
       return {
         message: (): string =>
-          `expected ${
-            inputOptions.command
-          } to pass but it failed with output:\n\n${output}`,
+          `expected ${inputOptions.command} to pass but it failed with output:\n\n${output}`,
         pass: false
       };
     }
@@ -145,9 +133,7 @@ export async function toPassPackageAudit(
   if (pass) {
     return {
       message: (): string =>
-        `expected package audit to have vulnerabilities\n\n${
-          inputOptions.command
-        } output:\n\n${output}`,
+        `expected package audit to have vulnerabilities\n\n${inputOptions.command} output:\n\n${output}`,
       pass: true
     };
   } else {
