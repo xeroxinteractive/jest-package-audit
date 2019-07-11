@@ -4,7 +4,7 @@
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "main": "build/index.js",
   "repository": "git@github.com:xeroxinteractive/jest-package-audit.git",
-  "author": "Andrew Leedham &lt;Andrew.Leedham2@Outlook.com&gt;",
+  "author": "Andrew Leedham <andrew.leedham@xerox.com>",
   "license": "MIT",
   "scripts": {
     "build": "yarn run build:types && yarn run build:js",
