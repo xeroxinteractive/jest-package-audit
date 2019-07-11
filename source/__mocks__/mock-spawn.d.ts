@@ -22,7 +22,7 @@ declare module 'mock-spawn' {
      * Used internally.
      *
      * @param verbose - True to see additional debug messages from this library.
-     * @returns the chained Runner.
+     * @returns The chained Runner.
      */
     setVerbose?(verbose: boolean): Runner;
   }
@@ -96,7 +96,7 @@ declare module 'mock-spawn' {
     /**
      * Sets `obj` as a lookup table for whether to exit. If the value is `true`, then the runner will emit `exit` with code `null` and signal `<signal>`.
      *
-     * @param obj - the object with signal names and whether to exit.
+     * @param obj - The object with signal names and whether to exit.
      */
     setSignals(obj: Signals): void;
   }
