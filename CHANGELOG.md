@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.0...v2.0.1) (2019-07-17)
+
+
+### Bug Fixes
+
+* 16000+ vulnerabilities ([03f8b62](https://github.com/xeroxinteractive/jest-package-audit/commit/03f8b62))
+
 # [2.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.4...v2.0.0) (2019-07-11)
 
 
