@@ -78,7 +78,7 @@ describe('fail states', () => {
     );
     callCount++;
     await expect({}).not.toPassPackageAudit({
-      allow: ['package']
+      allow: ['package'],
     });
   });
 });
@@ -110,7 +110,7 @@ describe('pass states', () => {
     );
     callCount++;
     await expect({}).toPassPackageAudit({
-      allow: ['module', 'package', 'example']
+      allow: ['module', 'package', 'example'],
     });
   });
 });
@@ -137,7 +137,7 @@ describe('options', () => {
     await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
     expect(mockSpawn.calls.length).toBe(++callCount);
     expect(mockSpawn.calls[callCount - 1].opts).toMatchObject({
-      cwd: '/resolved/cwd'
+      cwd: '/resolved/cwd',
     });
   });
 
@@ -147,7 +147,7 @@ describe('options', () => {
     await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
     expect(mockSpawn.calls.length).toBe(++callCount);
     expect(mockSpawn.calls[callCount - 1].opts).toMatchObject({
-      cwd: undefined
+      cwd: undefined,
     });
   });
 });
