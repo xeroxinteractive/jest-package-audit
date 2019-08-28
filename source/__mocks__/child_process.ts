@@ -2,7 +2,7 @@ import createSpawn from 'mock-spawn';
 
 const mockSpawn = createSpawn();
 mockSpawn.setSignals({
-  SIGTERM: true
+  SIGTERM: true,
 });
 
 const original = require.requireActual('child_process');
