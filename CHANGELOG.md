@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.1...v2.0.2) (2019-08-28)
+
+
+### Bug Fixes
+
+* allow exit code 2 ([209ceb5](https://github.com/xeroxinteractive/jest-package-audit/commit/209ceb5))
+
 ## [2.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.0...v2.0.1) (2019-07-17)
 
 

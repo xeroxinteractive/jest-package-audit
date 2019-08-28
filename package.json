@@ -1,6 +1,6 @@
 {
   "name": "@xerox/jest-package-audit",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "main": "build/index.js",
   "repository": "git@github.com:xeroxinteractive/jest-package-audit.git",
