@@ -101,6 +101,12 @@ describe('pass states', () => {
     await expect({}).toPassPackageAudit({ allow: ['module'] });
   });
 
+  test('vulnerability output allowed exit code 2', async () => {
+    mockSpawn.sequence.add(mockSpawn.simple(2, createTable('module')));
+    callCount++;
+    await expect({}).toPassPackageAudit({ allow: ['module'] });
+  });
+
   test('multiple vulnerability output allowed', async () => {
     mockSpawn.sequence.add(
       mockSpawn.simple(

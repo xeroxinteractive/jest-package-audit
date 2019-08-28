@@ -97,6 +97,7 @@ export async function toPassPackageAudit(
       !(
         exitCode === 0 ||
         exitCode === 8 ||
+        exitCode === 2 ||
         (exitCode === 1 && allowed.length > 0 && vulnerabilities.length === 0)
       )
     ) {
