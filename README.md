@@ -25,7 +25,7 @@ npm install @xerox/jest-package-audit --save-dev
 2. Create a new test file for package auditing:
 ```javascript
 // audit.test.js
-import { toPassPackageAudit } from 'jest-package-audit';
+import { toPassPackageAudit } from '@xerox/jest-package-audit';
 expect.extend({ toPassPackageAudit });
 
 jest.retryTimes(5); // Optional
