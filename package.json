@@ -2,6 +2,16 @@
   "name": "@xerox/jest-package-audit",
   "version": "1.0.4",
   "description": "Filter and retry yarn/npm audit command with Jest.",
+  "keywords": [
+    "jest",
+    "matcher",
+    "package",
+    "audit",
+    "npm audit",
+    "yarn audit",
+    "testing",
+    "assertion"
+  ],
   "main": "build/index.js",
   "repository": "git@github.com:xeroxinteractive/jest-package-audit.git",
   "author": "Andrew Leedham <andrew.leedham@xerox.com>",
