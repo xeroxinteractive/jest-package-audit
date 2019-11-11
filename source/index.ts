@@ -19,11 +19,6 @@ export interface OutputOptions {
   allow?: string[];
 }
 
-export const defaultInputOptions = {
-  cwd: '../../../',
-  command: 'yarn audit',
-};
-
 const packageRegex = /^\s*│\s*Package\s*│\s*(\S+)\s*│\s*$/gm;
 
 /**
@@ -40,21 +35,19 @@ export async function toPassPackageAudit(
   outputOptions?: OutputOptions
 ): Promise<jest.CustomMatcherResult> {
   let pass = true;
-  inputOptions = {
-    ...defaultInputOptions,
-    ...inputOptions,
-  };
-  const parts = inputOptions.command.split(' ');
+  const { command = 'yarn audit', cwd = '../../../' } = inputOptions || {};
+
+  const parts = command.split(' ');
   const vulnerabilities: string[] = [],
     allowed: string[] = [];
   let output = Buffer.from(''),
     exitCode;
   try {
     const child = spawn(parts[0], parts.slice(1), {
-      cwd: pkgDir.sync(inputOptions.cwd),
+      cwd: pkgDir.sync(cwd),
     });
     // Concatenate all the console output.
-    child.stdout.on('data', (chunk: Buffer | string): void => {
+    child.stdout?.on('data', (chunk: Buffer | string): void => {
       const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
       output = output ? Buffer.concat([output, buf]) : buf;
     });
@@ -111,7 +104,7 @@ export async function toPassPackageAudit(
       : output;
     // Add a failure message to the output message.
     output = Buffer.concat([
-      Buffer.from(`Failed to run ${inputOptions.command}. ${e}`),
+      Buffer.from(`Failed to run ${command}. ${e}`),
       output,
     ]);
   }
@@ -119,13 +112,13 @@ export async function toPassPackageAudit(
     if (pass) {
       return {
         message: (): string =>
-          `expected ${inputOptions.command} to fail but it passed with output:\n\n${output}`,
+          `expected ${command} to fail but it passed with output:\n\n${output}`,
         pass: true,
       };
     } else {
       return {
         message: (): string =>
-          `expected ${inputOptions.command} to pass but it failed with output:\n\n${output}`,
+          `expected ${command} to pass but it failed with output:\n\n${output}`,
         pass: false,
       };
     }
@@ -134,7 +127,7 @@ export async function toPassPackageAudit(
   if (pass) {
     return {
       message: (): string =>
-        `expected package audit to have vulnerabilities\n\n${inputOptions.command} output:\n\n${output}`,
+        `expected package audit to have vulnerabilities\n\n${command} output:\n\n${output}`,
       pass: true,
     };
   } else {
@@ -142,7 +135,7 @@ export async function toPassPackageAudit(
       message: (): string =>
         `expected package audit not to have vulnerabilities for ${vulnerabilities
           .map((v): string => `'${v}'`)
-          .join(' and ')}\n\n${inputOptions.command} output:\n\n${output}`,
+          .join(' and ')}\n\n${command} output:\n\n${output}`,
       pass: false,
     };
   }
