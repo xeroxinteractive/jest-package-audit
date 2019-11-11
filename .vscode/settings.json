@@ -17,5 +17,8 @@
   "eslint.options": {
     "extensions": [".ts"]
   },
-  "eslint.validate": ["typescript"]
+  "eslint.validate": [
+    "typescript"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
