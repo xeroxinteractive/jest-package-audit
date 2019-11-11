@@ -1,10 +1,14 @@
 jest.mock('child_process');
 jest.mock('pkg-dir');
-import { MockChildProcess } from '../__mocks__/child_process';
-import { MockPkgDir } from '../__mocks__/pkg-dir';
+import pkgDir from 'pkg-dir';
+import { mocked } from 'ts-jest/utils';
+import { Main } from 'mock-spawn';
+const childProcess = jest.requireMock('child_process') as {
+  spawn: Main;
+};
 
-const { mockSpawn } = jest.requireMock('child_process') as MockChildProcess;
-const { mockSync } = jest.requireMock('pkg-dir') as MockPkgDir;
+const { spawn: mockSpawn } = childProcess;
+const { sync: mockSync } = mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
 expect.extend({ toPassPackageAudit });
