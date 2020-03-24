@@ -18,14 +18,14 @@ Another added benefit of `jest-package-audit` is the ability to retry tests if t
 __Important: `jest-package-audit` only works with Jest >= 23 as it depends on [async matchers][async-matchers].__
 1. Install `jest-package-audit`:
 ```bash
-yarn add @xerox/jest-package-audit --dev
+yarn add jest-package-audit --dev
 # or
-npm install @xerox/jest-package-audit --save-dev
+npm install jest-package-audit --save-dev
 ```
 2. Create a new test file for package auditing:
 ```javascript
 // audit.test.js
-import { toPassPackageAudit } from '@xerox/jest-package-audit';
+import { toPassPackageAudit } from 'jest-package-audit';
 expect.extend({ toPassPackageAudit });
 
 jest.retryTimes(5); // Optional
@@ -66,10 +66,10 @@ Please be aware that we provide no liability for any security issues, or any oth
 [circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/jest-package-audit/master
 [circleci-link]: https://circleci.com/gh/xeroxinteractive/jest-package-audit/tree/master
 
-[npm-badge]: https://flat.badgen.net/npm/v/@xerox/jest-package-audit?color=cyan
-[npm-link]: https://www.npmjs.com/package/@xerox/jest-package-audit
+[npm-badge]: https://flat.badgen.net/npm/v/jest-package-audit?color=cyan
+[npm-link]: https://www.npmjs.com/package/jest-package-audit
 
-[license-badge]: https://flat.badgen.net/npm/license/@xerox/jest-package-audit
+[license-badge]: https://flat.badgen.net/npm/license/jest-package-audit
 
 [commit-style-badge]: https://flat.badgen.net/badge/commit%20style/angular/purple
 [commit-style-link]: https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines
