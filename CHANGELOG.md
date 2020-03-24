@@ -1,3 +1,40 @@
+## [2.0.5](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.4...v2.0.5) (2019-12-13)
+
+## [2.0.4](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.3...v2.0.4) (2019-11-18)
+
+## [2.0.3](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.2...v2.0.3) (2019-11-05)
+
+
+### Bug Fixes
+
+* **types:** match new jest typings ([7a64df3](https://github.com/xeroxinteractive/jest-package-audit/commit/7a64df3))
+
+## [2.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.1...v2.0.2) (2019-08-28)
+
+
+### Bug Fixes
+
+* allow exit code 2 ([209ceb5](https://github.com/xeroxinteractive/jest-package-audit/commit/209ceb5))
+
+## [2.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.0...v2.0.1) (2019-07-17)
+
+
+### Bug Fixes
+
+* 16000+ vulnerabilities ([03f8b62](https://github.com/xeroxinteractive/jest-package-audit/commit/03f8b62))
+
+# [2.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.4...v2.0.0) (2019-07-11)
+
+
+### Features
+
+* move to xerox org ([a32e34e](https://github.com/xeroxinteractive/jest-package-audit/commit/a32e34e))
+
+
+### BREAKING CHANGES
+
+* npm module name changed from browserslist-browserstack to @xerox/browserslist-browserstack
+
 ## [1.0.4](https://github.com/xeroxinteractive/jest-package-audit/compare/v1.0.3...v1.0.4) (2019-06-19)
 
 
