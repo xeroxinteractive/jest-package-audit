@@ -72,8 +72,7 @@
     "jest-circus": "^25.1.0",
     "mock-spawn": "^0.2.6",
     "prettier": "^2.0.2",
-    "semantic-release": "^15.13.27",
-    "semantic-release-config-xerox": "^1.1.0",
+    "semantic-release": "^17.0.4",
     "ts-jest": "^25.0.0",
     "typescript": "^3.7.2"
   },
