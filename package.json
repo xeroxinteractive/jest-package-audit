@@ -1,5 +1,5 @@
 {
-  "name": "@xerox/jest-package-audit",
+  "name": "jest-package-audit",
   "version": "2.0.5",
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "keywords": [
