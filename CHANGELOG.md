@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.0...v3.0.1) (2020-05-16)
+
+
+### Bug Fixes
+
+* add jest as peer dependency + jest 26 ([38e31ca](https://github.com/xeroxinteractive/jest-package-audit/commit/38e31ca))
+
 # [3.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.5...v3.0.0) (2020-03-24)
 
 
