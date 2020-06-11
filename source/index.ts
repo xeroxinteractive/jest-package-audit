@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-import spawn from 'cross-spawn';
+import { spawn } from 'cross-spawn';
 import pkgDir from 'pkg-dir';
 
 export interface InputOptions {
