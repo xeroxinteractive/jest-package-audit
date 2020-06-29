@@ -19,7 +19,7 @@ export interface OutputOptions {
   allow?: string[];
 }
 
-const packageRegex = /^\s*│\s*Package\s*│\s*(\S+)\s*│\s*$/gm;
+const packageRegex = /^\s*│?\s*Package\s*│?\s*(\S+)\s*│?\s*$/gm;
 
 /**
  * Checks if the yarn/npm audit commands pass.
