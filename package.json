@@ -27,7 +27,9 @@
     "prepublishOnly": "yarn run build"
   },
   "engines": {
-    "node": ">=10 <=12"
+    "node": ">=10 <=12",
+    "npm": ">=5.10 <=6",
+    "yarn": ">=1.12 <2"
   },
   "browserslist": [
     "current node"
