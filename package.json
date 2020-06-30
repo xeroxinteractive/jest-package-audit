@@ -13,6 +13,9 @@
     "assertion"
   ],
   "main": "build/index.js",
+  "files": [
+    "/build"
+  ],
   "repository": "git@github.com:xeroxinteractive/jest-package-audit.git",
   "author": "Andrew Leedham <andrew.leedham@xerox.com>",
   "license": "MIT",
