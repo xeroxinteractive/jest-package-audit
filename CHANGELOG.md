@@ -1,3 +1,22 @@
+## [3.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.0...v3.0.1) (2020-05-16)
+
+
+### Bug Fixes
+
+* add jest as peer dependency + jest 26 ([38e31ca](https://github.com/xeroxinteractive/jest-package-audit/commit/38e31ca))
+
+# [3.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.5...v3.0.0) (2020-03-24)
+
+
+### chore
+
+* remove xerox prefix ([573f2e5](https://github.com/xeroxinteractive/jest-package-audit/commit/573f2e5))
+
+
+### BREAKING CHANGES
+
+* `@xerox/` prefix removed from npm package going forward
+
 ## [2.0.5](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.4...v2.0.5) (2019-12-13)
 
 ## [2.0.4](https://github.com/xeroxinteractive/jest-package-audit/compare/v2.0.3...v2.0.4) (2019-11-18)
