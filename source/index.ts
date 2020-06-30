@@ -19,7 +19,11 @@ export interface OutputOptions {
   allow?: string[];
 }
 
-const packageRegex = /^\s*│?\s*Package\s*│?\s*(\S+)\s*│?\s*$/gm;
+const heading = 'Package';
+const colWidths = [15, 62];
+const maxIndent = 16;
+const col1Pad = colWidths[0] - heading.length;
+const packageRegex = new RegExp(`^\\s{0,${maxIndent}}(?:\\│|\\s)\\s{1,${col1Pad}}${heading}\\s{1,${col1Pad}}(?:\\│|\\s)\\s{1,${colWidths[1]}}(\\S{1,${colWidths[1]}})`, 'gm');
 
 /**
  * Checks if the yarn/npm audit commands pass.
