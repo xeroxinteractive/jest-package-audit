@@ -2,7 +2,7 @@
 
 > Filter and retry yarn/npm audit command with Jest.
 
-[![circleci status][circleci-badge]][circleci-link]
+[![ci status][ci-badge]][ci-link]
 [![npm package][npm-badge]][npm-link]
 [![license MIT][license-badge]][license]
 [![commit style angular][commit-style-badge]][commit-style-link]
@@ -63,8 +63,8 @@ Please be aware that we provide no liability for any security issues, or any oth
 [changelog]: ./CHANGELOG.md
 [issues]: https://github.com/xeroxinteractive/jest-package-audit/issues
 
-[circleci-badge]: https://flat.badgen.net/circleci/github/xeroxinteractive/jest-package-audit/master
-[circleci-link]: https://circleci.com/gh/xeroxinteractive/jest-package-audit/tree/master
+[ci-badge]: https://flat.badgen.net/github/checks/xeroxinteractive/jest-package-audit/release?label=ci
+[ci-link]: https://github.com/xeroxinteractive/jest-package-audit/actions?query=branch%3Arelease
 
 [npm-badge]: https://flat.badgen.net/npm/v/jest-package-audit?color=cyan
 [npm-link]: https://www.npmjs.com/package/jest-package-audit
