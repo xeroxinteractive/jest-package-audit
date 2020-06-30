@@ -53,9 +53,13 @@ jobs:
           key: 12.x-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             12.x-yarn-
+      - name: Setup git user
+        run: |
+          git config --global user.email "xeroxinteractive-builder@xerox.com"
+          git config --global user.name "xeroxinteractive-builder"
       - run: yarn install
       - run: yarn deploy
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GH_TOKEN: ${{secrets.GH_TOKEN}}
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
