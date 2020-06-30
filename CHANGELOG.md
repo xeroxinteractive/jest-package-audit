@@ -1,3 +1,11 @@
+## [3.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.1...v3.0.2) (2020-06-30)
+
+
+### Bug Fixes
+
+* add regex support for plain report tables ([9316d9d](https://github.com/xeroxinteractive/jest-package-audit/commit/9316d9d))
+* clamp whitespace checking ([cba4a37](https://github.com/xeroxinteractive/jest-package-audit/commit/cba4a37))
+
 ## [3.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.0...v3.0.1) (2020-05-16)
 
 
