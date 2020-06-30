@@ -1,6 +1,7 @@
 jest.mock('child_process');
 jest.mock('pkg-dir');
 import pkgDir from 'pkg-dir';
+import CliTable3, { TableConstructorOptions } from 'cli-table3';
 import { mocked } from 'ts-jest/utils';
 import { Main } from 'mock-spawn';
 const childProcess = jest.requireMock('child_process') as {
@@ -13,38 +14,45 @@ const { sync: mockSync } = mocked(pkgDir, true);
 import { toPassPackageAudit } from '..';
 expect.extend({ toPassPackageAudit });
 
-function createTable(pkg: string): string {
-  return `
-  ┌───────────────┬──────────────────────────────────────────────────────────────┐
-  │ high          │ Arbitrary File Overwrite                                     │
-  ├───────────────┼──────────────────────────────────────────────────────────────┤
-  │ Package       │ ${pkg}${' '.repeat(62 - 1 - pkg.length)}│
-  ├───────────────┼──────────────────────────────────────────────────────────────┤
-  │ Patched in    │ version                                                      │
-  ├───────────────┼──────────────────────────────────────────────────────────────┤
-  │ Dependency of │ package                                                      │
-  ├───────────────┼──────────────────────────────────────────────────────────────┤
-  │ Path          │ path                                                         │
-  ├───────────────┼──────────────────────────────────────────────────────────────┤
-  │ More info     │ link                                                         │
-  └───────────────┴──────────────────────────────────────────────────────────────┘
-  `;
+enum TableType {
+  DEFAULT = 'default',
+  NO_UNICODE = 'no unicode',
 }
 
-function createPlainTable(pkg: string): string {
-  return `
-    High            Arbitrary File Overwrite
+const blankChars = {
+  top: ' ',
+  'top-mid': ' ',
+  'top-left': ' ',
+  'top-right': ' ',
+  bottom: ' ',
+  'bottom-mid': ' ',
+  'bottom-left': ' ',
+  'bottom-right': ' ',
+  left: ' ',
+  'left-mid': ' ',
+  mid: ' ',
+  'mid-mid': ' ',
+  right: ' ',
+  'right-mid': ' ',
+  middle: ' ',
+};
 
-    Package         ${pkg}${' '.repeat(62 - 1 - pkg.length)}
-
-    Patched in      version
-
-    Dependency of   package
-
-    Path            path
-
-    More info       link
-  `;
+function createTable(pkg: string, type: TableType): string {
+  const tableOptions: TableConstructorOptions = {
+    colWidths: [15, 62],
+    wordWrap: true,
+  };
+  if (type === TableType.NO_UNICODE) {
+    tableOptions.chars = blankChars;
+  }
+  const table = new CliTable3(tableOptions);
+  table.push(['high', 'Arbitrary File Overwrite']);
+  table.push(['Package', pkg]);
+  table.push(['Patched in', 'version']);
+  table.push(['Dependency of', 'package']);
+  table.push(['Path', 'path']);
+  table.push(['More info', 'link']);
+  return table.toString();
 }
 
 let callCount = 0;
@@ -66,18 +74,19 @@ describe('fail states', () => {
     await expect({}).not.toPassPackageAudit();
   });
 
-  describe.each([
-    ['bordered table', createTable],
-    ['plain table', createPlainTable],
-  ])('test %s', (_name, tableFn) => {
+  describe.each(Object.values(TableType))('%s table', (tableType) => {
     test('vulnerability output', async () => {
-      mockSpawn.sequence.add(mockSpawn.simple(8, tableFn('module')));
+      mockSpawn.sequence.add(
+        mockSpawn.simple(8, createTable('module', tableType))
+      );
       callCount++;
       await expect({}).not.toPassPackageAudit();
     });
 
     test('vulnerability output 1 allowed', async () => {
-      mockSpawn.sequence.add(mockSpawn.simple(1, tableFn('module')));
+      mockSpawn.sequence.add(
+        mockSpawn.simple(1, createTable('module', tableType))
+      );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
     });
@@ -86,7 +95,9 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          tableFn('module') + tableFn('package') + tableFn('example')
+          createTable('module', tableType) +
+            createTable('package', tableType) +
+            createTable('example', tableType)
         )
       );
       callCount++;
@@ -97,7 +108,9 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          tableFn('module') + tableFn('package') + tableFn('example')
+          createTable('module', tableType) +
+            createTable('package', tableType) +
+            createTable('example', tableType)
         )
       );
       callCount++;
@@ -121,18 +134,19 @@ describe('pass states', () => {
     await expect({}).toPassPackageAudit();
   });
 
-  describe.each([
-    ['bordered table', createTable],
-    ['plain table', createPlainTable],
-  ])('test %s', (_name, tableFn) => {
+  describe.each(Object.values(TableType))('%s table', (tableType) => {
     test('vulnerability output allowed', async () => {
-      mockSpawn.sequence.add(mockSpawn.simple(8, tableFn('module')));
+      mockSpawn.sequence.add(
+        mockSpawn.simple(8, createTable('module', tableType))
+      );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
     });
 
     test('vulnerability output allowed exit code 2', async () => {
-      mockSpawn.sequence.add(mockSpawn.simple(2, tableFn('module')));
+      mockSpawn.sequence.add(
+        mockSpawn.simple(2, createTable('module', tableType))
+      );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
     });
@@ -141,7 +155,9 @@ describe('pass states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          tableFn('module') + tableFn('package') + tableFn('example')
+          createTable('module', tableType) +
+            createTable('package', tableType) +
+            createTable('example', tableType)
         )
       );
       callCount++;
