@@ -57,11 +57,12 @@ Please be aware that we provide no liability for any security issues, or any oth
 
 ---
 
-[LICENSE][license] | [CHANGELOG][changelog] | [ISSUES][issues]
+[LICENSE][license] | [CHANGELOG][changelog] | [ISSUES][issues] | [CONTRIBUTING][contributing]
 
 [license]: ./LICENSE
 [changelog]: ./CHANGELOG.md
 [issues]: https://github.com/xeroxinteractive/jest-package-audit/issues
+[contributing]: ./CONTRIBUTING.md
 
 [ci-badge]: https://flat.badgen.net/github/checks/xeroxinteractive/jest-package-audit/release?label=ci
 [ci-link]: https://github.com/xeroxinteractive/jest-package-audit/actions?query=branch%3Arelease
