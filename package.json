@@ -53,7 +53,7 @@
     }
   },
   "release": {
-    "extends": "@xerox/semantic-release-config/npm"
+    "extends": "@xerox/semantic-release-config/npm-next"
   },
   "publishConfig": {
     "access": "public"
@@ -73,7 +73,7 @@
     "@xerox/commitlint-config": "^2.1.1",
     "@xerox/eslint-config": "^3.1.3",
     "@xerox/prettier-config": "^2.2.1",
-    "@xerox/semantic-release-config": "^2.2.2",
+    "@xerox/semantic-release-config": "^2.3.0",
     "cli-table3": "^0.6.0",
     "eslint": "^7.2.0",
     "husky": "^4.0.0",
