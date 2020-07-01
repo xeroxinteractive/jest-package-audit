@@ -50,7 +50,7 @@ Output options should be passed to the `toPassPackageAudit` function, they defin
 
 Name | Description | Default
 --- | --- | ---
-`accept: (String[])` | An array of package names to allow if they have vulnerabilities. | `[]`
+`allow: (String[])` | An array of package names to allow if they have vulnerabilities. | `[]`
 
 ## Disclaimer
 Please be aware that we provide no liability for any security issues, or any other issues for that matter, encountered when using this package. It is provided as open-source software under the MIT license. So please read the source code and make sure you understand the implications of allowing vulnerable modules to pass through the `audit` commands!
