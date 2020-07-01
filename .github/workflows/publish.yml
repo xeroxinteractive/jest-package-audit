@@ -8,6 +8,7 @@ name: Publish
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
 
     strategy:
       matrix:
@@ -37,6 +38,7 @@ jobs:
   publish:
     needs: test
     runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
 
     steps:
       - uses: actions/checkout@v2
@@ -59,13 +61,7 @@ jobs:
       - run: yarn install
       - name: Deploy
         run: |
-          git config --global user.email $GIT_AUTHOR_EMAIL
-          git config --global user.name $GIT_AUTHOR_NAME
           yarn deploy
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
-          GIT_AUTHOR_EMAIL: ${{secrets.GIT_AUTHOR_EMAIL}}
-          GIT_AUTHOR_NAME: ${{secrets.GIT_AUTHOR_NAME}}
-          GIT_COMMITER_EMAIL: ${{secrets.GIT_COMMITER_EMAIL}}
-          GIT_COMMITER_NAME: ${{secrets.GIT_COMMITER_NAME}}
