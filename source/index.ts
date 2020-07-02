@@ -9,6 +9,7 @@ declare global {
 
 import { spawn } from 'cross-spawn';
 import pkgDir from 'pkg-dir';
+import isYarn from './helpers/isYarn';
 
 export interface InputOptions {
   cwd?: string;
@@ -42,16 +43,25 @@ export async function toPassPackageAudit(
   outputOptions?: OutputOptions
 ): Promise<jest.CustomMatcherResult> {
   let pass = true;
-  const { command = 'yarn audit', cwd = '../../../' } = inputOptions || {};
-
-  const parts = command.split(' ');
+  let { command, cwd } = inputOptions || {};
   const vulnerabilities: string[] = [],
     allowed: string[] = [];
   let output = Buffer.from(''),
     exitCode;
   try {
+    const root = await pkgDir(cwd);
+
+    if (!root) {
+      throw new Error('Cannot find project root.');
+    }
+
+    if (!command) {
+      command = isYarn(root) ? 'yarn audit' : 'npm audit';
+    }
+
+    const parts = command.split(' ');
     const child = spawn(parts[0], parts.slice(1), {
-      cwd: pkgDir.sync(cwd),
+      cwd: root,
     });
     // Concatenate all the console output.
     child.stdout?.on('data', (chunk: Buffer | string): void => {

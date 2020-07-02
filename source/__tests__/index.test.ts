@@ -9,7 +9,7 @@ const childProcess = jest.requireMock('child_process') as {
 };
 
 const { spawn: mockSpawn } = childProcess;
-const { sync: mockSync } = mocked(pkgDir, true);
+const mockPkgDir = mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
 expect.extend({ toPassPackageAudit });
@@ -59,6 +59,7 @@ let callCount = 0;
 
 beforeEach(() => {
   jest.clearAllMocks();
+  mockPkgDir.mockReturnValue(Promise.resolve(process.cwd()));
 });
 
 describe('fail states', () => {
@@ -183,11 +184,9 @@ describe('options', () => {
   });
 
   test('cwd resolved', async () => {
-    mockSync.mockImplementationOnce((cwd) =>
-      cwd === '/path/to/cwd' ? '/resolved/cwd' : undefined
-    );
+    mockPkgDir.mockReturnValueOnce(Promise.resolve('/resolved/cwd'));
     mockSpawn.sequence.add(mockSpawn.simple(0));
-    await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
+    await expect({ cwd: './' }).toPassPackageAudit();
     expect(mockSpawn.calls.length).toBe(++callCount);
     expect(mockSpawn.calls[callCount - 1].opts).toMatchObject({
       cwd: '/resolved/cwd',
@@ -195,12 +194,9 @@ describe('options', () => {
   });
 
   test('cwd not resolved', async () => {
-    mockSync.mockImplementationOnce(() => undefined);
-    mockSpawn.sequence.add(mockSpawn.simple(0));
-    await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
-    expect(mockSpawn.calls.length).toBe(++callCount);
-    expect(mockSpawn.calls[callCount - 1].opts).toMatchObject({
-      cwd: undefined,
-    });
+    mockPkgDir.mockReturnValue(Promise.resolve(undefined));
+    await expect(async () => {
+      await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
+    }).rejects.toThrowError();
   });
 });
