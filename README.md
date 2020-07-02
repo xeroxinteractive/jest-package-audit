@@ -10,7 +10,7 @@
 [![tested with jest][jest-badge]][jest-link]
 [![Dependabot Status][dependabot-badge]][dependabot-link]
 
-The `yarn audit`, and `npm audit` commands are useful for detecting packages in use that have vulnerabilites. But they don't allow filtering. For example you may have a vulnerability in a package you are only using in development, and the nature of that vulnerability is more often than not only unsafe when used in production. Updating the dependency to fix the vulnerability may break things. That is where `jest-package-audit` comes in, it wraps the `yarn audit` and `npm audit` commands and checks each vulnerabilty they flag against an array of allowed vulnerability names e.g. `['puppeteer']`.
+The `yarn audit`, and `npm audit` commands are useful for detecting packages in use that have vulnerabilites. But they don't allow specific package filtering. For example you may have a vulnerability in a package you are only using in development, and the nature of that vulnerability is more often than not only unsafe when used in production. Updating the dependency to fix the vulnerability may break things. That is where `jest-package-audit` comes in, it wraps the `yarn audit` and `npm audit` commands and checks each vulnerabilty they flag against an array of allowed vulnerability names e.g. `['puppeteer']`.
 
 Another added benefit of `jest-package-audit` is the ability to retry tests if they fail. This is useful as the audit endpoints can sometimes timeout out or randomly give 503 HTTP Status codes back. Using [jest.retryTimes][jest-retry-times] you can overcome this by retrying say 5 times.
 
@@ -43,7 +43,13 @@ Input options should be passed to the `expect` function when using `toPassPackag
 Name | Description | Default
 --- | --- | ---
 `cwd: (String)` | Current working directory to run the audit command in. | The closest folder with a `package.json` above `jest-package-audit`.
-`command (String)` | Which command to run, e.g. `yarn audit` or `npm audit` you can also pass additional options for these commands. | `yarn audit`
+`yarn: (Boolean)` | Whether to use `yarn audit` instead of `npm audit`. | `true` if yarn.lock exists otherwise `false`
+`level: ('info' | 'low' | 'moderate' | 'high' | 'critical')` | Limit the vulnerabilities to the given level and above. (Note: npm does not support `info`, so it will not be passed forward) |
+`dependencyType: ('dependencies' | 'devDependencies')` | Limit the vulnerabilities to the projects development or production dependencies. |
+`command (String)` | Custom command to use. This will override the `yarn`, `level` and `dependencyType` options. __Use this with caution!__ |
+
+Note: `level` and `dependencyType` are passed forward to `yarn` and `npm` in their respective formats. Unless, `command` is specified,
+
 
 ### Output Options
 Output options should be passed to the `toPassPackageAudit` function, they define how the output of `yarn audit` or `npm audit` is processed.

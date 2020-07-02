@@ -7,6 +7,7 @@ jest.setTimeout(15000);
 
 test('packages do not have vunerabilities', async () => {
   await expect({
-    command: 'yarn audit --level moderate --groups dependencies',
+    level: 'moderate',
+    dependencyType: 'dependencies',
   }).toPassPackageAudit();
 });
