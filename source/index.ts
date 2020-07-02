@@ -2,7 +2,7 @@
 declare global {
   namespace jest {
     interface Matchers<R, T> {
-      toPassPackageAudit(outputOptions?: OutputOptions): R;
+      toPassPackageAudit(outputOptions?: OutputOptions): Promise<R>;
     }
   }
 }
