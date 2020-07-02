@@ -1,3 +1,16 @@
+# [3.1.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.2...v3.1.0) (2020-07-02)
+
+
+### Bug Fixes
+
+* make toPassPackageAudit type asynchronous ([72c1b0c](https://github.com/xeroxinteractive/jest-package-audit/commit/72c1b0c))
+
+
+### Features
+
+* add yarn, level and dependencyType options ([d493199](https://github.com/xeroxinteractive/jest-package-audit/commit/d493199))
+* automatically switch between yarn and npm ([c9bf19b](https://github.com/xeroxinteractive/jest-package-audit/commit/c9bf19b))
+
 ## [3.0.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.1...v3.0.2) (2020-06-30)
 
 
