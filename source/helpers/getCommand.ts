@@ -1,5 +1,4 @@
 import { InputOptions } from 'source/static';
-import isYarn from './isYarn';
 
 /**
  * Gets the audit command string from the given options.
@@ -8,15 +7,14 @@ import isYarn from './isYarn';
  * @param inputOptions - Options for running the audit.
  * @returns Audit command string to run.
  */
-export default async function getCommand(
+export default function getCommand(
   root: string,
-  inputOptions?: InputOptions
-): Promise<string> {
-  if (inputOptions?.command) {
+  inputOptions: InputOptions
+): string {
+  if (inputOptions.command) {
     return inputOptions.command;
   }
-  const { yarn = await isYarn(root), level, dependencyType } =
-    inputOptions || {};
+  const { yarn, level, dependencyType } = inputOptions || {};
   let command;
   if (yarn) {
     command = 'yarn audit';
