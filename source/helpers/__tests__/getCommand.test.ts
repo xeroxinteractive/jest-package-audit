@@ -1,5 +1,6 @@
 import getCommand from '../getCommand';
 import * as isYarn from '../isYarn';
+import { Severity } from '../../../source/static';
 
 const isYarnSpy = jest.spyOn(isYarn, 'default');
 
@@ -8,87 +9,81 @@ beforeEach(() => {
   isYarnSpy.mockReturnValue(Promise.resolve(false));
 });
 
-test('default npm', async () => {
-  await expect(getCommand('', {})).resolves.toBe('npm audit');
+test('npm', () => {
+  expect(getCommand('', { yarn: false })).toBe('npm audit');
 });
 
-test('npm', async () => {
-  await expect(getCommand('', { yarn: false })).resolves.toBe('npm audit');
+test('npm --audit-level', () => {
+  expect(
+    getCommand('/path/to/root', { yarn: false, level: Severity.INFO })
+  ).toBe('npm audit');
+  expect(
+    getCommand('/path/to/root', { yarn: false, level: Severity.LOW })
+  ).toBe('npm audit --audit-level=low');
+  expect(
+    getCommand('/path/to/root', { yarn: false, level: Severity.MODERATE })
+  ).toBe('npm audit --audit-level=moderate');
+  expect(
+    getCommand('/path/to/root', { yarn: false, level: Severity.HIGH })
+  ).toBe('npm audit --audit-level=high');
+  expect(
+    getCommand('/path/to/root', { yarn: false, level: Severity.CRITICAL })
+  ).toBe('npm audit --audit-level=critical');
 });
 
-test('npm --audit-level', async () => {
-  await expect(getCommand('/path/to/root', { level: 'info' })).resolves.toBe(
-    'npm audit'
+test('npm --only', () => {
+  expect(
+    getCommand('/path/to/root', {
+      yarn: false,
+      dependencyType: 'devDependencies',
+    })
+  ).toBe('npm audit --only=dev');
+  expect(getCommand('/path/to/root', { dependencyType: 'dependencies' })).toBe(
+    'npm audit --only=prod'
   );
-  await expect(getCommand('/path/to/root', { level: 'low' })).resolves.toBe(
-    'npm audit --audit-level=low'
+});
+
+test('yarn', () => {
+  expect(getCommand('', { yarn: true })).toBe('yarn audit');
+});
+
+test('yarn --level', () => {
+  expect(
+    getCommand('/path/to/root', { yarn: true, level: Severity.INFO })
+  ).toBe('yarn audit --level info');
+  expect(getCommand('/path/to/root', { yarn: true, level: Severity.LOW })).toBe(
+    'yarn audit --level low'
   );
-  await expect(
-    getCommand('/path/to/root', { level: 'moderate' })
-  ).resolves.toBe('npm audit --audit-level=moderate');
-  await expect(getCommand('/path/to/root', { level: 'high' })).resolves.toBe(
-    'npm audit --audit-level=high'
-  );
-  await expect(
-    getCommand('/path/to/root', { level: 'critical' })
-  ).resolves.toBe('npm audit --audit-level=critical');
+  expect(
+    getCommand('/path/to/root', { yarn: true, level: Severity.MODERATE })
+  ).toBe('yarn audit --level moderate');
+  expect(
+    getCommand('/path/to/root', { yarn: true, level: Severity.HIGH })
+  ).toBe('yarn audit --level high');
+  expect(
+    getCommand('/path/to/root', { yarn: true, level: Severity.CRITICAL })
+  ).toBe('yarn audit --level critical');
 });
 
-test('npm --only', async () => {
-  await expect(
-    getCommand('/path/to/root', { dependencyType: 'devDependencies' })
-  ).resolves.toBe('npm audit --only=dev');
-  await expect(
-    getCommand('/path/to/root', { dependencyType: 'dependencies' })
-  ).resolves.toBe('npm audit --only=prod');
-});
-
-test('default yarn', async () => {
-  isYarnSpy.mockReturnValueOnce(Promise.resolve(true));
-  await expect(getCommand('', {})).resolves.toBe('yarn audit');
-});
-
-test('yarn', async () => {
-  await expect(getCommand('', { yarn: true })).resolves.toBe('yarn audit');
-});
-
-test('yarn --level', async () => {
-  await expect(
-    getCommand('/path/to/root', { yarn: true, level: 'info' })
-  ).resolves.toBe('yarn audit --level info');
-  await expect(
-    getCommand('/path/to/root', { yarn: true, level: 'low' })
-  ).resolves.toBe('yarn audit --level low');
-  await expect(
-    getCommand('/path/to/root', { yarn: true, level: 'moderate' })
-  ).resolves.toBe('yarn audit --level moderate');
-  await expect(
-    getCommand('/path/to/root', { yarn: true, level: 'high' })
-  ).resolves.toBe('yarn audit --level high');
-  await expect(
-    getCommand('/path/to/root', { yarn: true, level: 'critical' })
-  ).resolves.toBe('yarn audit --level critical');
-});
-
-test('npm --groups', async () => {
-  await expect(
+test('npm --groups', () => {
+  expect(
     getCommand('/path/to/root', {
       yarn: true,
       dependencyType: 'devDependencies',
     })
-  ).resolves.toBe('yarn audit --groups devDependencies');
-  await expect(
+  ).toBe('yarn audit --groups devDependencies');
+  expect(
     getCommand('/path/to/root', { yarn: true, dependencyType: 'dependencies' })
-  ).resolves.toBe('yarn audit --groups dependencies');
+  ).toBe('yarn audit --groups dependencies');
 });
 
-test('command takes precedence', async () => {
-  await expect(
+test('command takes precedence', () => {
+  expect(
     getCommand('/path/to/root', {
       command: 'pnpm audit --dev',
       yarn: true,
-      level: 'info',
+      level: Severity.INFO,
       dependencyType: 'dependencies',
     })
-  ).resolves.toBe('pnpm audit --dev');
+  ).toBe('pnpm audit --dev');
 });
