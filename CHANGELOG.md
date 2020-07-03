@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.0...v3.1.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* manually filter severity levels ([8da14ae](https://github.com/xeroxinteractive/jest-package-audit/commit/8da14ae))
+
 # [3.1.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.0.2...v3.1.0) (2020-07-02)
 
 
