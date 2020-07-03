@@ -12,6 +12,7 @@ const { spawn: mockSpawn } = childProcess;
 const mockPkgDir = mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
+import { Severity } from '../static';
 expect.extend({ toPassPackageAudit });
 
 enum TableType {
@@ -37,7 +38,11 @@ const blankChars = {
   middle: ' ',
 };
 
-function createTable(pkg: string, type: TableType): string {
+function createTable(
+  pkg: string,
+  type: TableType,
+  severity = Severity.INFO
+): string {
   const tableOptions: TableConstructorOptions = {
     colWidths: [15, 62],
     wordWrap: true,
@@ -46,7 +51,7 @@ function createTable(pkg: string, type: TableType): string {
     tableOptions.chars = blankChars;
   }
   const table = new CliTable3(tableOptions);
-  table.push(['high', 'Arbitrary File Overwrite']);
+  table.push([severity, 'Arbitrary File Overwrite']);
   table.push(['Package', pkg]);
   table.push(['Patched in', 'version']);
   table.push(['Dependency of', 'package']);
@@ -119,6 +124,19 @@ describe('fail states', () => {
         allow: ['package'],
       });
     });
+
+    test('severity ignored', async () => {
+      mockSpawn.sequence.add(
+        mockSpawn.simple(
+          1,
+          createTable('module', tableType, Severity.INFO) +
+            createTable('package', tableType, Severity.MODERATE) +
+            createTable('example', tableType, Severity.LOW)
+        )
+      );
+      callCount++;
+      await expect({ level: Severity.LOW }).not.toPassPackageAudit({});
+    });
   });
 });
 
@@ -165,6 +183,19 @@ describe('pass states', () => {
       await expect({}).toPassPackageAudit({
         allow: ['module', 'package', 'example'],
       });
+    });
+
+    test('severity ignored', async () => {
+      mockSpawn.sequence.add(
+        mockSpawn.simple(
+          0,
+          createTable('module', tableType, Severity.INFO) +
+            createTable('package', tableType, Severity.MODERATE) +
+            createTable('example', tableType, Severity.LOW)
+        )
+      );
+      callCount++;
+      await expect({ level: Severity.HIGH }).toPassPackageAudit({});
     });
   });
 });
