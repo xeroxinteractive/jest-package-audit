@@ -64,5 +64,5 @@ jobs:
           yarn deploy
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
+          SLACK_WEBHOOK: ${{secrets.NPM_SLACK_WEBHOOK}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
