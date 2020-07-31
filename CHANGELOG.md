@@ -1,3 +1,5 @@
+## [3.1.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.1...v3.1.2) (2020-07-31)
+
 ## [3.1.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.0...v3.1.1) (2020-07-03)
 
 
