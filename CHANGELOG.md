@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.2...v3.2.0) (2020-10-27)
+
+
+### Features
+
+* node 14 support ([fb981e2](https://github.com/xeroxinteractive/jest-package-audit/commit/fb981e2))
+
 ## [3.1.2](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.1...v3.1.2) (2020-07-31)
 
 ## [3.1.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.0...v3.1.1) (2020-07-03)
