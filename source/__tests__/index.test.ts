@@ -202,6 +202,8 @@ describe('pass states', () => {
 
 describe('options', () => {
   test('command', async () => {
+    // This is a Windows compatability thing, so allowing it.
+    /* eslint-disable jest/no-conditional-expect */
     mockSpawn.sequence.add(mockSpawn.simple(0));
     await expect({ command: 'npm audit' }).toPassPackageAudit();
     expect(mockSpawn.calls.length).toBe(++callCount);
@@ -212,6 +214,7 @@ describe('options', () => {
       expect(call.command).toBe('npm');
       expect(call.args).toEqual(['audit']);
     }
+    /* eslint-enable jest/no-conditional-expect */
   });
 
   test('cwd resolved', async () => {
