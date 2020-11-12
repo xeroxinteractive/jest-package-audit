@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace jest {
-    interface Matchers<R, T> {
+    interface Matchers<R> {
       toPassPackageAudit(outputOptions?: OutputOptions): Promise<R>;
     }
   }
