@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -28,8 +28,6 @@ jobs:
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ matrix.node-version }}-yarn-
       - run: yarn install
       - run: yarn lint
       - run: yarn type-check
@@ -42,9 +40,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ssh-key: ${{secrets.SSH_PRIVATE_KEY}}
       - uses: actions/setup-node@v1
         with:
-          node-version: 12
+          node-version: 14
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -52,12 +52,7 @@ jobs:
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: 12.x-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            12.x-yarn-
-      - uses: webfactory/ssh-agent@v0.4.0
-        with:
-          ssh-private-key: ${{secrets.SSH_PRIVATE_KEY}}
+          key: 14.x-yarn-${{ hashFiles('**/yarn.lock') }}
       - run: yarn install
       - name: Deploy
         run: |
