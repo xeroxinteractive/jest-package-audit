@@ -30,7 +30,7 @@
     "prepublishOnly": "yarn run build"
   },
   "engines": {
-    "node": ">=10 <=14",
+    "node": ">=10",
     "npm": ">=5.10 <=6",
     "yarn": ">=1.12 <2"
   },
@@ -63,7 +63,7 @@
     "preset": "ts-jest"
   },
   "peerDependencies": {
-    "jest": ">=20 <=26"
+    "jest": ">=20"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
