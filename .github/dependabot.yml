@@ -1,0 +1,63 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "08:00"
+  open-pull-requests-limit: 10
+  target-branch: next
+  labels:
+  - dependencies
+  allow:
+  - dependency-type: direct
+  ignore:
+  - dependency-name: "@commitlint/cli"
+    versions:
+    - "> 8.3.5"
+  - dependency-name: husky
+    versions:
+    - ">= 5.a, < 6"
+  - dependency-name: semantic-release
+    versions:
+    - ">= 16.a, < 17"
+  - dependency-name: "@types/node"
+    versions:
+    - ">= 13.a, < 14"
+  - dependency-name: "@types/node"
+    versions:
+    - ">= 14.a, < 15"
+  - dependency-name: "@types/node"
+    versions:
+    - 12.20.10
+    - 12.20.5
+    - 12.20.6
+    - 12.20.7
+    - 12.20.8
+    - 15.0.0
+  - dependency-name: eslint
+    versions:
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: "@types/jest"
+    versions:
+    - 26.0.21
+    - 26.0.22
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.2
+    - 26.5.3
+    - 26.5.4
+  - dependency-name: typescript
+    versions:
+    - 4.2.2
+    - 4.2.3
+  - dependency-name: semantic-release
+    versions:
+    - 17.4.0
+    - 17.4.1
+  commit-message:
+    prefix: chore
+    include: scope
