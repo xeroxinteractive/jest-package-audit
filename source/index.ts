@@ -68,7 +68,7 @@ export async function toPassPackageAudit(
     // Wait for the command to exit, and store the exit code.
     exitCode = await new Promise((resolve): void => {
       child.on('close', (code): void => {
-        resolve(code);
+        resolve(code ?? 0);
       });
     });
 
