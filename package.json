@@ -74,7 +74,7 @@
     "@commitlint/cli": "^8.2.0",
     "@types/cross-spawn": "^6.0.0",
     "@types/jest": "^26.0.0",
-    "@types/node": "^12.12.39",
+    "@types/node": "^16.0.0",
     "@xerox/commitlint-config": "^2.1.1",
     "@xerox/eslint-config": "^3.1.3",
     "@xerox/prettier-config": "^2.2.1",
