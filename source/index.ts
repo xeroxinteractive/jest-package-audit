@@ -88,14 +88,24 @@ export async function toPassPackageAudit(
         const allowedSeverity = severityGreater(inputOptions, severity);
         if (allowedSeverity) {
           if (outputOptions && outputOptions.allow) {
-            if (!outputOptions.allow.includes(pkg)) {
-              if (!vulnerabilities.includes(pkg)) {
-                vulnerabilities.push(pkg);
+            if (typeof outputOptions.allow === 'function') {
+              if (
+                outputOptions.allow({ pkgName: pkg, pkgSeverity: severity })
+              ) {
+                if (!allowed.includes(pkg)) {
+                  allowed.push(pkg);
+                }
               }
-              pass = false;
             } else {
-              if (!allowed.includes(pkg)) {
-                allowed.push(pkg);
+              if (!outputOptions.allow.includes(pkg)) {
+                if (!vulnerabilities.includes(pkg)) {
+                  vulnerabilities.push(pkg);
+                }
+                pass = false;
+              } else {
+                if (!allowed.includes(pkg)) {
+                  allowed.push(pkg);
+                }
               }
             }
           } else {
