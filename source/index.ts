@@ -16,16 +16,6 @@ import severityGreater from './helpers/severityGreater';
 
 export { InputOptions, OutputOptions };
 
-const heading = 'Package';
-const colWidths = [15, 62];
-const maxIndent = 16;
-const tableWidth = 80;
-const col1Pad = colWidths[0] - heading.length;
-const severityLine = `^ {0,${maxIndent}}(?:\\│| ) {1,${colWidths[0]}}(\\S{1,${colWidths[0]}}) {1,${colWidths[0]}}(?:\\│| )[ \\w]{0,${colWidths[1]}}\\│?$`;
-const dividerLine = `\\s(?:.{${tableWidth},${tableWidth + maxIndent}}\\s)?`;
-const packageLine = `^ {0,${maxIndent}}(?:\\│| ) {1,${col1Pad}}Package {1,${col1Pad}}(?:\\│| ) {1,${colWidths[1]}}(\\S{1,${colWidths[1]}})`;
-const packageRegex = new RegExp(severityLine + dividerLine + packageLine, 'gm');
-
 /**
  * Checks if the yarn/npm audit commands pass.
  *
@@ -78,20 +68,52 @@ export async function toPassPackageAudit(
       pass = true;
     } else {
       // Strip ANSI colour encoding.
-      const outputString = output.toString().replace(/\u001b\[.*?m/g, '');
-      let match;
+      const outputString = output
+        .toString()
+        .replace(/\u001b\[.*?m/g, '')
+        .replace(/}\s*{/g, '},{');
+      const correctedOutputString = `[${outputString}]`;
+      const rows = JSON.parse(correctedOutputString);
+
+      const matches = [];
+      for (const row of rows) {
+        if (row !== '') {
+          if (row?.type && row.type === 'auditAdvisory') {
+            // Process yarn audit --json
+            matches.push({
+              pkgName: row.data.advisory.module_name,
+              pkgSeverity: row.data.advisory.severity,
+            });
+          } else if (row?.advisories) {
+            // Process npm audit --json
+            let name = '';
+            let severity = '';
+            for (const key in row.advisories) {
+              const item = row.advisories[key];
+              if (item?.module_name && item?.severity) {
+                name = item.module_name;
+                severity = item.severity;
+              }
+            }
+            if (name && severity) {
+              matches.push({
+                pkgName: name,
+                pkgSeverity: severity,
+              });
+            }
+          }
+        }
+      }
 
       // Loop over all the table package matches, adding vulnerabilities where appropriate.
-      while ((match = packageRegex.exec(outputString)) !== null) {
-        const severity = match[1].toLowerCase().trim();
-        const pkg = match[2];
+      for (const match of matches) {
+        const severity = match.pkgSeverity;
+        const pkg = match.pkgName;
         const allowedSeverity = severityGreater(inputOptions, severity);
         if (allowedSeverity) {
           if (outputOptions && outputOptions.allow) {
             if (typeof outputOptions.allow === 'function') {
-              if (
-                outputOptions.allow({ pkgName: pkg, pkgSeverity: severity })
-              ) {
+              if (outputOptions.allow(match)) {
                 if (!allowed.includes(pkg)) {
                   allowed.push(pkg);
                 }

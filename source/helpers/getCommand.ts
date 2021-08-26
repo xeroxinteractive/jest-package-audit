@@ -17,7 +17,7 @@ export default function getCommand(
   const { yarn, level, dependencyType } = inputOptions || {};
   let command;
   if (yarn) {
-    command = 'yarn audit';
+    command = 'yarn audit --json';
     if (level) {
       command += ` --level ${level}`;
     }
@@ -25,7 +25,7 @@ export default function getCommand(
       command += ` --groups ${dependencyType}`;
     }
   } else {
-    command = 'npm audit';
+    command = 'npm audit --json';
     if (level && level !== 'info') {
       command += ` --audit-level=${level}`;
     }
