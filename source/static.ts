@@ -14,11 +14,11 @@ export interface InputOptions {
   command?: string;
 }
 
-export interface FunctionOptions {
-  pkgName: string;
-  pkgSeverity?: string;
+export interface FilterOptions {
+  packageName: string;
+  packageSeverity?: string;
 }
 
 export interface OutputOptions {
-  allow?: string[] | ((options: FunctionOptions) => boolean);
+  allow?: string[] | ((options: FilterOptions) => boolean);
 }

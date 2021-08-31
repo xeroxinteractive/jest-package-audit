@@ -34,6 +34,16 @@ jest.setTimeout(15000); // The audit command can take a while...
 test('packages do not have vunerabilities', async () => {
   await expect({/* Input options */}).toPassPackageAudit({ allow: ['puppeteer'] /* Output options */ });
 });
+
+test('packages do not have vunerabilities using predicate function', async () => {
+  await expect({/* Input options */}).toPassPackageAudit({ allow: (options) => {
+    if (options.packageName === 'puppeteer' && options.packageSeverity === 'low') {
+      return true;
+    } else {
+      return false;
+    }
+  } /* Output options */ });
+});
 ```
 
 ## Options
@@ -56,7 +66,7 @@ Output options should be passed to the `toPassPackageAudit` function, they defin
 
 Name | Description | Default
 --- | --- | ---
-`allow: (String[])` | An array of package names to allow if they have vulnerabilities. | `[]`
+`allow: (String[] | fn)` | An array of package names to allow if they have vulnerabilities or a single callback predicate function. | `[]`
 
 ## Disclaimer
 Please be aware that we provide no liability for any security issues, or any other issues for that matter, encountered when using this package. It is provided as open-source software under the MIT license. So please read the source code and make sure you understand the implications of allowing vulnerable modules to pass through the `audit` commands!

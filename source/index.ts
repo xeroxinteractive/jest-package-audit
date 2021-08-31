@@ -68,10 +68,7 @@ export async function toPassPackageAudit(
       pass = true;
     } else {
       // Strip ANSI colour encoding.
-      const outputString = output
-        .toString()
-        .replace(/\u001b\[.*?m/g, '')
-        .replace(/}\s*{/g, '},{');
+      const outputString = output.toString().replace(/}\s*{/g, '},{');
       const correctedOutputString = `[${outputString}]`;
       const rows = JSON.parse(correctedOutputString);
 
@@ -81,8 +78,8 @@ export async function toPassPackageAudit(
           if (row?.type && row.type === 'auditAdvisory') {
             // Process yarn audit --json
             matches.push({
-              pkgName: row.data.advisory.module_name,
-              pkgSeverity: row.data.advisory.severity,
+              packageName: row.data.advisory.module_name,
+              packageSeverity: row.data.advisory.severity,
             });
           } else if (row?.advisories) {
             // Process npm audit --json
@@ -97,8 +94,8 @@ export async function toPassPackageAudit(
             }
             if (name && severity) {
               matches.push({
-                pkgName: name,
-                pkgSeverity: severity,
+                packageName: name,
+                packageSeverity: severity,
               });
             }
           }
@@ -107,8 +104,8 @@ export async function toPassPackageAudit(
 
       // Loop over all the table package matches, adding vulnerabilities where appropriate.
       for (const match of matches) {
-        const severity = match.pkgSeverity;
-        const pkg = match.pkgName;
+        const severity = match.packageSeverity;
+        const pkg = match.packageName;
         const allowedSeverity = severityGreater(inputOptions, severity);
         if (allowedSeverity) {
           if (outputOptions && outputOptions.allow) {

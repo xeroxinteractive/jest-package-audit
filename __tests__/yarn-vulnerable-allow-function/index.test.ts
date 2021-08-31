@@ -1,4 +1,4 @@
-import { FunctionOptions } from 'source/static';
+import { FilterOptions } from 'source/static';
 import { toPassPackageAudit } from '../../source/index';
 
 expect.extend({ toPassPackageAudit });
@@ -11,8 +11,8 @@ test('package has vulnerabilities but should pass anyway', async () => {
     yarn: true,
     cwd: __dirname,
   }).toPassPackageAudit({
-    allow: function (options: FunctionOptions) {
-      if (options.pkgName === 'mem') {
+    allow: function (options: FilterOptions) {
+      if (options.packageName === 'mem') {
         return true;
       } else {
         return false;
