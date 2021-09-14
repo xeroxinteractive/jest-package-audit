@@ -9,7 +9,7 @@ declare global {
 
 import { spawn } from 'cross-spawn';
 import pkgDir from 'pkg-dir';
-import { InputOptions, OutputOptions } from './static';
+import { InputOptions, OutputOptions, PackageJSONFields } from './static';
 import getCommand from './helpers/getCommand';
 import isYarn from './helpers/isYarn';
 import severityGreater from './helpers/severityGreater';
@@ -67,37 +67,41 @@ export async function toPassPackageAudit(
     if (exitCode === 0) {
       pass = true;
     } else {
-      // Strip ANSI colour encoding.
       const outputString = output.toString().replace(/}\s*{/g, '},{');
       const correctedOutputString = `[${outputString}]`;
-      const rows = JSON.parse(correctedOutputString);
+      const rows: PackageJSONFields[] = JSON.parse(correctedOutputString);
 
       const matches = [];
       for (const row of rows) {
-        if (row !== '') {
-          if (row?.type && row.type === 'auditAdvisory') {
-            // Process yarn audit --json
+        if (
+          row &&
+          'type' in row &&
+          row.type === 'auditAdvisory' &&
+          'advisory' in row.data
+        ) {
+          // Process yarn audit --json
+          matches.push({
+            packageName: row.data.advisory.module_name,
+            packageSeverity: row.data.advisory.severity,
+            packageData: row,
+          });
+        } else if (row && 'advisories' in row) {
+          // Process npm audit --json
+          let name = '';
+          let severity = '';
+          for (const key in row.advisories) {
+            const item = row.advisories[key];
+            if (item?.module_name && item?.severity) {
+              name = item.module_name;
+              severity = item.severity;
+            }
+          }
+          if (name && severity) {
             matches.push({
-              packageName: row.data.advisory.module_name,
-              packageSeverity: row.data.advisory.severity,
+              packageName: name,
+              packageSeverity: severity,
+              packageData: row,
             });
-          } else if (row?.advisories) {
-            // Process npm audit --json
-            let name = '';
-            let severity = '';
-            for (const key in row.advisories) {
-              const item = row.advisories[key];
-              if (item?.module_name && item?.severity) {
-                name = item.module_name;
-                severity = item.severity;
-              }
-            }
-            if (name && severity) {
-              matches.push({
-                packageName: name,
-                packageSeverity: severity,
-              });
-            }
           }
         }
       }
