@@ -79,14 +79,14 @@ export async function toPassPackageAudit(
           row.type === 'auditAdvisory' &&
           'advisory' in row.data
         ) {
-          // Process yarn audit --json
+          // Process yarn audit --json.
           matches.push({
             packageName: row.data.advisory.module_name,
             packageSeverity: row.data.advisory.severity,
             packageData: row,
           });
         } else if (row && 'advisories' in row) {
-          // Process npm audit --json
+          // Process npm audit --json.
           let name = '';
           let severity = '';
           for (const key in row.advisories) {
