@@ -36,3 +36,6 @@ jobs:
       - run: yarn lint
       - run: yarn type-check
       - run: yarn test
+      - run: |
+          cd ./__tests__/npm-vulnerable
+          yarn audit --json
