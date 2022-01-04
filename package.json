@@ -72,7 +72,6 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
-    "@types/cross-spawn": "^6.0.0",
     "@types/jest": "^26.0.0",
     "@types/node": "^12.12.39",
     "@xerox/commitlint-config": "^2.1.1",
@@ -91,7 +90,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.0",
+    "execa": "^5.1.1",
     "pkg-dir": "^5.0.0"
   },
   "resolutions": {

@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-import { spawn } from 'cross-spawn';
+import execa from 'execa';
 import pkgDir from 'pkg-dir';
 import { InputOptions, OutputOptions, PackageJSONFields } from './static';
 import getCommand from './helpers/getCommand';
@@ -47,7 +47,7 @@ export async function toPassPackageAudit(
   try {
     const parts = command.split(' ');
     console.log({ command, root });
-    const child = spawn(parts[0], parts.slice(1), {
+    const child = execa(parts[0], parts.slice(1), {
       cwd: root,
     });
     // Concatenate all the console output.
