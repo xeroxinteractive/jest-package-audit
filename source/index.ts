@@ -140,17 +140,7 @@ export async function toPassPackageAudit(
         }
       }
 
-      // exit code 0 and 8 indicates not a failure,
-      // exit code 1 is a failure but if there are no vulnerabilities
-      // and at least 1 allowed package then it should pass.
-      if (
-        !(
-          exitCode === 0 ||
-          exitCode === 8 ||
-          exitCode === 2 ||
-          (exitCode === 1 && allowed.length > 0 && vulnerabilities.length === 0)
-        )
-      ) {
+      if (vulnerabilities.length > allowed.length) {
         pass = false;
       }
     }

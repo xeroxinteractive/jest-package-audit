@@ -54,12 +54,6 @@ beforeEach(() => {
 });
 
 describe('fail states', () => {
-  test('no output exit code 1', async () => {
-    mockSpawn.sequence.add(mockSpawn.simple(1));
-    callCount++;
-    await expect({}).not.toPassPackageAudit();
-  });
-
   test('error thrown', async () => {
     mockSpawn.sequence.add({ throws: new Error('test error.') });
     callCount++;
