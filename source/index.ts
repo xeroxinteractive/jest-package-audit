@@ -46,6 +46,7 @@ export async function toPassPackageAudit(
   const command = getCommand(root, inputOptions);
   try {
     const parts = command.split(' ');
+    console.log({ command, root });
     const child = spawn(parts[0], parts.slice(1), {
       cwd: root,
     });
