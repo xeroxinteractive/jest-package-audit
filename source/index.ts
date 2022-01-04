@@ -54,6 +54,10 @@ export async function toPassPackageAudit(
       const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
       output = output ? Buffer.concat([output, buf]) : buf;
     });
+    child.stderr?.on('data', (chunk: Buffer | string): void => {
+      const buf = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+      output = output ? Buffer.concat([output, buf]) : buf;
+    });
 
     // Wait for the command to exit, and store the exit code.
     exitCode = await new Promise((resolve): void => {
