@@ -66,6 +66,8 @@ export async function toPassPackageAudit(
       });
     });
 
+    console.log({ exitCode });
+
     // Both NPM and YARN will have an exit code of 0 if there are no vulnerabilities
     // so this skips parsing the output.
     if (exitCode === 0) {
@@ -149,6 +151,7 @@ export async function toPassPackageAudit(
       }
     }
   } catch (e) {
+    console.error(e);
     pass = false;
     // Add the console output to the output message if it exists.
     output = /^\W*$/.test(output.toString())
