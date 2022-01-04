@@ -60,6 +60,12 @@ describe('fail states', () => {
     await expect({}).not.toPassPackageAudit();
   });
 
+  test('random output', async () => {
+    mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
+    callCount++;
+    await expect({}).not.toPassPackageAudit();
+  });
+
   describe.each(Object.values(PackageType))('%s table', (packageType) => {
     test('vulnerability output', async () => {
       mockSpawn.sequence.add(
@@ -123,12 +129,6 @@ describe('fail states', () => {
 describe('pass states', () => {
   test('no output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(0));
-    callCount++;
-    await expect({}).toPassPackageAudit();
-  });
-
-  test('random output', async () => {
-    mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
     callCount++;
     await expect({}).toPassPackageAudit();
   });
