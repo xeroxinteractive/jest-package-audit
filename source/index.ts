@@ -55,8 +55,7 @@ export async function toPassPackageAudit(
   };
 
   try {
-    const parts = command.split(' ');
-    const child = await execa(parts[0], parts.slice(1), {
+    const child = await execa.command(command, {
       cwd: root,
       all: true,
     });
