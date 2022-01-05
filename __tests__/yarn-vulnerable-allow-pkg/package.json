@@ -1,0 +1,6 @@
+{
+  "name": "npm-vulnerable",
+  "dependencies": {
+    "mem": "3.0.1"
+  }
+}
