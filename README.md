@@ -8,7 +8,6 @@
 [![commit style angular][commit-style-badge]][commit-style-link]
 [![semantic-release][semantic-release-badge]][semantic-release-link]
 [![tested with jest][jest-badge]][jest-link]
-[![Dependabot Status][dependabot-badge]][dependabot-link]
 
 The `yarn audit`, and `npm audit` commands are useful for detecting packages in use that have vulnerabilites. But they don't allow specific package filtering. For example you may have a vulnerability in a package you are only using in development, and the nature of that vulnerability is more often than not only unsafe when used in production. Updating the dependency to fix the vulnerability may break things. That is where `jest-package-audit` comes in, it wraps the `yarn audit` and `npm audit` commands and checks each vulnerabilty they flag against an array of allowed vulnerability names e.g. `['puppeteer']`.
 
@@ -93,9 +92,6 @@ Please be aware that we provide no liability for any security issues, or any oth
 
 [semantic-release-badge]: https://flat.badgen.net/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80/semantic%20release/e10079
 [semantic-release-link]: https://github.com/semantic-release/semantic-release
-
-[dependabot-badge]: https://flat.badgen.net/dependabot/xeroxinteractive/jest-package-audit?icon=dependabot
-[dependabot-link]: https://dependabot.com
 
 [jest-badge]: https://flat.badgen.net/badge/tested%20with/jest/99424f
 [jest-link]: https://github.com/facebook/jest
