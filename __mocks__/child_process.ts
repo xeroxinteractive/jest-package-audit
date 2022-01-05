@@ -7,6 +7,4 @@ mockSpawn.setSignals({
 
 const original = jest.requireActual('child_process');
 
-original.spawn = mockSpawn;
-
-export = original;
+export = { ...original, spawn: mockSpawn };

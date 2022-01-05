@@ -1,63 +1,49 @@
 jest.mock('child_process');
 jest.mock('pkg-dir');
 import pkgDir from 'pkg-dir';
-import CliTable3, { TableConstructorOptions } from 'cli-table3';
 import { mocked } from 'ts-jest/utils';
 import { Main } from 'mock-spawn';
 const childProcess = jest.requireMock('child_process') as {
   spawn: Main;
 };
+import yarnData from './__fixtures__/yarn/data.json';
+import yarnSummary from './__fixtures__/yarn/summary.json';
+import npmData from './__fixtures__/npm/data.json';
 
 const { spawn: mockSpawn } = childProcess;
 const mockPkgDir = mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
-import { Severity } from '../static';
+import { PackageJSONFields, Severity } from '../static';
 expect.extend({ toPassPackageAudit });
 
-enum TableType {
-  DEFAULT = 'default',
-  NO_UNICODE = 'no unicode',
+enum PackageType {
+  YARN = 'yarn',
+  NPM = 'npm',
 }
 
-const blankChars = {
-  top: ' ',
-  'top-mid': ' ',
-  'top-left': ' ',
-  'top-right': ' ',
-  bottom: ' ',
-  'bottom-mid': ' ',
-  'bottom-left': ' ',
-  'bottom-right': ' ',
-  left: ' ',
-  'left-mid': ' ',
-  mid: ' ',
-  'mid-mid': ' ',
-  right: ' ',
-  'right-mid': ' ',
-  middle: ' ',
-};
-
-function createTable(
+function createJSON(
   pkg: string,
-  type: TableType,
+  type: PackageType,
   severity = Severity.INFO
 ): string {
-  const tableOptions: TableConstructorOptions = {
-    colWidths: [15, 62],
-    wordWrap: true,
-  };
-  if (type === TableType.NO_UNICODE) {
-    tableOptions.chars = blankChars;
+  const yarnPkgJSON: PackageJSONFields = yarnData;
+  const yarnPkgSummaryJSON: PackageJSONFields = yarnSummary;
+  const npmPkgJSON: PackageJSONFields = npmData;
+
+  if (type === 'yarn') {
+    yarnPkgJSON.data.advisory.module_name = pkg;
+    yarnPkgJSON.data.advisory.severity = severity;
+  } else {
+    npmPkgJSON.advisories['1084'].module_name = pkg;
+    npmPkgJSON.advisories['1084'].severity = severity;
   }
-  const table = new CliTable3(tableOptions);
-  table.push([severity, 'Arbitrary File Overwrite']);
-  table.push(['Package', pkg]);
-  table.push(['Patched in', 'version']);
-  table.push(['Dependency of', 'package']);
-  table.push(['Path', 'path']);
-  table.push(['More info', 'link']);
-  return table.toString();
+
+  const data =
+    type === 'yarn'
+      ? JSON.stringify(yarnPkgJSON) + JSON.stringify(yarnPkgSummaryJSON)
+      : JSON.stringify(npmPkgJSON);
+  return data;
 }
 
 let callCount = 0;
@@ -68,22 +54,22 @@ beforeEach(() => {
 });
 
 describe('fail states', () => {
-  test('no output exit code 1', async () => {
-    mockSpawn.sequence.add(mockSpawn.simple(1));
-    callCount++;
-    await expect({}).not.toPassPackageAudit();
-  });
-
   test('error thrown', async () => {
     mockSpawn.sequence.add({ throws: new Error('test error.') });
     callCount++;
     await expect({}).not.toPassPackageAudit();
   });
 
-  describe.each(Object.values(TableType))('%s table', (tableType) => {
+  test('random output', async () => {
+    mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
+    callCount++;
+    await expect({}).not.toPassPackageAudit();
+  });
+
+  describe.each(Object.values(PackageType))('%s table', (packageType) => {
     test('vulnerability output', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(8, createTable('module', tableType))
+        mockSpawn.simple(8, createJSON('module', packageType))
       );
       callCount++;
       await expect({}).not.toPassPackageAudit();
@@ -91,7 +77,7 @@ describe('fail states', () => {
 
     test('vulnerability output 1 allowed', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(1, createTable('module', tableType))
+        mockSpawn.simple(1, createJSON('module', packageType))
       );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
@@ -101,9 +87,9 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createTable('module', tableType) +
-            createTable('package', tableType) +
-            createTable('example', tableType)
+          createJSON('module', packageType) +
+            createJSON('package', packageType) +
+            createJSON('example', packageType)
         )
       );
       callCount++;
@@ -114,9 +100,9 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createTable('module', tableType) +
-            createTable('package', tableType) +
-            createTable('example', tableType)
+          createJSON('module', packageType) +
+            createJSON('package', packageType) +
+            createJSON('example', packageType)
         )
       );
       callCount++;
@@ -129,9 +115,9 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           1,
-          createTable('module', tableType, Severity.INFO) +
-            createTable('package', tableType, Severity.MODERATE) +
-            createTable('example', tableType, Severity.LOW)
+          createJSON('module', packageType, Severity.INFO) +
+            createJSON('package', packageType, Severity.MODERATE) +
+            createJSON('example', packageType, Severity.LOW)
         )
       );
       callCount++;
@@ -147,16 +133,10 @@ describe('pass states', () => {
     await expect({}).toPassPackageAudit();
   });
 
-  test('random output', async () => {
-    mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
-    callCount++;
-    await expect({}).toPassPackageAudit();
-  });
-
-  describe.each(Object.values(TableType))('%s table', (tableType) => {
+  describe.each(Object.values(PackageType))('%s table', (packageType) => {
     test('vulnerability output allowed', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(8, createTable('module', tableType))
+        mockSpawn.simple(8, createJSON('module', packageType))
       );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
@@ -164,7 +144,7 @@ describe('pass states', () => {
 
     test('vulnerability output allowed exit code 2', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(2, createTable('module', tableType))
+        mockSpawn.simple(2, createJSON('module', packageType))
       );
       callCount++;
       await expect({}).toPassPackageAudit({ allow: ['module'] });
@@ -174,9 +154,9 @@ describe('pass states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createTable('module', tableType) +
-            createTable('package', tableType) +
-            createTable('example', tableType)
+          createJSON('module', packageType) +
+            createJSON('package', packageType) +
+            createJSON('example', packageType)
         )
       );
       callCount++;
@@ -189,9 +169,9 @@ describe('pass states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           0,
-          createTable('module', tableType, Severity.INFO) +
-            createTable('package', tableType, Severity.MODERATE) +
-            createTable('example', tableType, Severity.LOW)
+          createJSON('module', packageType, Severity.INFO) +
+            createJSON('package', packageType, Severity.MODERATE) +
+            createJSON('example', packageType, Severity.LOW)
         )
       );
       callCount++;

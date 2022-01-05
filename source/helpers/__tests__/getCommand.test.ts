@@ -10,25 +10,25 @@ beforeEach(() => {
 });
 
 test('npm', () => {
-  expect(getCommand('', { yarn: false })).toBe('npm audit');
+  expect(getCommand('', { yarn: false })).toBe('npm audit --json');
 });
 
 test('npm --audit-level', () => {
   expect(
     getCommand('/path/to/root', { yarn: false, level: Severity.INFO })
-  ).toBe('npm audit');
+  ).toBe('npm audit --json');
   expect(
     getCommand('/path/to/root', { yarn: false, level: Severity.LOW })
-  ).toBe('npm audit --audit-level=low');
+  ).toBe('npm audit --json --audit-level=low');
   expect(
     getCommand('/path/to/root', { yarn: false, level: Severity.MODERATE })
-  ).toBe('npm audit --audit-level=moderate');
+  ).toBe('npm audit --json --audit-level=moderate');
   expect(
     getCommand('/path/to/root', { yarn: false, level: Severity.HIGH })
-  ).toBe('npm audit --audit-level=high');
+  ).toBe('npm audit --json --audit-level=high');
   expect(
     getCommand('/path/to/root', { yarn: false, level: Severity.CRITICAL })
-  ).toBe('npm audit --audit-level=critical');
+  ).toBe('npm audit --json --audit-level=critical');
 });
 
 test('npm --only', () => {
@@ -37,32 +37,32 @@ test('npm --only', () => {
       yarn: false,
       dependencyType: 'devDependencies',
     })
-  ).toBe('npm audit --only=dev');
+  ).toBe('npm audit --json --only=dev');
   expect(getCommand('/path/to/root', { dependencyType: 'dependencies' })).toBe(
-    'npm audit --only=prod'
+    'npm audit --json --only=prod'
   );
 });
 
 test('yarn', () => {
-  expect(getCommand('', { yarn: true })).toBe('yarn audit');
+  expect(getCommand('', { yarn: true })).toBe('yarn audit --json');
 });
 
 test('yarn --level', () => {
   expect(
     getCommand('/path/to/root', { yarn: true, level: Severity.INFO })
-  ).toBe('yarn audit --level info');
+  ).toBe('yarn audit --json --level info');
   expect(getCommand('/path/to/root', { yarn: true, level: Severity.LOW })).toBe(
-    'yarn audit --level low'
+    'yarn audit --json --level low'
   );
   expect(
     getCommand('/path/to/root', { yarn: true, level: Severity.MODERATE })
-  ).toBe('yarn audit --level moderate');
+  ).toBe('yarn audit --json --level moderate');
   expect(
     getCommand('/path/to/root', { yarn: true, level: Severity.HIGH })
-  ).toBe('yarn audit --level high');
+  ).toBe('yarn audit --json --level high');
   expect(
     getCommand('/path/to/root', { yarn: true, level: Severity.CRITICAL })
-  ).toBe('yarn audit --level critical');
+  ).toBe('yarn audit --json --level critical');
 });
 
 test('npm --groups', () => {
@@ -71,10 +71,10 @@ test('npm --groups', () => {
       yarn: true,
       dependencyType: 'devDependencies',
     })
-  ).toBe('yarn audit --groups devDependencies');
+  ).toBe('yarn audit --json --groups devDependencies');
   expect(
     getCommand('/path/to/root', { yarn: true, dependencyType: 'dependencies' })
-  ).toBe('yarn audit --groups dependencies');
+  ).toBe('yarn audit --json --groups dependencies');
 });
 
 test('command takes precedence', () => {
