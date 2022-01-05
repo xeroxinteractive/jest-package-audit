@@ -1,3 +1,29 @@
+# [4.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.2.0...v4.0.0) (2022-01-05)
+
+
+* Open up node version range + dependency updates + allow function + Node 14/16 + JSON output parsing (#523) ([43a1edb](https://github.com/xeroxinteractive/jest-package-audit/commit/43a1edb)), closes [#523](https://github.com/xeroxinteractive/jest-package-audit/issues/523) [#588](https://github.com/xeroxinteractive/jest-package-audit/issues/588) [#589](https://github.com/xeroxinteractive/jest-package-audit/issues/589)
+
+
+### Bug Fixes
+
+* linting issues ([689cff7](https://github.com/xeroxinteractive/jest-package-audit/commit/689cff7))
+* open up node versions ([5ebfeb0](https://github.com/xeroxinteractive/jest-package-audit/commit/5ebfeb0))
+
+
+### Features
+
+* allow function + parse JSON output ([#588](https://github.com/xeroxinteractive/jest-package-audit/issues/588)) ([6499e62](https://github.com/xeroxinteractive/jest-package-audit/commit/6499e62))
+
+
+### BREAKING CHANGES
+
+* Node.js > 14 now required.
+
+Co-authored-by: luxtron <rafael.almeria@xerox.com>
+* Node.js > 14 now required.
+
+Co-authored-by: luxtron <rafael.almeria@xerox.com>
+
 # [3.2.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.1.2...v3.2.0) (2020-10-27)
 
 
