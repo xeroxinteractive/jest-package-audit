@@ -54,8 +54,8 @@ export default function parseOutput(
     }
   }
 
-  const vulnerabilities: string[] = [];
-  const allowed: string[] = [];
+  const vulnerabilities = new Set<string>();
+  const allowed = new Set<string>();
 
   // Loop over all the table package matches, adding vulnerabilities where appropriate.
   for (const match of matches) {
@@ -66,27 +66,28 @@ export default function parseOutput(
       if (outputOptions && outputOptions.allow) {
         if (typeof outputOptions.allow === 'function') {
           if (outputOptions.allow(match)) {
-            if (!allowed.includes(pkg)) {
-              allowed.push(pkg);
-            }
-          }
-        } else {
-          if (!outputOptions.allow.includes(pkg)) {
-            if (!vulnerabilities.includes(pkg)) {
-              vulnerabilities.push(pkg);
-            }
+            allowed.add(pkg);
+            continue;
           } else {
-            if (!allowed.includes(pkg)) {
-              allowed.push(pkg);
-            }
+            vulnerabilities.add(pkg);
+            continue;
           }
-        }
-      } else {
-        if (!vulnerabilities.includes(pkg)) {
-          vulnerabilities.push(pkg);
+        } else if (Array.isArray(outputOptions.allow)) {
+          if (outputOptions.allow.includes(pkg)) {
+            allowed.add(pkg);
+            continue;
+          } else {
+            vulnerabilities.add(pkg);
+            continue;
+          }
         }
       }
+      vulnerabilities.add(pkg);
     }
   }
-  return { vulnerabilities, allowed };
+
+  return {
+    vulnerabilities: Array.from(vulnerabilities),
+    allowed: Array.from(allowed),
+  };
 }

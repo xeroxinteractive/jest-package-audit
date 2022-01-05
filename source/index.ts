@@ -95,29 +95,20 @@ export async function toPassPackageAudit(
     }
   }
 
-  if (vulnerabilities.length > allowed.length) {
+  if (vulnerabilities.length) {
     pass = false;
   }
-  if (!vulnerabilities.length && !allowed.length) {
-    if (pass) {
-      return {
-        message: (): string =>
-          `expected ${command} to fail but it passed with output:\n\n${output}`,
-        pass: true,
-      };
-    } else {
-      return {
-        message: (): string =>
-          `expected ${command} to pass but it failed with output:\n\n${output}`,
-        pass: false,
-      };
-    }
-  }
+
+  const allowedMessage = allowed.length
+    ? `, ${allowed.map((v): string => `'${v}'`).join(' and ')} ${
+        allowed.length === 1 ? 'was' : 'were'
+      } manually allowed`
+    : '';
 
   if (pass) {
     return {
       message: (): string =>
-        `expected package audit to have vulnerabilities\n\n${command} output:\n\n${output}`,
+        `expected package audit to have vulnerabilities${allowedMessage}`,
       pass: true,
     };
   } else {
@@ -125,7 +116,7 @@ export async function toPassPackageAudit(
       message: (): string =>
         `expected package audit not to have vulnerabilities for ${vulnerabilities
           .map((v): string => `'${v}'`)
-          .join(' and ')}\n\n${command} output:\n\n${output}`,
+          .join(' and ')}${allowedMessage}`,
       pass: false,
     };
   }
