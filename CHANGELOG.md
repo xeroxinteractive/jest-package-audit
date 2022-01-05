@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v4.0.0...v4.0.1) (2022-01-05)
+
+
+### Bug Fixes
+
+* allow checking pass condition ([5011f91](https://github.com/xeroxinteractive/jest-package-audit/commit/5011f91))
+
 # [4.0.0](https://github.com/xeroxinteractive/jest-package-audit/compare/v3.2.0...v4.0.0) (2022-01-05)
 
 
