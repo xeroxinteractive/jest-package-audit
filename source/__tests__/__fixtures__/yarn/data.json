@@ -1,44 +1,53 @@
 {
-  "type":"auditAdvisory",
-  "data":{
-      "resolution":{
-          "id":1084,"path":"mem","dev":false,"optional":false,"bundled":false
+  "type": "auditAdvisory",
+  "data": {
+    "resolution": {
+      "id": 1084,
+      "path": "mem",
+      "dev": false,
+      "optional": false,
+      "bundled": false
+    },
+    "advisory": {
+      "findings": [
+        {
+          "version": "3.0.1",
+          "paths": [
+            "mem"
+          ]
+        }
+      ],
+      "id": 1084,
+      "created": "2019-07-18T21:30:31.935Z",
+      "updated": "2019-11-19T23:31:37.349Z",
+      "deleted": null,
+      "title": "Denial of Service",
+      "found_by": {
+        "link": "",
+        "name": "Juan Campa",
+        "email": ""
       },
-      "advisory":{
-          "findings":[
-              {"version":"3.0.1","paths":["mem"]}
-          ],
-          "id":1084,
-          "created":"2019-07-18T21:30:31.935Z",
-          "updated":"2019-11-19T23:31:37.349Z",
-          "deleted":null,
-          "title":"Denial of Service",
-          "found_by":{
-              "link":"",
-              "name":"Juan Campa",
-              "email":""
-          },
-          "reported_by":{
-              "link":"",
-              "name":"Juan Campa",
-              "email":""
-          },
-          "module_name":"mem",
-          "cves":[],
-          "vulnerable_versions":"<4.0.0",
-          "patched_versions":">=4.0.0",
-          "overview":"Versions of `mem` prior to 4.0.0 are vulnerable to Denial of Service (DoS).  The package fails to remove old values from the cache even after a value passes its `maxAge` property. This may allow attackers to exhaust the system's memory if they are able to abuse the application logging.",
-          "recommendation":"Upgrade to version 4.0.0 or later.",
-          "references":"- [Snyk Report](https://snyk.io/vuln/npm:mem:20180117)",
-          "access":"public",
-          "severity":"low",
-          "cwe":"CWE-400",
-          "metadata":{
-              "module_type":"",
-              "exploitability":2,
-              "affected_components":""
-          },
-          "url":"https://npmjs.com/advisories/1084"
-      }
+      "reported_by": {
+        "link": "",
+        "name": "Juan Campa",
+        "email": ""
+      },
+      "module_name": "mem",
+      "cves": [],
+      "vulnerable_versions": "<4.0.0",
+      "patched_versions": ">=4.0.0",
+      "overview": "Versions of `mem` prior to 4.0.0 are vulnerable to Denial of Service (DoS).  The package fails to remove old values from the cache even after a value passes its `maxAge` property. This may allow attackers to exhaust the system's memory if they are able to abuse the application logging.",
+      "recommendation": "Upgrade to version 4.0.0 or later.",
+      "references": "- [Snyk Report](https://snyk.io/vuln/npm:mem:20180117)",
+      "access": "public",
+      "severity": "low",
+      "cwe": "CWE-400",
+      "metadata": {
+        "module_type": "",
+        "exploitability": 2,
+        "affected_components": ""
+      },
+      "url": "https://npmjs.com/advisories/1084"
+    }
   }
 }

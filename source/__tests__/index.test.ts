@@ -14,7 +14,7 @@ const { spawn: mockSpawn } = childProcess;
 const mockPkgDir = mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
-import { PackageJSONFields, Severity } from '../static';
+import { Severity } from '../static';
 expect.extend({ toPassPackageAudit });
 
 enum PackageType {
@@ -27,9 +27,9 @@ function createJSON(
   type: PackageType,
   severity = Severity.INFO
 ): string {
-  const yarnPkgJSON: PackageJSONFields = yarnData;
-  const yarnPkgSummaryJSON: PackageJSONFields = yarnSummary;
-  const npmPkgJSON: PackageJSONFields = npmData;
+  const yarnPkgJSON = yarnData;
+  const yarnPkgSummaryJSON = yarnSummary;
+  const npmPkgJSON = npmData;
 
   if (type === 'yarn') {
     yarnPkgJSON.data.advisory.module_name = pkg;
