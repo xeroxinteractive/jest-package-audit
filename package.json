@@ -68,8 +68,8 @@
   },
   "devDependencies": {
     "@auto-it/slack": "10.32.5",
-    "@types/jest": "26.0.20",
-    "@types/node": "12.20.4",
+    "@types/jest": "26.0.24",
+    "@types/node": "12.20.41",
     "@xerox/eslint-config": "4.0.0",
     "@xerox/prettier-config": "3.0.0",
     "auto": "10.32.5",
@@ -95,7 +95,7 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
-    "@types/node": "12.20.4",
+    "@types/node": "12.20.41",
     "dot-prop": ">= 5.1.1"
   },
   "auto": {
