@@ -1214,10 +1214,10 @@
     react "^17.0.1"
     typescript "^4.1.2"
 
-"@xerox/prettier-config@2.2.6":
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-2.2.6.tgz#02662f36fbff21393f1a487ad2a539fde24103b9"
-  integrity sha512-yQtaBkqCQ3ns0kqU3ztGdN9djFPxCPLatfi9FLEJMLC25mzR90uadJp6D2wWmT6hHYkC5OQfvj3oMVJMHMIPDg==
+"@xerox/prettier-config@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-3.0.0.tgz#190ec77286f2a8afda6b80509201a39da6459f54"
+  integrity sha512-3lalQqT+UCrnkuHQ/Ni3io+WOmr2Witbk8CmChVuqE+Yia5erK5CKBgCAWYgJaCkCYKwiTfWX0YNDwMc2RqrEA==
 
 abab@^2.0.3:
   version "2.0.3"
