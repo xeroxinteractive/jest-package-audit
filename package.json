@@ -70,16 +70,16 @@
     "auto": "10.32.5",
     "@types/jest": "26.0.20",
     "@types/node": "12.20.4",
-    "@xerox/eslint-config": "3.2.0",
+    "@xerox/eslint-config": "3.3.0",
     "@xerox/prettier-config": "2.2.6",
     "cli-table3": "0.6.0",
-    "eslint": "7.20.0",
+    "eslint": "7.32.0",
     "jest": "26.6.3",
     "jest-circus": "26.6.3",
     "mock-spawn": "0.2.6",
-    "prettier": "2.2.1",
-    "ts-jest": "26.5.1",
-    "typescript": "4.1.5"
+    "prettier": "2.5.1",
+    "ts-jest": "26.5.6",
+    "typescript": "4.5.4"
   },
   "dependencies": {
     "execa": "^5.1.1",
