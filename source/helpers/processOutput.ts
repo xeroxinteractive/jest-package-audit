@@ -34,7 +34,7 @@ export default function parseOutput(
         packageData: row,
       });
     } else if (row && 'advisories' in row) {
-      // Process npm audit --json.
+      // Process npm audit report version 1
       let name = '';
       let severity = '';
       for (const key in row.advisories) {
@@ -43,13 +43,35 @@ export default function parseOutput(
           name = item.module_name;
           severity = item.severity;
         }
+        if (name && severity) {
+          matches.push({
+            packageName: name,
+            packageSeverity: severity,
+            packageData: item,
+          });
+        }
       }
-      if (name && severity) {
-        matches.push({
-          packageName: name,
-          packageSeverity: severity,
-          packageData: row,
-        });
+    } else if (
+      row &&
+      'auditReportVersion' in row &&
+      row.auditReportVersion === 2
+    ) {
+      // Process npm audit report version 2
+      let name = '';
+      let severity = '';
+      for (const key in row.vulnerabilities) {
+        const item = row.vulnerabilities[key];
+        if (item?.name && item?.severity) {
+          name = item.name;
+          severity = item.severity;
+        }
+        if (name && severity) {
+          matches.push({
+            packageName: name,
+            packageSeverity: severity,
+            packageData: item,
+          });
+        }
       }
     }
   }
