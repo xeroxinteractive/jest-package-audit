@@ -83,7 +83,7 @@
     "typescript": "4.5.4"
   },
   "dependencies": {
-    "execa": "^5.1.1",
+    "execa": "^6.0.0",
     "pkg-dir": "^5.0.0"
   },
   "resolutions": {
