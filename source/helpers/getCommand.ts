@@ -14,7 +14,7 @@ export default function getCommand(
   if (inputOptions.command) {
     return inputOptions.command;
   }
-  const { yarn, level, dependencyType } = inputOptions || {};
+  const { yarn, level, dependencyType } = inputOptions;
   let command;
   if (yarn) {
     command = 'yarn audit --json';

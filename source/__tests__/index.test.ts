@@ -3,9 +3,9 @@ jest.mock('pkg-dir');
 import pkgDir from 'pkg-dir';
 import { mocked } from 'ts-jest/utils';
 import { Main } from 'mock-spawn';
-const childProcess = jest.requireMock('child_process') as {
+const childProcess: {
   spawn: Main;
-};
+} = jest.requireMock('child_process');
 import yarnData from './__fixtures__/yarn/data.json';
 import yarnSummary from './__fixtures__/yarn/summary.json';
 import npmData from './__fixtures__/npm/data.json';

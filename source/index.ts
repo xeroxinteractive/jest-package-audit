@@ -45,12 +45,17 @@ export async function toPassPackageAudit(
   }
   const command = getCommand(root, inputOptions);
 
-  const handleError = (error: unknown) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleError = (error: any) => {
     pass = false;
     if (isExecaError(error)) {
       output = error.shortMessage;
     } else {
-      output = `Command failed: ${command}\n${error}`;
+      if (error && (error instanceof Error || typeof error === 'string')) {
+        output = `Command failed: ${command}\n${error.toString()}`;
+      } else {
+        output = `Command failed`;
+      }
     }
   };
 

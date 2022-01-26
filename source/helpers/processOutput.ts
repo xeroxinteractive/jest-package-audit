@@ -2,6 +2,9 @@ import { InputOptions, OutputOptions } from 'source';
 import { PackageJSONFields } from 'source/static';
 import severityGreater from './severityGreater';
 
+// CLI output is very much unknown, so over-checking is probably sensible.
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+
 /**
  * Parses the CLI output, returning vulnerabilities and allowed package names.
  *
@@ -17,7 +20,7 @@ export default function parseOutput(
 ): { vulnerabilities: string[]; allowed: string[] } {
   const outputString = output?.toString().replace(/}\s*{/g, '},{');
   const correctedOutputString = `[${outputString}]`;
-  const rows: PackageJSONFields[] = JSON.parse(correctedOutputString);
+  const rows = JSON.parse(correctedOutputString) as PackageJSONFields[];
 
   const matches = [];
   for (const row of rows) {
