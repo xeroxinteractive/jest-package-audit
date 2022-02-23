@@ -70,7 +70,7 @@
     "@auto-it/slack": "10.32.6",
     "@types/jest": "27.4.0",
     "@types/node": "16.11.25",
-    "@xerox/eslint-config": "4.1.0",
+    "@xerox/eslint-config": "4.1.1",
     "@xerox/prettier-config": "3.0.0",
     "auto": "10.32.6",
     "cli-table3": "0.6.1",
