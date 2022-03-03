@@ -1182,6 +1182,11 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/prettier@*":
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.4.tgz#5d9b63132df54d8909fce1c3f8ca260fdd693e17"
+  integrity sha512-ReVR2rLTV1kvtlWFyuot+d1pkpG2Fw/XKE3PDAdj57rbM97ttSp9JZ2UsP+2EHTylra9cUf6JA7tGwW1INzUrA==
+
 "@types/prettier@^2.1.5":
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.4.2.tgz#4c62fae93eb479660c3bd93f9d24d561597a8281"
@@ -1364,10 +1369,12 @@
     react "^17.0.1"
     typescript "^4.1.2"
 
-"@xerox/prettier-config@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-3.0.0.tgz#190ec77286f2a8afda6b80509201a39da6459f54"
-  integrity sha512-3lalQqT+UCrnkuHQ/Ni3io+WOmr2Witbk8CmChVuqE+Yia5erK5CKBgCAWYgJaCkCYKwiTfWX0YNDwMc2RqrEA==
+"@xerox/prettier-config@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@xerox/prettier-config/-/prettier-config-4.0.0.tgz#2b713369e81a730b6700d54209c2ac2f227cdf7b"
+  integrity sha512-1ngl7Eq9+JtPrw1YJAbyfVCWjrP3KH1N13pdCVYg9s1aqxXS5t4cHNcIbPEg++WKFGnindNFgYJIxoNi5nZ4KA==
+  dependencies:
+    "@types/prettier" "*"
 
 abab@^2.0.3:
   version "2.0.3"
