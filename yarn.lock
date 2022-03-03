@@ -1343,10 +1343,10 @@
     "@typescript-eslint/types" "5.9.0"
     eslint-visitor-keys "^3.0.0"
 
-"@xerox/eslint-config@4.1.1":
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/@xerox/eslint-config/-/eslint-config-4.1.1.tgz#21de76f7f9474129cbb4f5b635d4f8ae206cfe45"
-  integrity sha512-e/G6OBPitWM87+hZ57Zdb/JR9suEOmtKgBMis5C5/ppCzWEAwCuLqO7rFwOLIbWutO+H07INzCYJnFbJgsa2FQ==
+"@xerox/eslint-config@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@xerox/eslint-config/-/eslint-config-5.0.0.tgz#a942d11c180288a19a46ffdeafef441749c852d1"
+  integrity sha512-MpSJx1YpQYp1jF6mFZrf+0DuoiN58kR/Us4B9wGHkcN0TdUbJsGAIQvVVwsdW1J1l0yOq1hW00P8FdXaKs9Elg==
   dependencies:
     "@types/react" "^17.0.0"
     "@typescript-eslint/eslint-plugin" "^5.0.0"
