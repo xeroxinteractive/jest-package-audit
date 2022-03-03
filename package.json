@@ -71,7 +71,7 @@
     "@types/jest": "27.4.1",
     "@types/node": "16.11.26",
     "@xerox/eslint-config": "5.0.0",
-    "@xerox/prettier-config": "3.0.0",
+    "@xerox/prettier-config": "4.0.0",
     "auto": "10.32.6",
     "cli-table3": "0.6.1",
     "eslint": "8.10.0",
