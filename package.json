@@ -67,12 +67,12 @@
     "jest": ">=20"
   },
   "devDependencies": {
-    "@auto-it/slack": "10.32.6",
+    "@auto-it/slack": "10.34.1",
     "@types/jest": "27.4.1",
     "@types/node": "16.11.26",
     "@xerox/eslint-config": "5.0.0",
     "@xerox/prettier-config": "4.0.0",
-    "auto": "10.32.6",
+    "auto": "10.34.1",
     "cli-table3": "0.6.1",
     "eslint": "8.10.0",
     "jest": "27.5.1",
