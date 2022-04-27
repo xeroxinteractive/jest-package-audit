@@ -74,7 +74,7 @@
     "@xerox/prettier-config": "4.0.0",
     "auto": "10.36.5",
     "cli-table3": "0.6.2",
-    "eslint": "8.13.0",
+    "eslint": "8.14.0",
     "jest": "27.5.1",
     "jest-circus": "27.5.1",
     "mock-spawn": "0.2.6",
