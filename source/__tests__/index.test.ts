@@ -1,7 +1,6 @@
 jest.mock('child_process');
 jest.mock('pkg-dir');
 import pkgDir from 'pkg-dir';
-import { mocked } from 'ts-jest/utils';
 import { Main } from 'mock-spawn';
 const childProcess: {
   spawn: Main;
@@ -11,7 +10,7 @@ import yarnSummary from './__fixtures__/yarn/summary.json';
 import npmData from './__fixtures__/npm/data.json';
 
 const { spawn: mockSpawn } = childProcess;
-const mockPkgDir = mocked(pkgDir, true);
+const mockPkgDir = jest.mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
 import { Severity } from '../static';
