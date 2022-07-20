@@ -1,5 +1,5 @@
 {
-  "name": "yarn-vulnerable",
+  "name": "pnpm-vulnerable",
   "dependencies": {
     "mem": "3.0.1"
   }
