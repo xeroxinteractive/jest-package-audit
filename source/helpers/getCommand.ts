@@ -1,4 +1,4 @@
-import { InputOptions } from 'source/static';
+import { InputOptionsWithPackageManager, Severity } from '../static';
 
 /**
  * Gets the audit command string from the given options.
@@ -9,31 +9,50 @@ import { InputOptions } from 'source/static';
  */
 export default function getCommand(
   root: string,
-  inputOptions: InputOptions
+  inputOptions: InputOptionsWithPackageManager
 ): string {
   if (inputOptions.command) {
     return inputOptions.command;
   }
-  const { yarn, level, dependencyType } = inputOptions;
+  let { packageManager, level, dependencyType } = inputOptions;
   let command;
-  if (yarn) {
-    command = 'yarn audit --json';
-    if (level) {
-      command += ` --level ${level}`;
+  switch (packageManager) {
+    case 'npm': {
+      command = 'npm audit --json';
+      if (level && level !== 'info') {
+        command += ` --audit-level=${level}`;
+      }
+      if (dependencyType === 'dependencies') {
+        command += ` --only=prod`;
+      } else if (dependencyType === 'devDependencies') {
+        command += ` --only=dev`;
+      }
+      return command;
     }
-    if (dependencyType) {
-      command += ` --groups ${dependencyType}`;
+    case 'yarn': {
+      command = 'yarn audit --json';
+      if (level) {
+        command += ` --level ${level}`;
+      }
+      if (dependencyType) {
+        command += ` --groups ${dependencyType}`;
+      }
+      return command;
     }
-  } else {
-    command = 'npm audit --json';
-    if (level && level !== 'info') {
-      command += ` --audit-level=${level}`;
-    }
-    if (dependencyType === 'dependencies') {
-      command += ` --only=prod`;
-    } else if (dependencyType === 'devDependencies') {
-      command += ` --only=dev`;
+    case 'pnpm': {
+      command = 'pnpm audit --json';
+      if (level === 'info') {
+        level = Severity.LOW;
+      }
+      if (level && level !== 'low') {
+        command += ` --audit-level ${level}`;
+      }
+      if (dependencyType === 'dependencies') {
+        command += ` --prod`;
+      } else if (dependencyType === 'devDependencies') {
+        command += ` --dev`;
+      }
+      return command;
     }
   }
-  return command;
 }

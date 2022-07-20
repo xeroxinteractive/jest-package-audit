@@ -1,0 +1,70 @@
+{
+  "actions": [
+    {
+      "action": "review",
+      "module": "mem",
+      "resolves": [
+        {
+          "id": 1069557,
+          "path": ".>mem",
+          "dev": false,
+          "optional": false,
+          "bundled": false
+        }
+      ]
+    }
+  ],
+  "advisories": {
+    "1069557": {
+      "findings": [
+        {
+          "version": "3.0.1",
+          "paths": [
+            ".>mem"
+          ]
+        }
+      ],
+      "metadata": null,
+      "vulnerable_versions": "<4.0.0",
+      "module_name": "mem",
+      "severity": "moderate",
+      "github_advisory_id": "GHSA-4xcv-9jjx-gfj3",
+      "cves": [],
+      "access": "public",
+      "patched_versions": ">=4.0.0",
+      "cvss": {
+        "score": 5.1,
+        "vectorString": "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N"
+      },
+      "updated": "2021-08-17T15:44:45.000Z",
+      "recommendation": "Upgrade to version 4.0.0 or later",
+      "cwe": [
+        "CWE-400"
+      ],
+      "found_by": null,
+      "deleted": null,
+      "id": 1069557,
+      "references": "- https://github.com/sindresorhus/mem/commit/da4e4398cb27b602de3bd55f746efa9b4a31702b\n- https://bugzilla.redhat.com/show_bug.cgi?id=1623744\n- https://www.npmjs.com/advisories/1084\n- https://snyk.io/vuln/npm:mem:20180117\n- https://github.com/advisories/GHSA-4xcv-9jjx-gfj3",
+      "created": "2019-07-05T21:07:58.000Z",
+      "reported_by": null,
+      "title": "Denial of Service in mem",
+      "npm_advisory_id": null,
+      "overview": "Versions of `mem` prior to 4.0.0 are vulnerable to Denial of Service (DoS).  The package fails to remove old values from the cache even after a value passes its `maxAge` property. This may allow attackers to exhaust the system's memory if they are able to abuse the application logging.\n\n\n## Recommendation\n\nUpgrade to version 4.0.0 or later.",
+      "url": "https://github.com/advisories/GHSA-4xcv-9jjx-gfj3"
+    }
+  },
+  "muted": [],
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 1,
+      "high": 0,
+      "critical": 0
+    },
+    "dependencies": 873,
+    "devDependencies": 0,
+    "optionalDependencies": 0,
+    "totalDependencies": 873
+  }
+}
