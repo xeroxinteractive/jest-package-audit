@@ -9,11 +9,16 @@ declare global {
 
 import execa from 'execa';
 import pkgDir from 'pkg-dir';
-import { InputOptions, OutputOptions } from './static';
+import {
+  InputOptions,
+  InputOptionsWithPackageManager,
+  isSupportedPackageManager,
+  OutputOptions,
+} from './static';
 import getCommand from './helpers/getCommand';
-import isYarn from './helpers/isYarn';
 import processOutput from './helpers/processOutput';
 import isExecaError from './helpers/isExecaError';
+import { detect } from '@antfu/ni';
 
 export { InputOptions, OutputOptions };
 
@@ -40,17 +45,39 @@ export async function toPassPackageAudit(
   if (!root) {
     throw new Error('Cannot find project root.');
   }
-  if (typeof inputOptions.yarn === 'undefined') {
-    inputOptions.yarn = await isYarn(root);
+  if (typeof inputOptions.packageManager === 'undefined') {
+    const packageManager = await detect({ autoInstall: false, cwd: root });
+    if (isSupportedPackageManager(packageManager)) {
+      inputOptions.packageManager = packageManager;
+    }
   }
-  const command = getCommand(root, inputOptions);
 
-  const handleError = (error: unknown) => {
+  if (typeof inputOptions.packageManager === 'undefined') {
+    throw new Error(
+      'Unkown package manager, make sure you have some-sort of lockfile, or directly specify the `packageManager` option.'
+    );
+  }
+
+  const parsedInputOptions = inputOptions as InputOptionsWithPackageManager;
+
+  const command = getCommand(root, parsedInputOptions);
+
+  const handleError = (error: unknown): jest.CustomMatcherResult => {
     pass = false;
     if (isExecaError(error)) {
-      output = error.shortMessage;
+      return {
+        pass: false,
+        message: () => error.shortMessage,
+      };
     } else {
-      output = `Command failed: ${command}\n${error}`;
+      if (error && (error instanceof Error || typeof error === 'string')) {
+        return {
+          pass: false,
+          message: () => `Command failed: ${command}\n${error.toString()}`,
+        };
+      } else {
+        return { pass: false, message: () => `Command failed` };
+      }
     }
   };
 
@@ -69,7 +96,7 @@ export async function toPassPackageAudit(
       if (output) {
         ({ vulnerabilities, allowed } = processOutput(
           output,
-          inputOptions,
+          parsedInputOptions,
           outputOptions
         ));
       }
@@ -81,17 +108,17 @@ export async function toPassPackageAudit(
         if (output) {
           ({ vulnerabilities, allowed } = processOutput(
             output,
-            inputOptions,
+            parsedInputOptions,
             outputOptions
           ));
         } else if (error.exitCode !== 0) {
-          handleError(error);
+          return handleError(error);
         }
       } catch (error) {
-        handleError(error);
+        return handleError(error);
       }
     } else {
-      handleError(error);
+      return handleError(error);
     }
   }
 

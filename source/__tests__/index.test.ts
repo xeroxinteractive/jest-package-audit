@@ -1,49 +1,47 @@
 jest.mock('child_process');
 jest.mock('pkg-dir');
 import pkgDir from 'pkg-dir';
-import { mocked } from 'ts-jest/utils';
 import { Main } from 'mock-spawn';
-const childProcess = jest.requireMock('child_process') as {
+const childProcess: {
   spawn: Main;
-};
+} = jest.requireMock('child_process');
 import yarnData from './__fixtures__/yarn/data.json';
 import yarnSummary from './__fixtures__/yarn/summary.json';
 import npmData from './__fixtures__/npm/data.json';
+import pnpmData from './__fixtures__/pnpm/data.json';
 
 const { spawn: mockSpawn } = childProcess;
-const mockPkgDir = mocked(pkgDir, true);
+const mockPkgDir = jest.mocked(pkgDir, true);
 
 import { toPassPackageAudit } from '..';
-import { PackageJSONFields, Severity } from '../static';
+import { Severity, supportedPackageManagers } from '../static';
 expect.extend({ toPassPackageAudit });
-
-enum PackageType {
-  YARN = 'yarn',
-  NPM = 'npm',
-}
 
 function createJSON(
   pkg: string,
-  type: PackageType,
+  packageManager: typeof supportedPackageManagers[number],
   severity = Severity.INFO
 ): string {
-  const yarnPkgJSON: PackageJSONFields = yarnData;
-  const yarnPkgSummaryJSON: PackageJSONFields = yarnSummary;
-  const npmPkgJSON: PackageJSONFields = npmData;
-
-  if (type === 'yarn') {
-    yarnPkgJSON.data.advisory.module_name = pkg;
-    yarnPkgJSON.data.advisory.severity = severity;
-  } else {
-    npmPkgJSON.advisories['1084'].module_name = pkg;
-    npmPkgJSON.advisories['1084'].severity = severity;
+  switch (packageManager) {
+    case 'yarn': {
+      const data = { ...yarnData };
+      data.data.advisory.module_name = pkg;
+      data.data.advisory.severity = severity;
+      return JSON.stringify(data) + JSON.stringify(yarnSummary);
+    }
+    case 'npm': {
+      const data = npmData;
+      data.advisories['1084'].module_name = pkg;
+      data.advisories['1084'].severity = severity;
+      return JSON.stringify(data);
+    }
+    case 'pnpm': {
+      const data = pnpmData;
+      data.advisories['1069557'].module_name = pkg;
+      data.advisories['1069557'].severity = severity;
+      return JSON.stringify(data);
+    }
   }
-
-  const data =
-    type === 'yarn'
-      ? JSON.stringify(yarnPkgJSON) + JSON.stringify(yarnPkgSummaryJSON)
-      : JSON.stringify(npmPkgJSON);
-  return data;
 }
 
 let callCount = 0;
@@ -57,56 +55,58 @@ describe('fail states', () => {
   test('error thrown', async () => {
     mockSpawn.sequence.add({ throws: new Error('test error.') });
     callCount++;
-    await expect({}).not.toPassPackageAudit();
+    await expect({ packageManager: 'npm' }).not.toPassPackageAudit();
   });
 
   test('random output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(0, 'random test output'));
     callCount++;
-    await expect({}).not.toPassPackageAudit();
+    await expect({ packageManager: 'npm' }).not.toPassPackageAudit();
   });
 
-  describe.each(Object.values(PackageType))('%s table', (packageType) => {
+  describe.each(supportedPackageManagers)('%s table', (packageManager) => {
     test('vulnerability output', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(8, createJSON('module', packageType))
+        mockSpawn.simple(8, createJSON('module', packageManager))
       );
       callCount++;
-      await expect({}).not.toPassPackageAudit();
+      await expect({ packageManager }).not.toPassPackageAudit();
     });
 
     test('vulnerability output 1 allowed', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(1, createJSON('module', packageType))
+        mockSpawn.simple(1, createJSON('module', packageManager))
       );
       callCount++;
-      await expect({}).toPassPackageAudit({ allow: ['module'] });
+      await expect({ packageManager }).toPassPackageAudit({
+        allow: ['module'],
+      });
     });
 
     test('multiple vulnerability output', async () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createJSON('module', packageType) +
-            createJSON('package', packageType) +
-            createJSON('example', packageType)
+          createJSON('module', packageManager) +
+            createJSON('package', packageManager) +
+            createJSON('example', packageManager)
         )
       );
       callCount++;
-      await expect({}).not.toPassPackageAudit();
+      await expect({ packageManager }).not.toPassPackageAudit();
     });
 
     test('multiple vulnerability output 1 allowed', async () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createJSON('module', packageType) +
-            createJSON('package', packageType) +
-            createJSON('example', packageType)
+          createJSON('module', packageManager) +
+            createJSON('package', packageManager) +
+            createJSON('example', packageManager)
         )
       );
       callCount++;
-      await expect({}).not.toPassPackageAudit({
+      await expect({ packageManager }).not.toPassPackageAudit({
         allow: ['package'],
       });
     });
@@ -115,13 +115,16 @@ describe('fail states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           1,
-          createJSON('module', packageType, Severity.INFO) +
-            createJSON('package', packageType, Severity.MODERATE) +
-            createJSON('example', packageType, Severity.LOW)
+          createJSON('module', packageManager, Severity.INFO) +
+            createJSON('package', packageManager, Severity.MODERATE) +
+            createJSON('example', packageManager, Severity.LOW)
         )
       );
       callCount++;
-      await expect({ level: Severity.LOW }).not.toPassPackageAudit({});
+      await expect({
+        level: Severity.LOW,
+        packageManager,
+      }).not.toPassPackageAudit({});
     });
   });
 });
@@ -130,37 +133,41 @@ describe('pass states', () => {
   test('no output', async () => {
     mockSpawn.sequence.add(mockSpawn.simple(0));
     callCount++;
-    await expect({}).toPassPackageAudit();
+    await expect({ packageManager: 'npm' }).toPassPackageAudit();
   });
 
-  describe.each(Object.values(PackageType))('%s table', (packageType) => {
+  describe.each(supportedPackageManagers)('%s table', (packageManager) => {
     test('vulnerability output allowed', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(8, createJSON('module', packageType))
+        mockSpawn.simple(8, createJSON('module', packageManager))
       );
       callCount++;
-      await expect({}).toPassPackageAudit({ allow: ['module'] });
+      await expect({ packageManager }).toPassPackageAudit({
+        allow: ['module'],
+      });
     });
 
     test('vulnerability output allowed exit code 2', async () => {
       mockSpawn.sequence.add(
-        mockSpawn.simple(2, createJSON('module', packageType))
+        mockSpawn.simple(2, createJSON('module', packageManager))
       );
       callCount++;
-      await expect({}).toPassPackageAudit({ allow: ['module'] });
+      await expect({ packageManager }).toPassPackageAudit({
+        allow: ['module'],
+      });
     });
 
     test('multiple vulnerability output allowed', async () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           8,
-          createJSON('module', packageType) +
-            createJSON('package', packageType) +
-            createJSON('example', packageType)
+          createJSON('module', packageManager) +
+            createJSON('package', packageManager) +
+            createJSON('example', packageManager)
         )
       );
       callCount++;
-      await expect({}).toPassPackageAudit({
+      await expect({ packageManager }).toPassPackageAudit({
         allow: ['module', 'package', 'example'],
       });
     });
@@ -169,13 +176,15 @@ describe('pass states', () => {
       mockSpawn.sequence.add(
         mockSpawn.simple(
           0,
-          createJSON('module', packageType, Severity.INFO) +
-            createJSON('package', packageType, Severity.MODERATE) +
-            createJSON('example', packageType, Severity.LOW)
+          createJSON('module', packageManager, Severity.INFO) +
+            createJSON('package', packageManager, Severity.MODERATE) +
+            createJSON('example', packageManager, Severity.LOW)
         )
       );
       callCount++;
-      await expect({ level: Severity.HIGH }).toPassPackageAudit({});
+      await expect({ level: Severity.HIGH, packageManager }).toPassPackageAudit(
+        {}
+      );
     });
   });
 });
@@ -195,22 +204,5 @@ describe('options', () => {
       expect(call.args).toEqual(['audit']);
     }
     /* eslint-enable jest/no-conditional-expect */
-  });
-
-  test('cwd resolved', async () => {
-    mockPkgDir.mockReturnValueOnce(Promise.resolve('/resolved/cwd'));
-    mockSpawn.sequence.add(mockSpawn.simple(0));
-    await expect({ cwd: './' }).toPassPackageAudit();
-    expect(mockSpawn.calls.length).toBe(++callCount);
-    expect(mockSpawn.calls[callCount - 1].opts).toMatchObject({
-      cwd: '/resolved/cwd',
-    });
-  });
-
-  test('cwd not resolved', async () => {
-    mockPkgDir.mockReturnValue(Promise.resolve(undefined));
-    await expect(async () => {
-      await expect({ cwd: '/path/to/cwd' }).toPassPackageAudit();
-    }).rejects.toThrowError();
   });
 });

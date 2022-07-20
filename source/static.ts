@@ -1,3 +1,5 @@
+import { AuditReport } from '@pnpm/audit';
+
 export enum Severity {
   INFO = 'info',
   LOW = 'low',
@@ -6,9 +8,35 @@ export enum Severity {
   CRITICAL = 'critical',
 }
 
+export const supportedPackageManagers = ['npm', 'yarn', 'pnpm'] as const;
+
+/**
+ * Typeguard for supported package managers.
+ *
+ * @param packageManager - Package manager name to check.
+ * @returns Whether the given package manager is supported.
+ */
+export function isSupportedPackageManager(
+  packageManager: string | null | undefined
+): packageManager is typeof supportedPackageManagers[number] {
+  // includes() requires the type to only match, which obviously it doesn't.
+  return Boolean(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    packageManager && supportedPackageManagers.includes(packageManager as any)
+  );
+}
+
 export interface InputOptions {
   cwd?: string;
-  yarn?: boolean;
+  packageManager?: typeof supportedPackageManagers[number];
+  level?: Severity;
+  dependencyType?: 'devDependencies' | 'dependencies';
+  command?: string;
+}
+
+export interface InputOptionsWithPackageManager {
+  cwd?: string;
+  packageManager: typeof supportedPackageManagers[number];
   level?: Severity;
   dependencyType?: 'devDependencies' | 'dependencies';
   command?: string;
@@ -16,8 +44,11 @@ export interface InputOptions {
 
 export interface FilterOptions {
   packageName: string;
-  packageSeverity?: string;
-  packageData?: PackageJSONFields;
+  packageSeverity?: Severity | string;
+  packageData?:
+    | YarnAuditAdvisoryJSONFields
+    | NPMReportV2Vulnerability
+    | AuditReport['advisories'][number];
 }
 
 export interface OutputOptions {
@@ -78,7 +109,7 @@ export interface YarnAuditAdvisoryDataField {
 }
 
 export interface YarnAuditAdvisoryJSONFields {
-  type: string;
+  type: 'auditAdvisory';
   data: YarnAuditAdvisoryDataField;
 }
 
@@ -98,11 +129,6 @@ export interface PackageAuditSummaryDataField {
   totalDependencies: number;
 }
 
-export interface YarnAuditSummaryJSONFields {
-  type: string;
-  data: PackageAuditSummaryDataField;
-}
-
 export interface NPMAuditActionsResolvesField {
   id: number;
   path: string;
@@ -119,42 +145,61 @@ export interface NPMAuditActionsField {
   target: string;
 }
 
-export interface NPMAuditAdvisoryField {
-  findings: PackageAuditAdvisoryFindingsField[];
-  id: number;
-  created: string;
-  updated: string;
-  deleted: string | null;
+export interface NPMReportV2Metadata {
+  vulnerabilities: {
+    info: number;
+    low: number;
+    moderate: number;
+    high: number;
+    critical: number;
+    total: number;
+  };
+  dependencies: {
+    prod: number;
+    dev: number;
+    optional: number;
+    peer: number;
+    peerOptional: number;
+    total: number;
+  };
+}
+
+export interface NPMReportV2Advisory {
+  source: string;
+  name: string;
+  dependency: string;
   title: string;
-  found_by: PackageAuditAdvisoryFoundByField;
-  reported_by: PackageAuditAdvisoryFoundByField;
-  module_name: string;
-  cves: unknown[];
-  vulnerable_versions: string;
-  patched_versions: string;
-  overview: string;
-  recommendation: string;
-  references: string;
-  access: string;
-  severity: string;
-  cwe: string;
-  metadata: PackageAuditAdvisoryMetadataField;
   url: string;
+  severity: Severity;
+  range: string;
 }
 
-export interface NPMAuditAdvisoriesField {
-  [key: string]: NPMAuditAdvisoryField;
+export interface NPMReportV2Vulnerability {
+  name: string;
+  severity: Severity;
+  isDirect: boolean;
+  via: NPMReportV2Advisory[];
+  effects: unknown[];
+  range: string;
+  nodes: string[];
+  fixAvailable?: {
+    name: string;
+    version: string;
+    isSemVerMajor: boolean;
+  };
 }
 
-export interface NPMAuditJSONFields {
-  actions: NPMAuditActionsField[];
-  advisories: NPMAuditAdvisoriesField;
-  muted: unknown[];
-  metadata: PackageAuditSummaryDataField;
-  runId: string;
+export interface NPMReportV2AdvisoriesField {
+  [key: string]: NPMReportV2Vulnerability;
+}
+
+export interface NPMReportV2JSONFields {
+  auditReportVersion: 2;
+  vulnerabilities: NPMReportV2AdvisoriesField;
+  metadata: NPMReportV2Metadata;
 }
 
 export type PackageJSONFields =
   | YarnAuditAdvisoryJSONFields
-  | YarnAuditSummaryJSONFields
-  | NPMAuditJSONFields;
+  | NPMReportV2JSONFields
+  | AuditReport;

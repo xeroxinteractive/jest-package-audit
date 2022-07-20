@@ -1,6 +1,6 @@
 {
   "name": "jest-package-audit",
-  "version": "2.0.5",
+  "version": "4.0.1",
   "description": "Filter and retry yarn/npm audit command with Jest.",
   "keywords": [
     "jest",
@@ -26,7 +26,7 @@
     "lint": "eslint ./source/ --ext .ts",
     "type-check": "tsc",
     "format": "yarn run lint --fix",
-    "deploy": "semantic-release --branches release",
+    "deploy": "auto shipit",
     "prepublishOnly": "yarn run build"
   },
   "engines": {
@@ -37,16 +37,12 @@
   "browserslist": [
     "current node"
   ],
-  "commitlint": {
-    "extends": [
-      "@xerox/commitlint-config"
-    ]
-  },
   "prettier": "@xerox/prettier-config",
   "eslintConfig": {
     "extends": [
       "@xerox",
-      "@xerox/eslint-config/typescript"
+      "@xerox/eslint-config/typescript",
+      "@xerox/eslint-config/jest"
     ],
     "rules": {
       "jest/no-mocks-import": "off"
@@ -59,7 +55,6 @@
     "access": "public"
   },
   "jest": {
-    "testRunner": "jest-circus/runner",
     "preset": "ts-jest",
     "modulePathIgnorePatterns": [
       "package.json",
@@ -71,25 +66,23 @@
     "jest": ">=20"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^12.12.39",
-    "@xerox/commitlint-config": "^2.1.1",
-    "@xerox/eslint-config": "^3.1.3",
-    "@xerox/prettier-config": "^2.2.1",
-    "@xerox/semantic-release-config": "^2.3.1",
-    "cli-table3": "^0.6.0",
-    "eslint": "^7.2.0",
-    "husky": "^4.3.8",
-    "jest": "^26.0.1",
-    "jest-circus": "^26.0.1",
-    "mock-spawn": "^0.2.6",
-    "prettier": "^2.0.2",
-    "semantic-release": "^17.0.4",
-    "ts-jest": "^26.0.0",
-    "typescript": "^4.0.2"
+    "@auto-it/slack": "10.37.2",
+    "@pnpm/audit": "3.1.0",
+    "@types/jest": "28.1.6",
+    "@types/node": "16.11.45",
+    "@xerox/eslint-config": "5.0.2",
+    "@xerox/prettier-config": "4.0.0",
+    "auto": "10.37.2",
+    "cli-table3": "0.6.2",
+    "eslint": "8.20.0",
+    "jest": "28.1.3",
+    "mock-spawn": "0.2.6",
+    "prettier": "2.7.1",
+    "ts-jest": "28.0.7",
+    "typescript": "4.7.4"
   },
   "dependencies": {
+    "@antfu/ni": "0.17.2",
     "execa": "^5.1.1",
     "pkg-dir": "^5.0.0"
   },
@@ -102,7 +95,77 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
-    "@types/node": "^12.12.39",
+    "@types/node": "16.11.45",
     "dot-prop": ">= 5.1.1"
+  },
+  "auto": {
+    "baseBranch": "release",
+    "onlyPublishWithReleaseLabel": true,
+    "plugins": [
+      "npm",
+      "slack",
+      "released"
+    ],
+    "labels": [
+      {
+        "name": "change: major",
+        "changelogTitle": "Breaking Change",
+        "description": "A major breaking change",
+        "releaseType": "major"
+      },
+      {
+        "name": "change: feature",
+        "changelogTitle": "Feature",
+        "description": "Adds a new feature or improves on an existing one",
+        "releaseType": "minor"
+      },
+      {
+        "name": "change: fix",
+        "changelogTitle": "Fix",
+        "description": "Fixes a bug",
+        "releaseType": "patch"
+      },
+      {
+        "name": "change: documentation",
+        "changelogTitle": "Documentation",
+        "description": "Changes only affect the documentation",
+        "releaseType": "patch"
+      },
+      {
+        "name": "change: refactor",
+        "changelogTitle": "Refactor",
+        "description": "Changes that introduce no new features or fixes",
+        "releaseType": "patch"
+      },
+      {
+        "name": "change: performance",
+        "changelogTitle": "Performance",
+        "description": "Improve performance of an existing feature",
+        "releaseType": "patch"
+      },
+      {
+        "name": "change: dependencies",
+        "changelogTitle": "Dependencies",
+        "description": "Updates to dependencies only",
+        "releaseType": "patch"
+      },
+      {
+        "name": "change: chore",
+        "changelogTitle": "Chore",
+        "description": "Changes around build process",
+        "releaseType": "none"
+      },
+      {
+        "name": "change: tests",
+        "changelogTitle": "Tests",
+        "description": "Add or improve existing tests",
+        "releaseType": "none"
+      },
+      {
+        "name": "release",
+        "description": "Create a release when this pr is merged",
+        "releaseType": "release"
+      }
+    ]
   }
 }

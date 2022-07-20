@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - release
+      - next
 
 name: Publish
 
@@ -14,13 +15,13 @@ jobs:
         node-version: [14.x, 16.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - uses: bahmutov/npm-install@v1
-      - run: yarn install
+      - run: npm install -g yarn && npm install -g pnpm
       - run: yarn lint
       - run: yarn type-check
       - run: yarn test
@@ -30,10 +31,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ssh-key: ${{secrets.SSH_PRIVATE_KEY}}
-      - uses: actions/setup-node@v2
+      - name: Prepare repository
+        run: git fetch --unshallow --tags
+      - uses: actions/setup-node@v3
         with:
           node-version: 14
       - uses: bahmutov/npm-install@v1
