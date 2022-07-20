@@ -134,7 +134,7 @@ describe('pnpm', () => {
         packageManager: 'pnpm',
         level: Severity.LOW,
       })
-    ).toBe('pnpm audit --json');
+    ).toBe('pnpm audit --json --audit-level low');
     expect(
       getCommand('/path/to/root', {
         packageManager: 'pnpm',

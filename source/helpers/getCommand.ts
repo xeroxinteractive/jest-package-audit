@@ -1,4 +1,4 @@
-import { InputOptionsWithPackageManager, Severity } from '../static';
+import { InputOptionsWithPackageManager } from '../static';
 
 /**
  * Gets the audit command string from the given options.
@@ -14,7 +14,7 @@ export default function getCommand(
   if (inputOptions.command) {
     return inputOptions.command;
   }
-  let { packageManager, level, dependencyType } = inputOptions;
+  const { packageManager, level, dependencyType } = inputOptions;
   let command;
   switch (packageManager) {
     case 'npm': {
@@ -41,10 +41,7 @@ export default function getCommand(
     }
     case 'pnpm': {
       command = 'pnpm audit --json';
-      if (level === 'info') {
-        level = Severity.LOW;
-      }
-      if (level && level !== 'low') {
+      if (level && level !== 'info') {
         command += ` --audit-level ${level}`;
       }
       if (dependencyType === 'dependencies') {

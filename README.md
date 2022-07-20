@@ -51,8 +51,8 @@ Input options should be passed to the `expect` function when using `toPassPackag
 Name | Description | Default
 --- | --- | ---
 `cwd: (String)` | Current working directory to run the audit command in. | The closest folder with a `package.json` above `jest-package-audit`.
-`yarn: (Boolean)` | Whether to use `yarn audit` instead of `npm audit`. | `true` if yarn.lock exists otherwise `false`
-`level: ('info' or 'low' or 'moderate' or 'high' or 'critical')` | Limit the vulnerabilities to the given level and above. (Note: npm does not support `info`, so it will not be passed forward) |
+`packageManager ('npm' or 'yarn' or 'pnpm')` | Which package manager to use, this will be auto-detected if not specified, also it will determine how the audit output is parsed when using `command`. | Based on relevant lockfile existance
+`level: ('info' or 'low' or 'moderate' or 'high' or 'critical')` | Limit the vulnerabilities to the given level and above. (Note: npm and pnpm does not support `info`, so it will not be passed forward) |
 `dependencyType: ('dependencies' or 'devDependencies')` | Limit the vulnerabilities to the projects development or production dependencies. |
 `command (String)` | Custom command to use. This will override the `yarn`, `level` and `dependencyType` options. __Use this with caution!__ |
 
