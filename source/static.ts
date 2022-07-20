@@ -20,8 +20,8 @@ export function isSupportedPackageManager(
   packageManager: string | null | undefined
 ): packageManager is typeof supportedPackageManagers[number] {
   // includes() requires the type to only match, which obviously it doesn't.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return Boolean(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     packageManager && supportedPackageManagers.includes(packageManager as any)
   );
 }
