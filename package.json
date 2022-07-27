@@ -66,13 +66,13 @@
     "jest": ">=20"
   },
   "devDependencies": {
-    "@auto-it/slack": "10.37.2",
-    "@pnpm/audit": "3.1.0",
+    "@auto-it/slack": "10.37.4",
+    "@pnpm/audit": "3.1.1",
     "@types/jest": "28.1.6",
     "@types/node": "16.11.45",
     "@xerox/eslint-config": "5.0.2",
     "@xerox/prettier-config": "4.0.0",
-    "auto": "10.37.2",
+    "auto": "10.37.4",
     "cli-table3": "0.6.2",
     "eslint": "8.20.0",
     "jest": "28.1.3",
