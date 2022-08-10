@@ -895,16 +895,16 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@pnpm/audit@3.1.5":
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-3.1.5.tgz#30e686a34402e8f9f57ee66374f8dec9a8db9ed4"
-  integrity sha512-BXp+HRQuJrDY4QIjfO4Bu31W8s59nFMcFH4dcLqEtLPYxk3yItJ6hK0Y4P+bw+oPl4ygT++yMQq6n4b78nUuGA==
+"@pnpm/audit@3.1.6":
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-3.1.6.tgz#75c38353dca6e9710cc343d11a87277f324bd568"
+  integrity sha512-SEKIFxNAqZkuDZEpmr8hWw7tcwgsT/gbmV90gSMip/E7cvHLUgLkOxZxAW5orKdXxJXT5ndqbY/X7tTJFQXeWQ==
   dependencies:
     "@pnpm/error" "3.0.1"
     "@pnpm/fetch" "5.0.7"
     "@pnpm/fetching-types" "3.0.0"
     "@pnpm/lockfile-types" "4.3.1"
-    "@pnpm/lockfile-utils" "4.2.3"
+    "@pnpm/lockfile-utils" "4.2.4"
     "@pnpm/lockfile-walker" "5.0.13"
     "@pnpm/types" "8.5.0"
 
@@ -960,13 +960,13 @@
   dependencies:
     "@pnpm/types" "8.5.0"
 
-"@pnpm/lockfile-utils@4.2.3":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-4.2.3.tgz#520029ed7aba1e6bfd211a0c48a7a6667e387c28"
-  integrity sha512-aaFu9ozUnxaByVUdyQbV7nBVLglmmlx2z3Tf5lCM7AyolTGfuqmKeVO0fJhucYUJeAHl5BlppLXYvaVe9uJmHQ==
+"@pnpm/lockfile-utils@4.2.4":
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-4.2.4.tgz#c3642f87a4d14ed1fe60df945acd55176752a0b0"
+  integrity sha512-i7ISuUuSsXCyXYAIlZc7ZdqX2XTEh3rY5qIIEDm/6OeGl4EZUeq5gWyjWkIkoZoKAO9/2H3dQhC5sXE6oVrPeg==
   dependencies:
     "@pnpm/lockfile-types" "4.3.1"
-    "@pnpm/resolver-base" "9.0.6"
+    "@pnpm/resolver-base" "9.1.0"
     "@pnpm/types" "8.5.0"
     dependency-path "9.2.4"
     get-npm-tarball-url "^2.0.3"
@@ -1001,10 +1001,10 @@
     lru-cache "7.10.1"
     socks-proxy-agent "6.1.1"
 
-"@pnpm/resolver-base@9.0.6":
-  version "9.0.6"
-  resolved "https://registry.yarnpkg.com/@pnpm/resolver-base/-/resolver-base-9.0.6.tgz#7446efee73a2a0b15188ee7cf51f0984fa277bb8"
-  integrity sha512-CF9LdRdgK9pXjoC79Z0tw40pf6TYP6MiYGLA6/ZredPywU8zJ90Jp9Td3Z8ovN/qDjFyn0Tq4qJFjPMFPviV8w==
+"@pnpm/resolver-base@9.1.0":
+  version "9.1.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/resolver-base/-/resolver-base-9.1.0.tgz#5b5a82121b2aeabcf3d0e555bd716ca862297fbf"
+  integrity sha512-eMwYEC1NI6i6RW2BertIdpHfGiuw8YVSHNChIoTUHirjmn9JKUl1nwwZtFOWdsoalKUO3cXM0f1r7IGi0TA4pg==
   dependencies:
     "@pnpm/types" "8.5.0"
 
