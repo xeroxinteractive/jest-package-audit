@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@antfu/ni@0.17.2":
-  version "0.17.2"
-  resolved "https://registry.yarnpkg.com/@antfu/ni/-/ni-0.17.2.tgz#439d055cc8601248e4ab980016a76e28e8301271"
-  integrity sha512-uYsmcsQzylpMiRB4gJRwcEJMIrKyeHZO0CJct8MmqkT3B7HTFU6oSZhDB50E/XvQw7FW8oT/tKsq3NFplRgG2Q==
+"@antfu/ni@0.18.0":
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/@antfu/ni/-/ni-0.18.0.tgz#4b71c3991671c4668dad2e09b0ab26f9e90a3bf1"
+  integrity sha512-D0eek5EV8wOUpZNVAs/mPyeC5TMWFXqchqCyPiR6Lj5FgmSJw0EpFLqAczHX0O5+Jc07N7NBwBip85Gi1MBJnA==
 
 "@atomist/slack-messages@^1.2.2":
   version "1.2.2"
