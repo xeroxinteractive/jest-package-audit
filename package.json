@@ -82,7 +82,7 @@
     "typescript": "4.8.2"
   },
   "dependencies": {
-    "@antfu/ni": "0.17.2",
+    "@antfu/ni": "0.18.0",
     "execa": "^5.1.1",
     "pkg-dir": "^5.0.0"
   },
