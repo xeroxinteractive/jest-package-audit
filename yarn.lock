@@ -933,17 +933,17 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@pnpm/audit@3.1.11":
-  version "3.1.11"
-  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-3.1.11.tgz#9c2d196d4ecc96799588514ef031b64877baf980"
-  integrity sha512-tIn4NYeEDbKB+Hbi1B3iffF1QMIVNmY2JE/zE8Zz25zlHcKybSFR1r1AF+Xp4uZT+ad8no03/oE4GjYD44LXDw==
+"@pnpm/audit@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-4.0.0.tgz#659aa4733f47bfc71becbc9de3251752759bf504"
+  integrity sha512-ddwAXunyUV8CM1oD8lHIafzKK3rSiy+qzBCpaMMv2H6IZ220m9E2YGlIsXqSqqSiIlPDjONae+FpnKFnARO4oQ==
   dependencies:
-    "@pnpm/error" "3.1.0"
-    "@pnpm/fetch" "5.0.10"
+    "@pnpm/error" "4.0.0"
+    "@pnpm/fetch" "6.0.0"
     "@pnpm/fetching-types" "3.0.0"
     "@pnpm/lockfile-types" "4.3.3"
     "@pnpm/lockfile-utils" "4.2.6"
-    "@pnpm/lockfile-walker" "5.0.15"
+    "@pnpm/lockfile-walker" "6.0.0"
     "@pnpm/types" "8.7.0"
 
 "@pnpm/constants@6.1.0":
@@ -951,10 +951,10 @@
   resolved "https://registry.yarnpkg.com/@pnpm/constants/-/constants-6.1.0.tgz#2db43ae0e029095df7959bc640081beae38a631b"
   integrity sha512-L6AiU3OXv9kjKGTJN9j8n1TeJGDcLX9atQlZvAkthlvbXjvKc5SKNWESc/eXhr5nEfuMWhQhiKHDJCpYejmeCQ==
 
-"@pnpm/core-loggers@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@pnpm/core-loggers/-/core-loggers-7.1.0.tgz#e0c335c428c4ecc59a2418c64e4c30f16e0b8866"
-  integrity sha512-YtsPZJhlOALrwZJr0pl7RH33801s4o7O7cCnzQAVUpIvAE2gdTv/vTnfbiS6KWLCgsY5Ffkjd1Wy8w7ag5YGSQ==
+"@pnpm/core-loggers@8.0.0":
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/core-loggers/-/core-loggers-8.0.0.tgz#96fb877bd2cd464bbdfbb1d35f1cecec5890fd63"
+  integrity sha512-FIxlrD2zngJ2+PJ5ZkLIm9EnlYA5pAsiWql8vhbUIl/msnW2MZrCrszKuSjlu9eKSGt7FS1hLldGDpqi/S/FlQ==
   dependencies:
     "@pnpm/types" "8.7.0"
 
@@ -965,19 +965,19 @@
   dependencies:
     rfc4648 "^1.5.1"
 
-"@pnpm/error@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@pnpm/error/-/error-3.1.0.tgz#f701ff46c5170a2dff1c198db85f8b4eade5d80a"
-  integrity sha512-bmXBD/kzlgHqlIZPP8QJUDAxGqug2qhPdnqNnuXyWQSyIEgeaXyPiUh91MLj9GwLoHA9Zdrx5+dfEougzxf4mA==
+"@pnpm/error@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/error/-/error-4.0.0.tgz#6a70907e9ea0f83aaf032fcc19c8b06df255189f"
+  integrity sha512-NI4DFCMF6xb1SA0bZiiV5KrMCaJM2QmPJFC6p78FXujn7FpiRSWhT9r032wpuQumsl7DEmN4s3wl/P8TA+bL8w==
   dependencies:
     "@pnpm/constants" "6.1.0"
 
-"@pnpm/fetch@5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@pnpm/fetch/-/fetch-5.0.10.tgz#9ab781f83aed4903887428d048dfd6458d2888df"
-  integrity sha512-XbgOIYsW0+YLScEeGAuBbFKIjFwd+yHbTr7P6RrNGBIZ7PLiig85sXyD9/Y9TCTybm9sYvR6R2I3F+V1o6ru7Q==
+"@pnpm/fetch@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/fetch/-/fetch-6.0.0.tgz#08e92d683aaabcd92f3185b5088e6dbb8091904d"
+  integrity sha512-pKcmSsVSP1P9dGwlqn1Xv/UU+3+V6Zxz0M3hbfQuiofWQ9qrycmUoSszSEqIxEzRXcpW7QD8QZPgUJ+VaFplsw==
   dependencies:
-    "@pnpm/core-loggers" "7.1.0"
+    "@pnpm/core-loggers" "8.0.0"
     "@pnpm/fetching-types" "3.0.0"
     "@pnpm/network.agent" "0.0.3"
     "@zkochan/retry" "^0.2.0"
@@ -1010,10 +1010,10 @@
     get-npm-tarball-url "^2.0.3"
     ramda "npm:@pnpm/ramda@0.28.1"
 
-"@pnpm/lockfile-walker@5.0.15":
-  version "5.0.15"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-walker/-/lockfile-walker-5.0.15.tgz#29bc5a35628c979af6dd1f901ed0a837193836a6"
-  integrity sha512-AMWYaHi9HK3bjrqwtaIqb7AYOov0I284BdDu4YFu2LoASCn+SooeGZaB8MjQ/azqdwDwRqqYauXvP2eHJ29tiA==
+"@pnpm/lockfile-walker@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-walker/-/lockfile-walker-6.0.0.tgz#7952782bf4896015432befe6b47e9121bc5dd172"
+  integrity sha512-IqXAIlYf1ZRzzuwxS7mLk5/hFlrGYFVnHBSZ04UWLHvXAnfXxCIhK9x2+GEtm93WSfj+B2/H21RALt3fX1d9LA==
   dependencies:
     "@pnpm/lockfile-types" "4.3.3"
     "@pnpm/types" "8.7.0"
