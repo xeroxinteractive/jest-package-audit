@@ -69,7 +69,7 @@
     "@auto-it/slack": "10.37.6",
     "@pnpm/audit": "4.0.0",
     "@types/jest": "29.2.0",
-    "@types/node": "16.11.68",
+    "@types/node": "16.18.1",
     "@xerox/eslint-config": "5.0.2",
     "@xerox/prettier-config": "4.0.0",
     "auto": "10.37.6",
@@ -95,7 +95,7 @@
     "kind-of": ">=6.0.3",
     "minimist": ">=1.2.3",
     "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
-    "@types/node": "16.11.68",
+    "@types/node": "16.18.1",
     "dot-prop": ">= 5.1.1"
   },
   "auto": {
