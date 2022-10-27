@@ -933,14 +933,14 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@pnpm/audit@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-4.0.1.tgz#d2e51927f1b719d991ba15875ed6e72474ab3801"
-  integrity sha512-N5EqUayFD6t7b1R9u3NowhyMnWHKMacrhVzz5wX8aCBUn/E0x18p4cBjm0S29V/fCuNQvunG2wytlvHBTH7dYg==
+"@pnpm/audit@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-5.0.0.tgz#aad23e9168b8eeb30bb76bfb74c7bfd1004393b3"
+  integrity sha512-FCz0JJr/615LyoAEuKhviUIcC1XgqftskvYM9SxZEi1nbLZFzU3vy3v6iMPgx4oFz8qpnWED15Dz0cHIuVfgzg==
   dependencies:
     "@pnpm/error" "4.0.0"
-    "@pnpm/fetch" "6.0.1"
-    "@pnpm/fetching-types" "3.0.0"
+    "@pnpm/fetch" "6.0.2"
+    "@pnpm/fetching-types" "4.0.0"
     "@pnpm/lockfile-types" "4.3.4"
     "@pnpm/lockfile-utils" "4.2.7"
     "@pnpm/lockfile-walker" "6.0.1"
@@ -972,21 +972,21 @@
   dependencies:
     "@pnpm/constants" "6.1.0"
 
-"@pnpm/fetch@6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@pnpm/fetch/-/fetch-6.0.1.tgz#36427a7d7e1452b7395a9370acb6d8c4ed3e4925"
-  integrity sha512-hsq6k7G03QmRrEJeUkBGIiEhsfvCWnF7TLKpxVmRbxHWpMhwqvOSaZ0LeGfUGrNIFcQgW6OkEA4u8xjB8Vxk8g==
+"@pnpm/fetch@6.0.2":
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/@pnpm/fetch/-/fetch-6.0.2.tgz#83366174b52b7c43a713f324f80eed173fbd5065"
+  integrity sha512-BSW12knCHrSf0LOjYWRcVwLQx1/H/naWzNlst35fHaIGYJFWOZuB6WGsu5lFNyNMd4H0d5FOoJMztzBEMOpfcA==
   dependencies:
     "@pnpm/core-loggers" "8.0.1"
-    "@pnpm/fetching-types" "3.0.0"
+    "@pnpm/fetching-types" "4.0.0"
     "@pnpm/network.agent" "0.0.3"
     "@zkochan/retry" "^0.2.0"
     node-fetch "3.0.0-beta.9"
 
-"@pnpm/fetching-types@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@pnpm/fetching-types/-/fetching-types-3.0.0.tgz#bac6f2df8c5d9034494d793e234d475e32265da6"
-  integrity sha512-m+/UUtCCspITCKr3/rt2IaZP/4HXg+vcmbbZokoqGUpgx4HXbXG+KKh3/oPJnwWQ4nH2i7zHPplMgoHjLxE7/w==
+"@pnpm/fetching-types@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/fetching-types/-/fetching-types-4.0.0.tgz#4d535ecff43b3c6db5e12c5336acc1151ec02cbc"
+  integrity sha512-KuOlRuCxgwoNlaBcNVOVgPHOf0TUO3Fs4BINIIjpo/dw+Afu2BHheFQRMfYCG9YKGwSZMbzn86x9DVgI4hlDJQ==
   dependencies:
     "@zkochan/retry" "^0.2.0"
     node-fetch "3.0.0-beta.9"
