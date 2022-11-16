@@ -933,16 +933,16 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@pnpm/audit@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-5.0.1.tgz#369ec3fb468ae64f304f64f89d7a4d769a260a98"
-  integrity sha512-7f7KU1n1RNSaCZSVHzS8PqVk1FgRrMKhx4ZtCDp7Jx39sG2IMdcrVXcVncBwx+9MVXdCc4RmbcgXS6VkQGT4Ng==
+"@pnpm/audit@5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-5.0.2.tgz#a85a10faa6edd3f53881c020676d3209f7410fbe"
+  integrity sha512-wp1h1NbLx9KvTX7alLyCG3QrY9CrMPP2BTZWt+AwIrb+j+IQAYjFTEYQN/1SB1TqceRc+TeWs/CgLjlL6wwLJg==
   dependencies:
     "@pnpm/error" "4.0.0"
     "@pnpm/fetch" "6.0.3"
     "@pnpm/fetching-types" "4.0.0"
     "@pnpm/lockfile-types" "4.3.5"
-    "@pnpm/lockfile-utils" "4.2.8"
+    "@pnpm/lockfile-utils" "5.0.0"
     "@pnpm/lockfile-walker" "6.0.2"
     "@pnpm/types" "8.9.0"
 
@@ -998,10 +998,10 @@
   dependencies:
     "@pnpm/types" "8.9.0"
 
-"@pnpm/lockfile-utils@4.2.8":
-  version "4.2.8"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-4.2.8.tgz#4f1a14afb9ff692c1178856fc31f92153278bfc0"
-  integrity sha512-4vonZnjhNPd7GFzDmcQeBoIucNWpbbrTQNT61QxB5cNbdYej3WBVtuApwEzkZ65/rpnv3+ek1DoXomMi1ttozQ==
+"@pnpm/lockfile-utils@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-5.0.0.tgz#a07666016ae5f6645b03ed6406ff9e02156013c1"
+  integrity sha512-jY5idWkuh4sXRS0PjHqSQ//ycsTYEzYPX0Uypp69NeDhw9Jdd+jY7SYrdd24QieuMlrdY9nKZEIKBbN+GSyOjg==
   dependencies:
     "@pnpm/lockfile-types" "4.3.5"
     "@pnpm/resolver-base" "9.1.4"
