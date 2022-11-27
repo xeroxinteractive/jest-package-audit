@@ -67,7 +67,7 @@
   },
   "devDependencies": {
     "@auto-it/slack": "10.37.6",
-    "@pnpm/audit": "5.0.2",
+    "@pnpm/audit": "6.0.1",
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
     "@xerox/eslint-config": "5.0.2",
