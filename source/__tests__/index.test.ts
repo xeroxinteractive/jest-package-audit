@@ -11,7 +11,7 @@ import npmData from './__fixtures__/npm/data.json';
 import pnpmData from './__fixtures__/pnpm/data.json';
 
 const { spawn: mockSpawn } = childProcess;
-const mockPkgDir = jest.mocked(pkgDir, true);
+const mockPkgDir = jest.mocked(pkgDir);
 
 import { toPassPackageAudit } from '..';
 import { Severity, supportedPackageManagers } from '../static';
