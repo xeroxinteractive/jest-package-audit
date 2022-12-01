@@ -1,5 +1,6 @@
 {
   "name": "yarn",
+  "version": "1.0.0",
   "dependencies": {
     "mem": "4.0.0"
   }
