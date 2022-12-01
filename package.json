@@ -67,7 +67,6 @@
   },
   "devDependencies": {
     "@auto-it/slack": "10.37.6",
-    "@pnpm/audit": "5.0.2",
     "@types/jest": "29.2.3",
     "@types/node": "18.11.9",
     "@xerox/eslint-config": "5.0.2",
@@ -83,6 +82,7 @@
   },
   "dependencies": {
     "@antfu/ni": "0.18.6",
+    "@pnpm/audit": "5.0.2",
     "execa": "^5.1.1",
     "pkg-dir": "^5.0.0"
   },
