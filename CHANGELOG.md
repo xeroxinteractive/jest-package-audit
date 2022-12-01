@@ -1,3 +1,14 @@
+# v5.0.2 (Thu Dec 01 2022)
+
+#### Fix
+
+
+#### Authors: 1
+
+- Andrew Leedham ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+---
+
 # v5.0.1 (Thu Dec 01 2022)
 
 #### Fix
