@@ -938,17 +938,17 @@
     tiny-glob "^0.2.9"
     tslib "^2.4.0"
 
-"@pnpm/audit@6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-6.0.2.tgz#e87157cb23a9e3600c9ab36ac21b79d8c7f2ef1b"
-  integrity sha512-9x3W/ZxOVPgamw/253DkV3TzcjzjpYvPhiHsFr+pDwe3PY0g/o3lwEct9lhCxMQ0wG99VpFdt7Lszjxs9d2KHA==
+"@pnpm/audit@6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@pnpm/audit/-/audit-6.0.3.tgz#c0eef39da9dc2168c703b7610f8a90c5089ba1e2"
+  integrity sha512-Pgu1OzMEZDEWpgAEcVbM3yDyS3+aOcRYqWyzBzndmspgcvwQ3wGDAR8Cf0XT1HGQ03KbDMUl+8GzXandOHHeWQ==
   dependencies:
     "@pnpm/error" "4.0.0"
     "@pnpm/fetch" "6.0.4"
     "@pnpm/fetching-types" "4.0.0"
     "@pnpm/lockfile-types" "4.3.5"
-    "@pnpm/lockfile-utils" "5.0.0"
-    "@pnpm/lockfile-walker" "6.0.2"
+    "@pnpm/lockfile-utils" "5.0.1"
+    "@pnpm/lockfile-walker" "6.0.3"
     "@pnpm/read-project-manifest" "4.1.1"
     "@pnpm/types" "8.9.0"
     ramda "npm:@pnpm/ramda@0.28.1"
@@ -971,6 +971,16 @@
   integrity sha512-pzAXNn6KxTA3kbcI3iEnYs4vtH51XEVqmK/1EiD18MaPKylhqy8UvMJK3zKG+jeP82cqQbozcTGm4yOQ8i3vNw==
   dependencies:
     rfc4648 "^1.5.1"
+
+"@pnpm/dependency-path@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pnpm/dependency-path/-/dependency-path-1.0.0.tgz#3f9633a40d834277ce0b8eeaea8f4a3910a2d7c4"
+  integrity sha512-u6E2O0oIXy8hZi7fDD0QNhE+JnjiehontpUA6V2bhBBmKB7QOYHzM4POu3hPOCt/RooAaayMBzXdai9HMqAmug==
+  dependencies:
+    "@pnpm/crypto.base32-hash" "1.0.1"
+    "@pnpm/types" "8.9.0"
+    encode-registry "^3.0.0"
+    semver "^7.3.8"
 
 "@pnpm/error@4.0.0":
   version "4.0.0"
@@ -1012,26 +1022,26 @@
   dependencies:
     "@pnpm/types" "8.9.0"
 
-"@pnpm/lockfile-utils@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-5.0.0.tgz#a07666016ae5f6645b03ed6406ff9e02156013c1"
-  integrity sha512-jY5idWkuh4sXRS0PjHqSQ//ycsTYEzYPX0Uypp69NeDhw9Jdd+jY7SYrdd24QieuMlrdY9nKZEIKBbN+GSyOjg==
+"@pnpm/lockfile-utils@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-utils/-/lockfile-utils-5.0.1.tgz#320c864c234538780d710ba16ab8b0455e01c08e"
+  integrity sha512-qSueORbEeOlb1oWRJq68IPCg8Tmmc29pD9auUfIwHkJL5pUTXcP9uBKcJf3C5CS3Pk/74LMlCcir3/P7MMuojw==
   dependencies:
+    "@pnpm/dependency-path" "1.0.0"
     "@pnpm/lockfile-types" "4.3.5"
     "@pnpm/resolver-base" "9.1.4"
     "@pnpm/types" "8.9.0"
-    dependency-path "9.2.8"
     get-npm-tarball-url "^2.0.3"
     ramda "npm:@pnpm/ramda@0.28.1"
 
-"@pnpm/lockfile-walker@6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-walker/-/lockfile-walker-6.0.2.tgz#3d59e1eb196f1bd0da3a725d2ea4079ea192dfa5"
-  integrity sha512-FCGr1vIvD94xX2ZgWtfiis4INb1RwBxHyHmsfhK4bl9Yy1L3+XHhQVVCuxSiEhwQb5Ax/Df7XPXWcHFlnRtJUQ==
+"@pnpm/lockfile-walker@6.0.3":
+  version "6.0.3"
+  resolved "https://registry.yarnpkg.com/@pnpm/lockfile-walker/-/lockfile-walker-6.0.3.tgz#1cde8b396e8d1dc958c027ec3f05f5d5ac4710f4"
+  integrity sha512-8YN8U5httvYe7FDnFeUkv0WwMO122uC/Od1gc60/u0W9qBcEFfN4cfy24XIl2IEBmd/FGGMpm+cpdIrcbOwV9A==
   dependencies:
+    "@pnpm/dependency-path" "1.0.0"
     "@pnpm/lockfile-types" "4.3.5"
     "@pnpm/types" "8.9.0"
-    dependency-path "9.2.8"
     ramda "npm:@pnpm/ramda@0.28.1"
 
 "@pnpm/network.agent@0.0.4":
@@ -1978,16 +1988,6 @@ depd@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"
   integrity sha512-7emPTl6Dpo6JRXOXjLRxck+FlLRX5847cLKEn00PLAgc3g2hTZZgr+e4c2v6QpSmLeFP3n5yUo7ft6avBK/5jQ==
-
-dependency-path@9.2.8:
-  version "9.2.8"
-  resolved "https://registry.yarnpkg.com/dependency-path/-/dependency-path-9.2.8.tgz#9fe05be8d69ad1943a2084e4d86f3063c4b50c01"
-  integrity sha512-S0OhIK7sIyAsph8hVH/LMCTDL3jozKtlrPx3dMQrlE2nAlXTquTT+AcOufphDMTQqLkfn4acvfiem9I1IWZ4jQ==
-  dependencies:
-    "@pnpm/crypto.base32-hash" "1.0.1"
-    "@pnpm/types" "8.9.0"
-    encode-registry "^3.0.0"
-    semver "^7.3.8"
 
 deprecation@^2.0.0, deprecation@^2.3.1:
   version "2.3.1"
