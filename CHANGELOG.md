@@ -1,3 +1,27 @@
+# v5.0.3 (Wed Jan 04 2023)
+
+#### Fix
+
+
+#### Dependencies
+
+- Update dependency eslint to v8.31.0 [#723](https://github.com/xeroxinteractive/jest-package-audit/pull/723) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#722](https://github.com/xeroxinteractive/jest-package-audit/pull/722) ([@renovate[bot]](https://github.com/renovate[bot]) [@AndrewLeedham](https://github.com/AndrewLeedham))
+- Update all non-major dependencies [#721](https://github.com/xeroxinteractive/jest-package-audit/pull/721) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v18.11.17 [#720](https://github.com/xeroxinteractive/jest-package-audit/pull/720) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v18.11.15 [#719](https://github.com/xeroxinteractive/jest-package-audit/pull/719) ([@renovate[bot]](https://github.com/renovate[bot]))
+- @pnpm/audit 6.0.3 [#718](https://github.com/xeroxinteractive/jest-package-audit/pull/718) ([@AndrewLeedham](https://github.com/AndrewLeedham))
+- Update all non-major dependencies [#717](https://github.com/xeroxinteractive/jest-package-audit/pull/717) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#716](https://github.com/xeroxinteractive/jest-package-audit/pull/716) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#715](https://github.com/xeroxinteractive/jest-package-audit/pull/715) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Andrew Leedham ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+---
+
 # v5.0.2 (Thu Dec 01 2022)
 
 #### Fix
