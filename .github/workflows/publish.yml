@@ -12,19 +12,23 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [16.x, 18.x]
 
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - uses: bahmutov/npm-install@v1
-      - run: npm install -g yarn && npm install -g pnpm
-      - run: yarn lint
-      - run: yarn type-check
-      - run: yarn test
+          cache: 'pnpm'
+      - run: pnpm install -g yarn
+      - run: pnpm install
+      - run: pnpm run lint
+      - run: pnpm run type-check
+      - run: pnpm run test
 
   publish:
     needs: test
@@ -36,14 +40,17 @@ jobs:
           ssh-key: ${{secrets.SSH_PRIVATE_KEY}}
       - name: Prepare repository
         run: git fetch --unshallow --tags
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-      - uses: bahmutov/npm-install@v1
-      - run: yarn install
+          cache: 'pnpm'
+      - run: pnpm install
       - name: Deploy
         run: |
-          yarn deploy
+          pnpm run deploy
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
           SLACK_WEBHOOK_URL: ${{secrets.NPM_SLACK_WEBHOOK}}
