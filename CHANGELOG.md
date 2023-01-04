@@ -1,3 +1,160 @@
+# v5.0.2 (Thu Dec 01 2022)
+
+#### Fix
+
+
+#### Authors: 1
+
+- Andrew Leedham ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+---
+
+# v5.0.1 (Thu Dec 01 2022)
+
+#### Fix
+
+- Move @pnpm/audit to deps [#712](https://github.com/xeroxinteractive/jest-package-audit/pull/712) ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+#### Dependencies
+
+- Update dependency @types/node to v18.11.10 [#711](https://github.com/xeroxinteractive/jest-package-audit/pull/711) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#709](https://github.com/xeroxinteractive/jest-package-audit/pull/709) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @pnpm/audit to v5.0.2 [#708](https://github.com/xeroxinteractive/jest-package-audit/pull/708) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v29.2.3 [#707](https://github.com/xeroxinteractive/jest-package-audit/pull/707) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#706](https://github.com/xeroxinteractive/jest-package-audit/pull/706) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.3.1 [#705](https://github.com/xeroxinteractive/jest-package-audit/pull/705) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v29.2.2 [#704](https://github.com/xeroxinteractive/jest-package-audit/pull/704) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#703](https://github.com/xeroxinteractive/jest-package-audit/pull/703) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#702](https://github.com/xeroxinteractive/jest-package-audit/pull/702) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v18.11.8 [#701](https://github.com/xeroxinteractive/jest-package-audit/pull/701) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @pnpm/audit to v5 [#699](https://github.com/xeroxinteractive/jest-package-audit/pull/699) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v18 [#700](https://github.com/xeroxinteractive/jest-package-audit/pull/700) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#695](https://github.com/xeroxinteractive/jest-package-audit/pull/695) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.2.2 [#696](https://github.com/xeroxinteractive/jest-package-audit/pull/696) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.18.1 [#697](https://github.com/xeroxinteractive/jest-package-audit/pull/697) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update Node.js to v18 [#698](https://github.com/xeroxinteractive/jest-package-audit/pull/698) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @pnpm/audit to v4 [#694](https://github.com/xeroxinteractive/jest-package-audit/pull/694) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.2.1 [#693](https://github.com/xeroxinteractive/jest-package-audit/pull/693) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#692](https://github.com/xeroxinteractive/jest-package-audit/pull/692) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#691](https://github.com/xeroxinteractive/jest-package-audit/pull/691) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#690](https://github.com/xeroxinteractive/jest-package-audit/pull/690) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#689](https://github.com/xeroxinteractive/jest-package-audit/pull/689) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.1.2 [#688](https://github.com/xeroxinteractive/jest-package-audit/pull/688) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#687](https://github.com/xeroxinteractive/jest-package-audit/pull/687) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.1.1 [#686](https://github.com/xeroxinteractive/jest-package-audit/pull/686) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.62 [#684](https://github.com/xeroxinteractive/jest-package-audit/pull/684) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#685](https://github.com/xeroxinteractive/jest-package-audit/pull/685) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v29.0.3 [#683](https://github.com/xeroxinteractive/jest-package-audit/pull/683) ([@renovate[bot]](https://github.com/renovate[bot]) [@AndrewLeedham](https://github.com/AndrewLeedham))
+- Update all non-major dependencies [#682](https://github.com/xeroxinteractive/jest-package-audit/pull/682) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency ts-jest to v29 [#681](https://github.com/xeroxinteractive/jest-package-audit/pull/681) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.0.3 [#680](https://github.com/xeroxinteractive/jest-package-audit/pull/680) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#679](https://github.com/xeroxinteractive/jest-package-audit/pull/679) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#678](https://github.com/xeroxinteractive/jest-package-audit/pull/678) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.58 [#676](https://github.com/xeroxinteractive/jest-package-audit/pull/676) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29.0.2 [#677](https://github.com/xeroxinteractive/jest-package-audit/pull/677) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v29 [#674](https://github.com/xeroxinteractive/jest-package-audit/pull/674) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v29 [#675](https://github.com/xeroxinteractive/jest-package-audit/pull/675) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @antfu/ni to v0.18.0 [#673](https://github.com/xeroxinteractive/jest-package-audit/pull/673) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#671](https://github.com/xeroxinteractive/jest-package-audit/pull/671) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#672](https://github.com/xeroxinteractive/jest-package-audit/pull/672) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#668](https://github.com/xeroxinteractive/jest-package-audit/pull/668) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#667](https://github.com/xeroxinteractive/jest-package-audit/pull/667) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @pnpm/audit to v3.1.6 [#666](https://github.com/xeroxinteractive/jest-package-audit/pull/666) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#664](https://github.com/xeroxinteractive/jest-package-audit/pull/664) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.47 [#665](https://github.com/xeroxinteractive/jest-package-audit/pull/665) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#663](https://github.com/xeroxinteractive/jest-package-audit/pull/663) ([@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 2
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Andrew Leedham ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+---
+
+# v5.0.0 (Wed Jul 20 2022)
+
+#### Breaking Change
+
+- Support PNPM [#661](https://github.com/xeroxinteractive/jest-package-audit/pull/661) ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+#### Feature
+
+- Support NPM Report v2 + Semantic-release -> Auto [#596](https://github.com/xeroxinteractive/jest-package-audit/pull/596) ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+#### Fix
+
+- Configure Renovate [#595](https://github.com/xeroxinteractive/jest-package-audit/pull/595) ([@renovate-bot](https://github.com/renovate-bot) [@AndrewLeedham](https://github.com/AndrewLeedham) [@renovate[bot]](https://github.com/renovate[bot]))
+- Bump [#597](https://github.com/xeroxinteractive/jest-package-audit/pull/597) ([@AndrewLeedham](https://github.com/AndrewLeedham))
+
+#### Dependencies
+
+- Update all non-major dependencies [#659](https://github.com/xeroxinteractive/jest-package-audit/pull/659) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#660](https://github.com/xeroxinteractive/jest-package-audit/pull/660) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.44 [#658](https://github.com/xeroxinteractive/jest-package-audit/pull/658) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v28.1.3 [#657](https://github.com/xeroxinteractive/jest-package-audit/pull/657) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v28.1.5 [#656](https://github.com/xeroxinteractive/jest-package-audit/pull/656) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v8.19.0 [#655](https://github.com/xeroxinteractive/jest-package-audit/pull/655) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#654](https://github.com/xeroxinteractive/jest-package-audit/pull/654) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v28.1.2 [#653](https://github.com/xeroxinteractive/jest-package-audit/pull/653) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v28.1.3 [#651](https://github.com/xeroxinteractive/jest-package-audit/pull/651) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#652](https://github.com/xeroxinteractive/jest-package-audit/pull/652) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#650](https://github.com/xeroxinteractive/jest-package-audit/pull/650) ([@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#649](https://github.com/xeroxinteractive/jest-package-audit/pull/649) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#647](https://github.com/xeroxinteractive/jest-package-audit/pull/647) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v28 [#648](https://github.com/xeroxinteractive/jest-package-audit/pull/648) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v28.1.1 [#646](https://github.com/xeroxinteractive/jest-package-audit/pull/646) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.39 [#645](https://github.com/xeroxinteractive/jest-package-audit/pull/645) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v27.5.2 [#644](https://github.com/xeroxinteractive/jest-package-audit/pull/644) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#642](https://github.com/xeroxinteractive/jest-package-audit/pull/642) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.38 [#643](https://github.com/xeroxinteractive/jest-package-audit/pull/643) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency jest to v28.1.0 [#641](https://github.com/xeroxinteractive/jest-package-audit/pull/641) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#639](https://github.com/xeroxinteractive/jest-package-audit/pull/639) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#640](https://github.com/xeroxinteractive/jest-package-audit/pull/640) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency typescript to v4.6.4 [#637](https://github.com/xeroxinteractive/jest-package-audit/pull/637) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.33 [#638](https://github.com/xeroxinteractive/jest-package-audit/pull/638) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update jest monorepo (major) [#636](https://github.com/xeroxinteractive/jest-package-audit/pull/636) ([@renovate-bot](https://github.com/renovate-bot) [@AndrewLeedham](https://github.com/AndrewLeedham) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.31 [#634](https://github.com/xeroxinteractive/jest-package-audit/pull/634) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v8.14.0 [#635](https://github.com/xeroxinteractive/jest-package-audit/pull/635) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.27 [#633](https://github.com/xeroxinteractive/jest-package-audit/pull/633) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#632](https://github.com/xeroxinteractive/jest-package-audit/pull/632) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency prettier to v2.6.2 [#631](https://github.com/xeroxinteractive/jest-package-audit/pull/631) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#630](https://github.com/xeroxinteractive/jest-package-audit/pull/630) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#629](https://github.com/xeroxinteractive/jest-package-audit/pull/629) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies to v10.34.1 [#628](https://github.com/xeroxinteractive/jest-package-audit/pull/628) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @xerox/prettier-config to v4 [#627](https://github.com/xeroxinteractive/jest-package-audit/pull/627) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @xerox/eslint-config to v5 [#626](https://github.com/xeroxinteractive/jest-package-audit/pull/626) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update actions/setup-node action to v3 [#625](https://github.com/xeroxinteractive/jest-package-audit/pull/625) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update actions/checkout action to v3 [#624](https://github.com/xeroxinteractive/jest-package-audit/pull/624) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#623](https://github.com/xeroxinteractive/jest-package-audit/pull/623) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.26 [#622](https://github.com/xeroxinteractive/jest-package-audit/pull/622) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @xerox/eslint-config to v4.1.1 [#621](https://github.com/xeroxinteractive/jest-package-audit/pull/621) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/jest to v27.4.1 [#620](https://github.com/xeroxinteractive/jest-package-audit/pull/620) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v8.9.0 [#619](https://github.com/xeroxinteractive/jest-package-audit/pull/619) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.25 [#618](https://github.com/xeroxinteractive/jest-package-audit/pull/618) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update jest monorepo to v27.5.1 [#617](https://github.com/xeroxinteractive/jest-package-audit/pull/617) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v8.8.0 [#616](https://github.com/xeroxinteractive/jest-package-audit/pull/616) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.22 [#615](https://github.com/xeroxinteractive/jest-package-audit/pull/615) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @xerox/eslint-config to v4.1.0 [#614](https://github.com/xeroxinteractive/jest-package-audit/pull/614) ([@renovate-bot](https://github.com/renovate-bot) [@AndrewLeedham](https://github.com/AndrewLeedham) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#613](https://github.com/xeroxinteractive/jest-package-audit/pull/613) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency @types/node to v16.11.21 [#612](https://github.com/xeroxinteractive/jest-package-audit/pull/612) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#611](https://github.com/xeroxinteractive/jest-package-audit/pull/611) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped (major) [#610](https://github.com/xeroxinteractive/jest-package-audit/pull/610) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update jest monorepo (major) [#607](https://github.com/xeroxinteractive/jest-package-audit/pull/607) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update definitelyTyped [#608](https://github.com/xeroxinteractive/jest-package-audit/pull/608) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update Node.js to v16 [#609](https://github.com/xeroxinteractive/jest-package-audit/pull/609) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update dependency eslint to v8 [#604](https://github.com/xeroxinteractive/jest-package-audit/pull/604) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Update all non-major dependencies [#601](https://github.com/xeroxinteractive/jest-package-audit/pull/601) ([@renovate-bot](https://github.com/renovate-bot) [@AndrewLeedham](https://github.com/AndrewLeedham) [@renovate[bot]](https://github.com/renovate[bot]))
+- Pin dependencies [#599](https://github.com/xeroxinteractive/jest-package-audit/pull/599) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+- Pin dependencies [#600](https://github.com/xeroxinteractive/jest-package-audit/pull/600) ([@renovate-bot](https://github.com/renovate-bot) [@renovate[bot]](https://github.com/renovate[bot]))
+
+#### Authors: 3
+
+- [@renovate[bot]](https://github.com/renovate[bot])
+- Andrew Leedham ([@AndrewLeedham](https://github.com/AndrewLeedham))
+- WhiteSource Renovate ([@renovate-bot](https://github.com/renovate-bot))
+
+---
+
 ## [4.0.1](https://github.com/xeroxinteractive/jest-package-audit/compare/v4.0.0...v4.0.1) (2022-01-05)
 
 
