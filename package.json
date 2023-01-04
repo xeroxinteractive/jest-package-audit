@@ -32,7 +32,8 @@
   "engines": {
     "node": ">=14",
     "npm": ">=5.10",
-    "yarn": ">=1.12"
+    "yarn": ">=1.12",
+    "pnpm": ">=7"
   },
   "browserslist": [
     "current node"
@@ -87,16 +88,20 @@
     "pkg-dir": "5.0.0"
   },
   "resolutions": {
-    "set-value": ">=2.0.1",
-    "mem": ">=4.0.0",
-    "https-proxy-agent": ">=2.2.3",
-    "handlebars": ">=4.5.2",
-    "acorn": ">=7.1.1",
-    "kind-of": ">=6.0.3",
-    "minimist": ">=1.2.3",
-    "yargs-parser": ">=13.1.2 <14.0.0 || >=15.0.1 <16.0.0 || >=18.1.2",
+    "set-value@<2.0.1": "^2.0.1",
+    "mem@<4.0.0": "^4.0.0",
+    "https-proxy-agent@<2.2.3": "^2.2.3",
+    "handlebars@<4.5.2": "^4.5.2",
+    "acorn@<7.1.1": "^7.1.1",
+    "kind-of@<6.0.3": "^6.0.3",
+    "minimist@<1.2.3": "^1.2.3",
+    "yargs-parser@<13.1.2": "^13.1.2",
+    "yargs-parser@>=15.0.0 <15.0.1": "^15.0.1",
+    "yargs-parser@>=18.0.0 <18.1.2": "^18.1.2",
+    "yargs-parser@>=20.0.0 <20.2.0": "^20.2.0",
     "@types/node": "18.11.18",
-    "dot-prop": ">= 5.1.1"
+    "dot-prop@<5.1.1": "^5.1.1",
+    "json5@>=2.0.0 <2.2.2": "^2.2.2"
   },
   "auto": {
     "baseBranch": "release",
@@ -167,5 +172,6 @@
         "releaseType": "release"
       }
     ]
-  }
+  },
+  "packageManager": "pnpm@7.22.0"
 }
