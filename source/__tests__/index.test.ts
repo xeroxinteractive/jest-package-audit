@@ -19,7 +19,7 @@ expect.extend({ toPassPackageAudit });
 
 function createJSON(
   pkg: string,
-  packageManager: typeof supportedPackageManagers[number],
+  packageManager: (typeof supportedPackageManagers)[number],
   severity = Severity.INFO
 ): string {
   switch (packageManager) {
