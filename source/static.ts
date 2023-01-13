@@ -18,7 +18,7 @@ export const supportedPackageManagers = ['npm', 'yarn', 'pnpm'] as const;
  */
 export function isSupportedPackageManager(
   packageManager: string | null | undefined
-): packageManager is typeof supportedPackageManagers[number] {
+): packageManager is (typeof supportedPackageManagers)[number] {
   // includes() requires the type to only match, which obviously it doesn't.
   return Boolean(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,7 +28,7 @@ export function isSupportedPackageManager(
 
 export interface InputOptions {
   cwd?: string;
-  packageManager?: typeof supportedPackageManagers[number];
+  packageManager?: (typeof supportedPackageManagers)[number];
   level?: Severity;
   dependencyType?: 'devDependencies' | 'dependencies';
   command?: string;
@@ -36,7 +36,7 @@ export interface InputOptions {
 
 export interface InputOptionsWithPackageManager {
   cwd?: string;
-  packageManager: typeof supportedPackageManagers[number];
+  packageManager: (typeof supportedPackageManagers)[number];
   level?: Severity;
   dependencyType?: 'devDependencies' | 'dependencies';
   command?: string;
