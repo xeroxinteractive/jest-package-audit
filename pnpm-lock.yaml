@@ -20,7 +20,7 @@ specifiers:
   '@antfu/ni': 0.19.0
   '@auto-it/slack': 10.37.6
   '@pnpm/audit': 6.1.0
-  '@types/jest': 29.2.5
+  '@types/jest': 29.2.6
   '@types/node': 18.11.18
   '@xerox/eslint-config': 5.0.3
   '@xerox/prettier-config': 4.0.0
@@ -43,7 +43,7 @@ dependencies:
 
 devDependencies:
   '@auto-it/slack': 10.37.6_awa2wsr5thmg3i7jqycphctjfq
-  '@types/jest': 29.2.5
+  '@types/jest': 29.2.6
   '@types/node': 18.11.18
   '@xerox/eslint-config': 5.0.3_te75nbiz6qcwmz33qgx47jkj7q
   '@xerox/prettier-config': 4.0.0_prettier@2.8.3
@@ -1491,8 +1491,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/29.2.5:
-    resolution: {integrity: sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==}
+  /@types/jest/29.2.6:
+    resolution: {integrity: sha512-XEUC/Tgw3uMh6Ho8GkUtQ2lPhY5Fmgyp3TdlkTJs1W9VgNxs+Ow/x3Elh8lHQKqCbZL0AubQuqWjHVT033Hhrw==}
     dependencies:
       expect: 29.3.1
       pretty-format: 29.3.1
