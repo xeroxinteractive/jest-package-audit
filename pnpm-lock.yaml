@@ -18,13 +18,13 @@ overrides:
 
 specifiers:
   '@antfu/ni': 0.20.0
-  '@auto-it/slack': 10.42.0
-  '@pnpm/audit': 6.1.4
+  '@auto-it/slack': 10.42.1
+  '@pnpm/audit': 6.1.6
   '@types/jest': 29.4.0
   '@types/node': 18.13.0
   '@xerox/eslint-config': 5.0.3
   '@xerox/prettier-config': 4.0.0
-  auto: 10.42.0
+  auto: 10.42.1
   cli-table3: 0.6.3
   eslint: 8.34.0
   execa: 5.1.1
@@ -37,17 +37,17 @@ specifiers:
 
 dependencies:
   '@antfu/ni': 0.20.0
-  '@pnpm/audit': 6.1.4
+  '@pnpm/audit': 6.1.6
   execa: 5.1.1
   pkg-dir: 5.0.0
 
 devDependencies:
-  '@auto-it/slack': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+  '@auto-it/slack': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
   '@types/jest': 29.4.0
   '@types/node': 18.13.0
   '@xerox/eslint-config': 5.0.3_d3f6bqqvtdzupyehayxwfsya2i
   '@xerox/prettier-config': 4.0.0_prettier@2.8.4
-  auto: 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+  auto: 10.42.1_4bewfcp2iebiwuold25d6rgcsy
   cli-table3: 0.6.3
   eslint: 8.34.0
   jest: 29.4.3_@types+node@18.13.0
@@ -76,20 +76,20 @@ packages:
     engines: {node: '>=8.2.0', npm: '>=5.0.0'}
     dev: true
 
-  /@auto-it/bot-list/10.42.0:
-    resolution: {integrity: sha512-MYGrTJsix5r2RaYbfS6uIDTJrrhDCAK1NxmI2aFqq5DqD3Zn2vhIzsOk3qpl29rxUs986opqCUaPIUxHjsIV0g==}
+  /@auto-it/bot-list/10.42.1:
+    resolution: {integrity: sha512-yMvKYnjY/9ihMywPXvy01+7uWmdKdBuw6F4DP9T/CV4AjvUxn64pgUw0IUq35ptWTVut0wIrz57pMe35bLaR7w==}
     engines: {node: '>=10.x'}
     dev: true
 
-  /@auto-it/core/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-sxuqRjtoW51PVegCEK+1Jyd2yTbrqfZO97PUN8XhuzkFP65H5YaskS0+9qDJDDRGG0AH/Hk906xzG1bv6/rcgg==}
+  /@auto-it/core/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-/XPjYNGM0etgo+ggZFVGHMaa+wuSt1G4BZH96PAVVJh0Ruz8DxznSNeJn8JY+wMRtpxuE6urImvsHbjxc7VNzg==}
     peerDependencies:
       typescript: '*'
     peerDependenciesMeta:
       typescript:
         optional: true
     dependencies:
-      '@auto-it/bot-list': 10.42.0
+      '@auto-it/bot-list': 10.42.1
       '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2_7xcwfsfqkm3z47jew3ci4ezh7m
       '@octokit/core': 3.6.0
       '@octokit/plugin-enterprise-compatibility': 1.3.0
@@ -138,11 +138,11 @@ packages:
       - supports-color
     dev: true
 
-  /@auto-it/npm/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-53Pfs41hhjKKduq9GsTkYJdzM1CvAAiwuF7vj9Q4BtZA28qK/rFDxdISkWKXLDTIDO+ughQd9f2MpO+qBRbe/w==}
+  /@auto-it/npm/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-XpNkqJ1rusaDR8nNRU4BA76UIE6ZZhyNX/Hs93Dy56Gp8JjTmH80scoFcx6EeC8dX4yJkwB5srt9wnqT8s/ETQ==}
     dependencies:
-      '@auto-it/core': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
-      '@auto-it/package-json-utils': 10.42.0
+      '@auto-it/core': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/package-json-utils': 10.42.1
       await-to-js: 3.0.0
       endent: 2.1.0
       env-ci: 5.5.0
@@ -164,19 +164,19 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/package-json-utils/10.42.0:
-    resolution: {integrity: sha512-Kcnn1wTYJ9o0bweczaeIvgNyBERPyiG70SsGy7311acdnMr2b75WbhNOw4LM9RsD9CqA3HDzeWBQvIUvuJfJVA==}
+  /@auto-it/package-json-utils/10.42.1:
+    resolution: {integrity: sha512-6nDpK2cWOkmUrafgJm72lklTpaBxb+++kDA9xJFndwNxkjaOocvvqPzT9AFK72bmOwGFxYic4+/yZme84HFmcg==}
     engines: {node: '>=10.x'}
     dependencies:
       parse-author: 2.0.0
       parse-github-url: 1.0.2
     dev: true
 
-  /@auto-it/released/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-iBxXtLfaqXlcHKxl6z2Vi6TfW50qyPetSXvZHyrSw7p+hkQ+4fSIPiNR+bWE/51kD3UbpzIpt22k5xqdi8jzBg==}
+  /@auto-it/released/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-2vbpzLPz/DCoKrkEueTdYJOmEkMnCYux/rz3dk0wPUKEfd8q/hJYA5gxXuY9HwpNkinwkMntOTCVz47Xp1KfKw==}
     dependencies:
-      '@auto-it/bot-list': 10.42.0
-      '@auto-it/core': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/bot-list': 10.42.1
+      '@auto-it/core': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
       deepmerge: 4.2.2
       fp-ts: 2.12.1
       io-ts: 2.2.16_fp-ts@2.12.1
@@ -190,11 +190,11 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/slack/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-BGLg7wE2rJ7znoPPOuIjPn233ESVsimQuWv/M+oP9n2BoUFwpNyu4yJkhtFkDPnpROawm/wDo7sk7RRRyYNGdA==}
+  /@auto-it/slack/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-S8b2vgD9hSHuXS9dAHGqCaagAWx8Jg03Gm2U/+FyhKmbOaZTJ4drejG3VaMKT5OMCfvBj7cW0FINfKY7RYRXXA==}
     dependencies:
       '@atomist/slack-messages': 1.2.2
-      '@auto-it/core': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/core': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
       '@octokit/rest': 18.12.0
       fp-ts: 2.12.1
       https-proxy-agent: 5.0.1
@@ -210,10 +210,10 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/version-file/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-1kBs2XqgpvFK+b09DGbw29zb8XVTGKOB6cN4jVYivALXSC5x2FkHx1l6syWHozVaOQw5tVEqLD++C+bO6Pi0+w==}
+  /@auto-it/version-file/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-PvTw3paMSS3Cu2MZAehU8a9MnNdJgDmATcQykI0gv6ktEtrfqgDLVfTF5qsvI/HZY7fzp130sqhijs5eSXQ3ig==}
     dependencies:
-      '@auto-it/core': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/core': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
       fp-ts: 2.12.1
       io-ts: 2.2.16_fp-ts@2.12.1
       semver: 7.3.8
@@ -1074,14 +1074,14 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /@pnpm/audit/6.1.4:
-    resolution: {integrity: sha512-ew+OXamunrT+FzsFxBod1Zb1zeU7VSUrnB/Ovsdz4buWY7WLPr8lz1BOx+ppDw/G77uMW+isubyx65ubgRVtEA==}
+  /@pnpm/audit/6.1.6:
+    resolution: {integrity: sha512-2xpaN1BoxP70WyZxJuxMrzrW1Nx6AfP0yQVq6OJuh27dZx/DSKBFR7N6ow8cV109QTjXHIVjUY1yGFBFCw2tIQ==}
     engines: {node: '>=14.6'}
     dependencies:
       '@pnpm/error': 4.0.1
-      '@pnpm/fetch': 6.0.5
+      '@pnpm/fetch': 6.0.6
       '@pnpm/fetching-types': 4.0.0
-      '@pnpm/list': 8.1.3
+      '@pnpm/list': 8.2.0
       '@pnpm/lockfile-types': 4.3.6
       '@pnpm/lockfile-utils': 5.0.7
       '@pnpm/lockfile-walker': 6.0.8
@@ -1132,15 +1132,15 @@ packages:
       '@pnpm/constants': 6.2.0
     dev: false
 
-  /@pnpm/fetch/6.0.5:
-    resolution: {integrity: sha512-uVE7HyH2HMoXkAJL6EZkartRESLhvRxwVdb8KaPMMtlan9c5ff5TSHj5TqvLjKNDZYDISsQpWIYRngEDYVM5+g==}
+  /@pnpm/fetch/6.0.6:
+    resolution: {integrity: sha512-Os6UtCPyHz/3nEbvZsEXhNrsMpi5wymortqEchfPnl95dSFCbgtDkpc2DzZ6+n9uqOtNjFtX4/O/vo92sq2BOQ==}
     engines: {node: '>=14.6'}
     peerDependencies:
       '@pnpm/logger': ^5.0.0
     dependencies:
       '@pnpm/core-loggers': 8.0.3
       '@pnpm/fetching-types': 4.0.0
-      '@pnpm/network.agent': 0.0.4
+      '@pnpm/network.agent': 0.1.0
       '@zkochan/retry': 0.2.0
       node-fetch: 3.0.0-beta.9
     transitivePeerDependencies:
@@ -1172,8 +1172,8 @@ packages:
       graceful-fs: 4.2.10
     dev: false
 
-  /@pnpm/list/8.1.3:
-    resolution: {integrity: sha512-SKhs6GZ7W+diFZE+LekwRY5opXVq1/uvmzAPzhJ4WIYMMLp4k5hr/R6dyINMS66x2yPuHgkFIuDlJQbapOKQhg==}
+  /@pnpm/list/8.2.0:
+    resolution: {integrity: sha512-Gfm8e8pb40KK2m5LmsOQE32guzA+sY+trNR/V9omlKuR069fRVEP/2OIz7QK7hsWCFzuFCezBvX9dvC7IhexYQ==}
     engines: {node: '>=14.6'}
     dependencies:
       '@pnpm/matcher': 4.0.1
@@ -1274,21 +1274,22 @@ packages:
       write-yaml-file: 4.2.0
     dev: false
 
-  /@pnpm/network.agent/0.0.4:
-    resolution: {integrity: sha512-bIN1lp5NFl8tpSmulRKf1Nk4f2XVL29E1PgisD1QD7E0lz3WvCivQUav9YZqoXAEzY2XFZMZLwQO8zyuglN/6A==}
+  /@pnpm/network.agent/0.1.0:
+    resolution: {integrity: sha512-RurhhwXMdrKnr4swyx0E6g3tfsfP27kB7czoGTmEvSCgmrrZ5pGToZ0MahiwGRkpSRoTlUmVE97nwqjxCOfboA==}
     engines: {node: '>=12.22.0'}
     dependencies:
-      '@pnpm/network.proxy-agent': 0.0.4
+      '@pnpm/network.proxy-agent': 0.1.0
       agentkeepalive: 4.2.1
       lru-cache: 7.10.1
     transitivePeerDependencies:
       - supports-color
     dev: false
 
-  /@pnpm/network.proxy-agent/0.0.4:
-    resolution: {integrity: sha512-70JyK46LGcQP53bcRVqRqzU7IztNqqNrsUryuPPqxo6X2Gak1njwy1m7IKw3QxSVnbP1RpdurrmA/7O3NAkIYg==}
+  /@pnpm/network.proxy-agent/0.1.0:
+    resolution: {integrity: sha512-nl7xLKiYlkTEpaM0U4JaZ1ce6JSYIzuorH+JVn33jry/k3ombpK1xbOzFFwfFhWptXFN9IMcZACjQxmvBbElgg==}
     engines: {node: '>=12.22.0'}
     dependencies:
+      '@pnpm/error': 4.0.1
       http-proxy-agent: 5.0.0
       https-proxy-agent: 5.0.1
       lru-cache: 7.10.1
@@ -1909,15 +1910,15 @@ packages:
     engines: {node: '>=0.8'}
     dev: true
 
-  /auto/10.42.0_4bewfcp2iebiwuold25d6rgcsy:
-    resolution: {integrity: sha512-Yekf1zKXCMI8IuI/uTrHyeGjDUbsby5r9Z2IjAWr02zA6WpkZFz+pxsf+nuOdlg6OM1O7Yy+rFoOF+x0xRkAxA==}
+  /auto/10.42.1_4bewfcp2iebiwuold25d6rgcsy:
+    resolution: {integrity: sha512-y1MOeWU+7KYFstUuIfHp8VXprg3nbSXx8hdEIWkVu3FKM8ESKKTo6MOFAwYvdnZQTCkE/uW/k1BzJ0OKDhCm4Q==}
     engines: {node: '>=10.x'}
     hasBin: true
     dependencies:
-      '@auto-it/core': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
-      '@auto-it/npm': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
-      '@auto-it/released': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
-      '@auto-it/version-file': 10.42.0_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/core': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/npm': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/released': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
+      '@auto-it/version-file': 10.42.1_4bewfcp2iebiwuold25d6rgcsy
       await-to-js: 3.0.0
       chalk: 4.1.2
       command-line-application: 0.10.1
