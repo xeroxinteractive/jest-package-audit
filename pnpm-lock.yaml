@@ -21,8 +21,8 @@ dependencies:
     specifier: 0.21.3
     version: 0.21.3
   '@pnpm/audit':
-    specifier: 7.0.6
-    version: 7.0.6(@pnpm/logger@5.0.0)
+    specifier: 7.0.7
+    version: 7.0.7(@pnpm/logger@5.0.0)
   execa:
     specifier: 5.1.1
     version: 5.1.1
@@ -136,7 +136,7 @@ packages:
       parse-github-url: 1.0.2
       pretty-ms: 7.0.1
       requireg: 0.2.2
-      semver: 7.3.8
+      semver: 7.5.0
       signale: 1.4.0
       tapable: 2.2.1
       terminal-link: 2.1.1
@@ -1096,8 +1096,8 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /@pnpm/audit@7.0.6(@pnpm/logger@5.0.0):
-    resolution: {integrity: sha512-6d0m9ElyOffiw3NpFk+XWdrpSR564i/fK3Sl7+DHTEx8OcJrJxrkUMFueqPVbD0SwAXTzME8KSBKKYIGOibNdQ==}
+  /@pnpm/audit@7.0.7(@pnpm/logger@5.0.0):
+    resolution: {integrity: sha512-J84n/mtpSs31oW4R3RgCli+ZuMzF6fPL4F/dgtbF7s0bj3akeU8Wf7otQ51envYmZcHJTcca/PRhrM808Hwzvg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@pnpm/logger': ^5.0.0
@@ -1105,9 +1105,9 @@ packages:
       '@pnpm/error': 5.0.0
       '@pnpm/fetch': 7.0.1(@pnpm/logger@5.0.0)
       '@pnpm/fetching-types': 5.0.0
-      '@pnpm/list': 9.0.4(@pnpm/logger@5.0.0)
+      '@pnpm/list': 9.0.5(@pnpm/logger@5.0.0)
       '@pnpm/lockfile-types': 5.0.0
-      '@pnpm/lockfile-utils': 7.0.1
+      '@pnpm/lockfile-utils': 8.0.0
       '@pnpm/lockfile-walker': 7.0.2
       '@pnpm/logger': 5.0.0
       '@pnpm/read-project-manifest': 5.0.0
@@ -1210,15 +1210,15 @@ packages:
       graceful-fs: 4.2.11
     dev: false
 
-  /@pnpm/list@9.0.4(@pnpm/logger@5.0.0):
-    resolution: {integrity: sha512-IO4gMid5LRe96riAkr57MGHn/9Z29wInK+DauziYvwLxFo0DxHWQug+j7CjPFPwgKtzZqRRlwEpjIHT5lHhlrQ==}
+  /@pnpm/list@9.0.5(@pnpm/logger@5.0.0):
+    resolution: {integrity: sha512-JKLHff6kzIJF5pW1QVeEcwN8AlTKbAKOxHLzRb8b2294aXbUYOY4zvfI9vZKAO4b/R96FTZycfWNxKJO7u75gw==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/matcher': 5.0.0
       '@pnpm/npm-package-arg': 1.0.0
       '@pnpm/read-package-json': 8.0.0
       '@pnpm/read-project-manifest': 5.0.0
-      '@pnpm/reviewing.dependencies-hierarchy': 2.0.4(@pnpm/logger@5.0.0)
+      '@pnpm/reviewing.dependencies-hierarchy': 2.0.5(@pnpm/logger@5.0.0)
       '@pnpm/types': 9.0.0
       archy: 1.0.0
       chalk: 4.1.2
@@ -1253,7 +1253,7 @@ packages:
       semver: 7.5.0
       sort-keys: 4.2.0
       strip-bom: 4.0.0
-      write-file-atomic: 5.0.0
+      write-file-atomic: 5.0.1
     dev: false
 
   /@pnpm/lockfile-types@5.0.0:
@@ -1263,8 +1263,8 @@ packages:
       '@pnpm/types': 9.0.0
     dev: false
 
-  /@pnpm/lockfile-utils@7.0.1:
-    resolution: {integrity: sha512-9ZOxYbD3Gk0MfBO+c+M3UVIOCTiuigVbaQ5D7frcE7IH1GdR7Alc68gPo2ZN3+4coO44VH7HTKPv69VP6fl5vA==}
+  /@pnpm/lockfile-utils@8.0.0:
+    resolution: {integrity: sha512-UqbQP/wq1J2Z+v0+Hjx5kM0tnj0qIIEQbN4kUBD2YNdQx61FpX97bZX8GNs+QywAKfcGq7RqT5nO4t/Jrgn/vQ==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.1
@@ -1420,13 +1420,13 @@ packages:
       '@pnpm/types': 9.0.0
     dev: false
 
-  /@pnpm/reviewing.dependencies-hierarchy@2.0.4(@pnpm/logger@5.0.0):
-    resolution: {integrity: sha512-5/Tt7WeLhCptKVicRb+Ge4rjx7aFjHK4uGclEQCrMVXthRjvdxq6fFLjz0SxjU4ukaPzcG01GBSvo2azxNIK3w==}
+  /@pnpm/reviewing.dependencies-hierarchy@2.0.5(@pnpm/logger@5.0.0):
+    resolution: {integrity: sha512-cKPqSby2bzcCVK01uLzMK09GcxSiu+iZ3xotbisyx3fEMyRnCSm6cmArUiR2+2jQd8PNQag4mPBH9OG3TPrF0A==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.1
       '@pnpm/lockfile-file': 8.0.2(@pnpm/logger@5.0.0)
-      '@pnpm/lockfile-utils': 7.0.1
+      '@pnpm/lockfile-utils': 8.0.0
       '@pnpm/modules-yaml': 12.1.0
       '@pnpm/normalize-registries': 5.0.0
       '@pnpm/read-modules-dir': 6.0.0
@@ -1463,7 +1463,7 @@ packages:
       '@pnpm/text.comments-parser': 2.0.0
       '@pnpm/types': 9.0.0
       json5: 2.2.3
-      write-file-atomic: 5.0.0
+      write-file-atomic: 5.0.1
       write-yaml-file: 4.2.0
     dev: false
 
@@ -5524,14 +5524,6 @@ packages:
       imurmurhash: 0.1.4
       signal-exit: 3.0.7
     dev: true
-
-  /write-file-atomic@5.0.0:
-    resolution: {integrity: sha512-R7NYMnHSlV42K54lwY9lvW6MnSm1HSJqZL3xiSgi9E7//FYaI74r2G0rd+/X6VAMkHEdzxQaU5HUOXWUz5kA/w==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
-    dependencies:
-      imurmurhash: 0.1.4
-      signal-exit: 3.0.7
-    dev: false
 
   /write-file-atomic@5.0.1:
     resolution: {integrity: sha512-+QU2zd6OTD8XWIJCbffaiQeH9U73qIqafo1x6V1snCWYGJf6cVE0cDR4D8xRzcEnfI21IFrUPzPGtcPf8AC+Rw==}
