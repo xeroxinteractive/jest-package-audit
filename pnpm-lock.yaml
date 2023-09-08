@@ -22,11 +22,11 @@ overrides:
 
 dependencies:
   '@antfu/ni':
-    specifier: 0.21.6
-    version: 0.21.6
+    specifier: 0.21.8
+    version: 0.21.8
   '@pnpm/audit':
-    specifier: 7.0.12
-    version: 7.0.12
+    specifier: 7.0.13
+    version: 7.0.13
   execa:
     specifier: 5.1.1
     version: 5.1.1
@@ -36,8 +36,8 @@ dependencies:
 
 devDependencies:
   '@auto-it/slack':
-    specifier: 11.0.1
-    version: 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+    specifier: 11.0.2
+    version: 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
   '@types/jest':
     specifier: 29.5.4
     version: 29.5.4
@@ -51,8 +51,8 @@ devDependencies:
     specifier: 4.0.3
     version: 4.0.3(prettier@3.0.3)
   auto:
-    specifier: 11.0.1
-    version: 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+    specifier: 11.0.2
+    version: 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
   cli-table3:
     specifier: 0.6.3
     version: 0.6.3
@@ -90,8 +90,8 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@antfu/ni@0.21.6:
-    resolution: {integrity: sha512-Hj0BKIOspbo+OsPT5mjONeqpuVb4bxp9jdJ4p/b5GxgYNIqJjBcJdp0DEON7CJflKoWuHf7I52wO5kOJJ4DveQ==}
+  /@antfu/ni@0.21.8:
+    resolution: {integrity: sha512-90X8pU2szlvw0AJo9EZMbYc2eQKkmO7mAdC4tD4r5co2Mm56MT37MIG8EyB7p4WRheuzGxuLDxJ63mF6+Zajiw==}
     hasBin: true
     dev: false
 
@@ -100,13 +100,13 @@ packages:
     engines: {node: '>=8.2.0', npm: '>=5.0.0'}
     dev: true
 
-  /@auto-it/bot-list@11.0.1:
-    resolution: {integrity: sha512-OKsgzE9vB/+s2iuXTN1dWQwmynd//zrepZ2dHmrqwH+5Yp8r+ypYjxX0g88E35onvX5HmqqUedmoBVs3BqtV2w==}
+  /@auto-it/bot-list@11.0.2:
+    resolution: {integrity: sha512-G/jAdpxdlSCmIEuunyAuzK/kPj+Xk2Tv8iWNik3A8Mtsuisi0DJrV+d4BuQBhtxzcZkeW11ZNh5hUHQp8eiDwQ==}
     engines: {node: '>=10.x'}
     dev: true
 
-  /@auto-it/core@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-8IMW0y+9n7qk1kP8gIRYYfjvKItZY0bFyfhynOTjB0kq3d4bb6kv7NBzgVlj+UH9jQiXAI4lpOrMS+Zml6SGWg==}
+  /@auto-it/core@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-FOwb4vQsdZwBiWM+5R9UITkfCxXHl8wvlAEnna0Y8v7AGX6Frk9nRjzOP2StrZkjInYFZq3LOdgak86VS57WJA==}
     peerDependencies:
       '@types/node': '*'
       typescript: '>=2.7'
@@ -114,7 +114,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
-      '@auto-it/bot-list': 11.0.1
+      '@auto-it/bot-list': 11.0.2
       '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2(cosmiconfig@7.0.0)(typescript@5.2.2)
       '@octokit/core': 3.6.0
       '@octokit/plugin-enterprise-compatibility': 1.3.0
@@ -163,11 +163,11 @@ packages:
       - supports-color
     dev: true
 
-  /@auto-it/npm@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-1m6SP+8eKW32HZDq1fQKZOUGIMtEwjlRLSA5E6WtIWRlxmROMwNvZsXSGqinWiaGaGp3khlf6F26/0sgiMeaOQ==}
+  /@auto-it/npm@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-HBXv7xB+N8Fy1TnduHkrLdsZkuZggm4RbzvauL9MGMshpzH2Kz0WixkL8NxNM6//cW9PjuOolt77MNrDwfIS0g==}
     dependencies:
-      '@auto-it/core': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
-      '@auto-it/package-json-utils': 11.0.1
+      '@auto-it/core': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/package-json-utils': 11.0.2
       await-to-js: 3.0.0
       endent: 2.1.0
       env-ci: 5.5.0
@@ -189,19 +189,19 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/package-json-utils@11.0.1:
-    resolution: {integrity: sha512-G9ZkL5WbZwLiNq+e2QkMEk3WpBAf0Nn380PnJIQo56A/0XdACDpvXkhS97w9dUU8SDfS7kF6Rz/LsYTVgU0qzg==}
+  /@auto-it/package-json-utils@11.0.2:
+    resolution: {integrity: sha512-essjpowla4TPWucL80La+H2cEfg+AvEyEJpnAAR7oFDkPQw9q6j3W2LqAYiBUEedU0KEesohgYt7anWwuEmTZA==}
     engines: {node: '>=10.x'}
     dependencies:
       parse-author: 2.0.0
       parse-github-url: 1.0.2
     dev: true
 
-  /@auto-it/released@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-hZAAAZy+4Q7dTSeNjXS4te9JESFxjiqbV41vf1XPRQoeXXnK/8+HzLIfNwM0oXh+YoHzqcj8DrnoNVcqI0Cc3Q==}
+  /@auto-it/released@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-RvcHLk9aBJYV+nGwj/orWB/Ztq+1pddCkuXt6126r7fvwe82JwR6NC0ynJh0ZYNRiiA9FNwqNQfINQ7K675bIw==}
     dependencies:
-      '@auto-it/bot-list': 11.0.1
-      '@auto-it/core': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/bot-list': 11.0.2
+      '@auto-it/core': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
       deepmerge: 4.2.2
       fp-ts: 2.12.1
       io-ts: 2.2.16(fp-ts@2.12.1)
@@ -215,11 +215,11 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/slack@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-a9Li455U24wpGOS8jifAg/TidWy81Td00jPSQRhU5qmSspANFb97iwk8VfVTyz8z0PBOi4OWuxYRaIS1skS7nw==}
+  /@auto-it/slack@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-t/lFVlI64m2M66nO/dgo1e6Pnz/u4KsafhO3eBSop+9XB/VHtS5S+lXAn9A4DDDU+POlJJTAFg1R4yrg3ivxVA==}
     dependencies:
       '@atomist/slack-messages': 1.2.2
-      '@auto-it/core': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/core': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
       '@octokit/rest': 18.12.0
       fp-ts: 2.12.1
       https-proxy-agent: 5.0.1
@@ -235,10 +235,10 @@ packages:
       - typescript
     dev: true
 
-  /@auto-it/version-file@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-ZxpivVGMCKsxS1by9kXCiFNXOQBkC/7yUuDbaX8N0C2PkotbkHOTLzsONRRWfbdP9EjxhD8RrPGweHR5t9AQCg==}
+  /@auto-it/version-file@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-2vjbqCGV/VNzb5qBern8hzHXIyG0CLSpv6R6P846iuQDEhoM6AEs8YRvLrPW31Z9/eZ0tPp7GVb0xHAKMtGC9w==}
     dependencies:
-      '@auto-it/core': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/core': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
       fp-ts: 2.12.1
       io-ts: 2.2.16(fp-ts@2.12.1)
       semver: 7.5.4
@@ -1113,8 +1113,8 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /@pnpm/audit@7.0.12:
-    resolution: {integrity: sha512-H4EHIC85txAiTTJh+WM42Whn4Ol4afv0kMcFSBsW+RcnnqbPnB4WlJ1SAEcKM3mSkadT01FBhBTPKutCMwYjhA==}
+  /@pnpm/audit@7.0.13:
+    resolution: {integrity: sha512-PpvF3WYX0O4U8mZoYPbMSiagq7puxJKjJ50X8Si0ErJK1RU/fyb8PsvBxfu53J+T8GQsfmxrV27aa0i46QFg/g==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@pnpm/logger': ^5.0.0
@@ -1122,11 +1122,11 @@ packages:
       '@pnpm/error': 5.0.2
       '@pnpm/fetch': 7.0.3
       '@pnpm/fetching-types': 5.0.0
-      '@pnpm/list': 9.0.10
+      '@pnpm/list': 9.0.11
       '@pnpm/lockfile-types': 5.1.1
-      '@pnpm/lockfile-utils': 8.0.3
+      '@pnpm/lockfile-utils': 8.0.4
       '@pnpm/lockfile-walker': 7.0.4
-      '@pnpm/read-project-manifest': 5.0.4
+      '@pnpm/read-project-manifest': 5.0.5
       '@pnpm/types': 9.2.0
       ramda: /@pnpm/ramda@0.28.1
     transitivePeerDependencies:
@@ -1217,22 +1217,22 @@ packages:
       execa: /safe-execa@0.1.2
     dev: false
 
-  /@pnpm/graceful-fs@3.0.0:
-    resolution: {integrity: sha512-72kkqIL2sacOVr6Y6B6xDGjRC4QgTLeIGkw/5XYyeMgMeL9mDE0lonZEOL9JuLS0XPOXQoyDtRCSmUrzAA57LQ==}
+  /@pnpm/graceful-fs@3.1.0:
+    resolution: {integrity: sha512-BvAg08PT5SxZLj1Ms1OwxkoAsO+DKHCe1/spqjqkSwUWnbyWgsmGuWRKHEtKM4R4/nucnZcU8DlNiLSQEt6YNw==}
     engines: {node: '>=16.14'}
     dependencies:
       graceful-fs: 4.2.11
     dev: false
 
-  /@pnpm/list@9.0.10:
-    resolution: {integrity: sha512-4y5vYLjSj9q9EHjgTo4LNEfuy2bZ+N45HsLZ9mypTqxajF+ZkCeRzywgaBcbcLWWpb+ui9wz9AIYMa0xulJ2kw==}
+  /@pnpm/list@9.0.11:
+    resolution: {integrity: sha512-pu8kXu1600nUnEo+kq/hyW1fFkjB7oRdeh2p0mzQDB1OHpK7TUKka2C4D4cCQ7oQA9NG30IfcPfHfcVQCK86VQ==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/matcher': 5.0.0
       '@pnpm/npm-package-arg': 1.0.0
       '@pnpm/read-package-json': 8.0.3
-      '@pnpm/read-project-manifest': 5.0.4
-      '@pnpm/reviewing.dependencies-hierarchy': 2.0.10
+      '@pnpm/read-project-manifest': 5.0.5
+      '@pnpm/reviewing.dependencies-hierarchy': 2.0.11
       '@pnpm/types': 9.2.0
       archy: 1.0.0
       chalk: 4.1.2
@@ -1276,8 +1276,8 @@ packages:
       '@pnpm/types': 9.2.0
     dev: false
 
-  /@pnpm/lockfile-utils@8.0.3:
-    resolution: {integrity: sha512-NezoTk3xdA9Dh7dd7lqi1v3QM2GR+ZvuPz9VaDXToqhUKYlcARgSbR56+eIAtraImeZdANIKjvwmJExVkUHAug==}
+  /@pnpm/lockfile-utils@8.0.4:
+    resolution: {integrity: sha512-sKLC+phC+zxxlzc+O/tGY0w8FNNwv7AHqAagHNb5kbCEk8fXty/Z0CamBScqRkVrbkR3c+TkJ44+h6ngvD7/aw==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.3
@@ -1399,13 +1399,13 @@ packages:
       normalize-package-data: 5.0.0
     dev: false
 
-  /@pnpm/read-project-manifest@5.0.4:
-    resolution: {integrity: sha512-fEfk7jjEhQrKm6xdQ9zIUVEqy8gAACo8TNaflVoXj+6QRul3mKaqW5zrjo11zYvDUA6lHIFw5ka1QnHXGlu67A==}
+  /@pnpm/read-project-manifest@5.0.5:
+    resolution: {integrity: sha512-JSIzO8bOaNFp4Hrwd0EVvdDM9bEml9KJnoeaavC8bY6/Eazcg7jxh/o4tRz2bLxbuHudsi5+Dob3k49FACkjjA==}
     engines: {node: '>=16.14'}
     dependencies:
       '@gwhitney/detect-indent': 7.0.1
       '@pnpm/error': 5.0.2
-      '@pnpm/graceful-fs': 3.0.0
+      '@pnpm/graceful-fs': 3.1.0
       '@pnpm/text.comments-parser': 2.0.0
       '@pnpm/types': 9.2.0
       '@pnpm/write-project-manifest': 5.0.2
@@ -1426,13 +1426,13 @@ packages:
       '@pnpm/types': 9.2.0
     dev: false
 
-  /@pnpm/reviewing.dependencies-hierarchy@2.0.10:
-    resolution: {integrity: sha512-jNUUpUjM7cG4xJOi5LnFrXH6O95gGK/BQtfnCbv0sfHtOmV/f7QPxS07qlNPHGc+vqgoqSthSXsgTni+w2leQA==}
+  /@pnpm/reviewing.dependencies-hierarchy@2.0.11:
+    resolution: {integrity: sha512-sM/SA7tP/TtdVNDPzA6V8fFBPGLfzRH7o4xdF6OOy6nAD1sTNHFHRzIZOraODpBf8SJCeQReWL0RPDy2KS6yMA==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.3
       '@pnpm/lockfile-file': 8.1.2
-      '@pnpm/lockfile-utils': 8.0.3
+      '@pnpm/lockfile-utils': 8.0.4
       '@pnpm/modules-yaml': 12.1.2
       '@pnpm/normalize-registries': 5.0.2
       '@pnpm/read-modules-dir': 6.0.1
@@ -2068,15 +2068,15 @@ packages:
     engines: {node: '>=0.8'}
     dev: true
 
-  /auto@11.0.1(@types/node@18.17.12)(typescript@5.2.2):
-    resolution: {integrity: sha512-pSkPlv6RHp5j28jUwrIPKYNZUVitj6LOUCmqtB2IAk6D8kTdTgFet9ljQUpeyz10p6Z2DYyzdyVc3i9EDb3EyA==}
+  /auto@11.0.2(@types/node@18.17.12)(typescript@5.2.2):
+    resolution: {integrity: sha512-D+f++K4NXWbEnpc+whYISyS52H/71HtYfAcXnUttjeg0ctkZsuHzNZEYdgoouYPT4IbkTDoxrgZhey1f80v38g==}
     engines: {node: '>=10.x'}
     hasBin: true
     dependencies:
-      '@auto-it/core': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
-      '@auto-it/npm': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
-      '@auto-it/released': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
-      '@auto-it/version-file': 11.0.1(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/core': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/npm': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/released': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
+      '@auto-it/version-file': 11.0.2(@types/node@18.17.12)(typescript@5.2.2)
       await-to-js: 3.0.0
       chalk: 4.1.2
       command-line-application: 0.10.1
