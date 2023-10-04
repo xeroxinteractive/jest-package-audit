@@ -83,7 +83,7 @@
   },
   "dependencies": {
     "@antfu/ni": "0.21.8",
-    "@pnpm/audit": "7.0.15",
+    "@pnpm/audit": "7.0.16",
     "execa": "5.1.1",
     "pkg-dir": "5.0.0"
   },

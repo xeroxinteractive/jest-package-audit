@@ -25,8 +25,8 @@ dependencies:
     specifier: 0.21.8
     version: 0.21.8
   '@pnpm/audit':
-    specifier: 7.0.15
-    version: 7.0.15
+    specifier: 7.0.16
+    version: 7.0.16
   execa:
     specifier: 5.1.1
     version: 5.1.1
@@ -1106,8 +1106,8 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /@pnpm/audit@7.0.15:
-    resolution: {integrity: sha512-hU4QZsZX2lOeFKgrScoO5zpSMFtKXPfNG/0WCXoiH+8F4s739kThmbeGt48AbqGNn4i6/Jhdcn9BGG/aNJ44zA==}
+  /@pnpm/audit@7.0.16:
+    resolution: {integrity: sha512-0/SynWio6VGaZCuvfeY2fpP/ClzjZnWCs1n60bT9aZNUTuMeQlMJZ3h3uLUOlPAb1iYdpJaztrsoRamJph1JjQ==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@pnpm/logger': ^5.0.0
@@ -1115,7 +1115,7 @@ packages:
       '@pnpm/error': 5.0.2
       '@pnpm/fetch': 7.0.3
       '@pnpm/fetching-types': 5.0.0
-      '@pnpm/list': 9.1.0
+      '@pnpm/list': 9.1.1
       '@pnpm/lockfile-types': 5.1.1
       '@pnpm/lockfile-utils': 8.0.5
       '@pnpm/lockfile-walker': 7.0.4
@@ -1217,8 +1217,8 @@ packages:
       graceful-fs: 4.2.11
     dev: false
 
-  /@pnpm/list@9.1.0:
-    resolution: {integrity: sha512-pa6Gnq21xBUsR5DyhzLp1kRPg0XvT3V72NtM6tmLtLxQUs3CqrnKFVIMDJzFT+ZUcxd3rvVFX6mc4YyHan8Egg==}
+  /@pnpm/list@9.1.1:
+    resolution: {integrity: sha512-WueFbfnDkGu30UMEm97j8H9bo1F8w7WOurZNxTU811kjDkSNxSuGXRne6E4ndImMJDjz3JMPMCuf9X5JyOOgbA==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/read-package-json': 8.0.3
