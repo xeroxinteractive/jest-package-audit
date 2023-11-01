@@ -25,8 +25,8 @@ dependencies:
     specifier: 0.21.8
     version: 0.21.8
   '@pnpm/audit':
-    specifier: 7.0.18
-    version: 7.0.18
+    specifier: 7.0.19
+    version: 7.0.19
   execa:
     specifier: 5.1.1
     version: 5.1.1
@@ -1106,8 +1106,8 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /@pnpm/audit@7.0.18:
-    resolution: {integrity: sha512-q0Qj89xX8mw0L7rwMcw5eaQ8l6QTychk4b07gyRMfI9G9y3qgdexjZN/LseLgJP55VPza9cXUoQRRvnCbdCkIA==}
+  /@pnpm/audit@7.0.19:
+    resolution: {integrity: sha512-5s8pKkfaYUiqxjTX9Ebt9tNeNMxtysPEuT5UVCMa125+Rd64IOmNyQCobCGtDorcFB57Vd2Rs8+dfsR7MTZTeg==}
     engines: {node: '>=16.14'}
     peerDependencies:
       '@pnpm/logger': ^5.0.0
@@ -1115,9 +1115,9 @@ packages:
       '@pnpm/error': 5.0.2
       '@pnpm/fetch': 7.0.5
       '@pnpm/fetching-types': 5.0.0
-      '@pnpm/list': 9.1.3
+      '@pnpm/list': 9.1.4
       '@pnpm/lockfile-types': 5.1.3
-      '@pnpm/lockfile-utils': 8.0.7
+      '@pnpm/lockfile-utils': 9.0.0
       '@pnpm/lockfile-walker': 7.0.6
       '@pnpm/read-project-manifest': 5.0.8
       '@pnpm/types': 9.4.0
@@ -1217,13 +1217,13 @@ packages:
       graceful-fs: 4.2.11
     dev: false
 
-  /@pnpm/list@9.1.3:
-    resolution: {integrity: sha512-n6BBhSb6yXABNr2RQcBWqe+gBWCR0IU7ilNnXth9J6hlgEpOEerNctzQw5CXO7gFe1dGFCaMA+bzqUMcmPr3uw==}
+  /@pnpm/list@9.1.4:
+    resolution: {integrity: sha512-mPQpEnuJcu6W1t4gRXp+uP87CpX5mI6/aPgnsv07V5dZCiW2oiAjjjhs+a4sk/ljRC/qrXS6ntlrR2DWkdAjow==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/read-package-json': 8.0.5
       '@pnpm/read-project-manifest': 5.0.8
-      '@pnpm/reviewing.dependencies-hierarchy': 2.1.2
+      '@pnpm/reviewing.dependencies-hierarchy': 2.1.3
       '@pnpm/types': 9.4.0
       archy: 1.0.0
       chalk: 4.1.2
@@ -1266,14 +1266,14 @@ packages:
       '@pnpm/types': 9.4.0
     dev: false
 
-  /@pnpm/lockfile-utils@8.0.7:
-    resolution: {integrity: sha512-EczAOWjNOVreVG+ZaU6D3AS77yCR5lVRYdAREkUcj2xddP0LphTv96scpRkpyARVYYTsriQFoy5W/5N74mY5XA==}
+  /@pnpm/lockfile-utils@9.0.0:
+    resolution: {integrity: sha512-1xXmuFWsWKZ52CNHgXCwvJLZ9G6vaZHCma33FV3TGYuG+Da8fQ3uNjYFu+EzOPVcgcx2o0CKpRgIgDUUgYNVwA==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.5
       '@pnpm/lockfile-types': 5.1.3
       '@pnpm/pick-fetcher': 2.0.1
-      '@pnpm/resolver-base': 10.0.4
+      '@pnpm/resolver-base': 11.0.0
       '@pnpm/types': 9.4.0
       get-npm-tarball-url: 2.0.3
       ramda: /@pnpm/ramda@0.28.1
@@ -1415,20 +1415,20 @@ packages:
       strip-bom: 4.0.0
     dev: false
 
-  /@pnpm/resolver-base@10.0.4:
-    resolution: {integrity: sha512-p5L7ZLF8YzLXzydc3kSil1dt5k/ai+NmcxuYlUKOFi8bkC1pV/kbLe5fTm1Pa7BMt7sbc68Y7AGnFfBObNEglQ==}
+  /@pnpm/resolver-base@11.0.0:
+    resolution: {integrity: sha512-oxfjO8Ie6aBQPXSqOWGJP9s0xj9Z4cbRI7fK63WKhjwmNH4CTrSfikRL2o4FoXo2APAbJEUp2lCxx+86dq2tUg==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/types': 9.4.0
     dev: false
 
-  /@pnpm/reviewing.dependencies-hierarchy@2.1.2:
-    resolution: {integrity: sha512-uFxc2foOP4ohPzMYvWAJQ6XgagAYhrVW4uKaFkIpzf9SrWAqIqx23E7eWICSSYuNT2Cqu+vtEWcU5e5ZACYFTw==}
+  /@pnpm/reviewing.dependencies-hierarchy@2.1.3:
+    resolution: {integrity: sha512-jey8tfe2iZmCyj5W3UVJxPv9QMldTcmLrgFliHB0vFn4Qa9dsWa2jD5etwDX3MaulOsXq7kyNTOFDjdo0tKL0w==}
     engines: {node: '>=16.14'}
     dependencies:
       '@pnpm/dependency-path': 2.1.5
       '@pnpm/lockfile-file': 8.1.4
-      '@pnpm/lockfile-utils': 8.0.7
+      '@pnpm/lockfile-utils': 9.0.0
       '@pnpm/matcher': 5.0.0
       '@pnpm/modules-yaml': 12.1.4
       '@pnpm/normalize-registries': 5.0.4
