@@ -88,7 +88,7 @@
     "pkg-dir": "5.0.0"
   },
   "resolutions": {
-    "set-value@<2.0.1": "^2.0.1",
+    "set-value@<2.0.1": "^4.0.0",
     "mem@<4.0.0": "^4.0.0",
     "https-proxy-agent@<2.2.3": "^2.2.3",
     "handlebars@<4.5.2": "^4.5.2",
